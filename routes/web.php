@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegristController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\PopulationController;
 
 
 /*
@@ -21,4 +23,12 @@ Route::get('/', [WelcomeController::class, 'welcome']);
 Route::get('login/', [LoginController::class, 'index']);
 Route::get('regrist/', [RegristController::class, 'index']);
 
+Route::prefix('admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'index']);
+});
+
+
+Route::prefix('datapenduduk')->group(function () {
+    Route::get('/', [PopulationController::class, 'index']);
+});
 
