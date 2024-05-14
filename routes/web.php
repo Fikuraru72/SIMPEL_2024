@@ -7,6 +7,7 @@ use App\Http\Controllers\RegristController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\PopulationController;
 use App\Http\Controllers\admin\ReportController;
+use App\Http\Controllers\admin\HistoryPopulationController;
 
 
 /*
@@ -35,5 +36,9 @@ Route::prefix('datapenduduk')->group(function () {
 
 Route::prefix('laporan')->group(function () {
     Route::get('/', [ReportController::class, 'index']);
+});
+
+Route::prefix('riwayatPenduduk')->group(function () {
+    Route::get('/', [HistoryPopulationController::class, 'index']);
 });
 
