@@ -53,7 +53,7 @@
     </div>
 </div>
 
-  <div class="row">
+<div class="row">
     <div class="col-lg-7 grid-margin stretch-card mt-4">
         <div class="card p-4">
           <div class="card-body">
@@ -75,11 +75,13 @@
       </div>
   </div>
 
-
-
-
-
-
-
-
   @endsection
+
+  @push('js')
+        <!-- Chart js -->
+        <script src="{{ asset('tamplate/assets/vendors/chart.js/chart.umd.js') }}""></script>
+
+        <!-- Custom chart js for this page-->
+        <script src="{{ asset('tamplate/assets/js/chart.js') }}"></script>
+        <!-- End custom chart js for this page-->
+  @endpush
