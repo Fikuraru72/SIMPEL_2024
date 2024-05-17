@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class PopulationController extends Controller
 {
     public function index (){
-        return view('admin.population.index');
+        $breadcrumb = (object) [
+            'title' => 'Welcome Back at SIMPEL',
+            'list' => ['Data Penduduk']
+        ];
+
+        return view('admin.population.index', ['breadcrumb' => $breadcrumb]);
     }
 }

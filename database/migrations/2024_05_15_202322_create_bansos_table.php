@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id()->unique();
-            $table->string('username');
-            $table->string('password');
-            $table->enum('Level',['1','2','3']);
-            $table->rememberToken();
+        Schema::create('bansos', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('bansos');
     }
 };

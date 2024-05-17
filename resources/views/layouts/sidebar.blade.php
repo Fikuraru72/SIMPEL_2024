@@ -15,10 +15,17 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="" aria-expanded="false" aria-controls="auth">
+        <a class="nav-link" data-bs-toggle="collapse" href="#bantuan" aria-expanded="false" aria-controls="auth">
           <i class="mdi mdi-cash menu-icon"></i>
           <span class="menu-title">Bantuan Sosial</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="bantuan">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href=""> Verifikasi </a></li>
+              <li class="nav-item"> <a class="nav-link" href=""> Data Bantuan Sosial </a></li>
+            </ul>
+          </div>
       </li>
 
       <li class="nav-item">
