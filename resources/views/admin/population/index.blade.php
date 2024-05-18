@@ -46,7 +46,7 @@
                                 <th>Nama</th>
                                 <th>No.KK</th>
                                 <th>Tanggal Lahir</th>
-                                <th>Umur</th>
+                                <th>Ummur</th>
                                 <th>RT</th>
                                 <th>Alamat</th>
                                 <th>Status</th>
@@ -79,7 +79,7 @@
                                 Jl. Kembang Turi
                             </td>
                             <td>
-                                Jomblo
+                                Jomnblo
                             </td>
                             </tr>
                             <tr>
@@ -108,7 +108,7 @@
                                     Jl. Kembang Turi
                                 </td>
                                 <td>
-                                    Jomblo
+                                    Jomnblo
                                 </td>
                             </tr>
                             <tr>
@@ -137,7 +137,7 @@
                                     Jl. Kembang Turi
                                 </td>
                                 <td>
-                                    Jomblo
+                                    Jomnblo
                                 </td>
                             </tr>
                         </tbody>
