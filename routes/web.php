@@ -45,4 +45,6 @@ Route::prefix('riwayatPenduduk')->group(function () {
 
 Route::prefix('penduduk')->group(function () {
     Route::get('/', [PendudukController::class, 'index']);
+    Route::get('/datakk', [PendudukController::class, 'datakk']);
+    Route::get('/detail', [PendudukController::class, 'detail']);
 });
