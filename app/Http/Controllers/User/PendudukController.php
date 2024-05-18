@@ -42,4 +42,18 @@ class PendudukController extends Controller
 
         return view('user.detail', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
     }
+    public function pengaduan()
+{
+    $breadcrumb = (object) [
+        'title' => 'Pengaduan Warga',
+        'list'  => ['Home', 'Pengaduan Warga']
+    ];
+
+    //$complaints = \App\Models\Pengaduan::all();
+
+    return view('user.pengaduan.index', [
+        'breadcrumb' => $breadcrumb,
+        //'complaints' => $complaints
+    ]);
+}
 }
