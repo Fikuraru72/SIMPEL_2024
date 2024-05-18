@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\PopulationController;
 use App\Http\Controllers\admin\ReportController;
 use App\Http\Controllers\admin\HistoryPopulationController;
+use App\Http\Controllers\User\PendudukController;
 
 
 /*
@@ -42,3 +43,6 @@ Route::prefix('riwayatPenduduk')->group(function () {
     Route::get('/', [HistoryPopulationController::class, 'index']);
 });
 
+Route::prefix('penduduk')->group(function () {
+    Route::get('/', [PendudukController::class, 'index']);
+});
