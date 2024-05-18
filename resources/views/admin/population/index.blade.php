@@ -9,7 +9,7 @@
                     <div>
                         <div class="input-group mb-2">
                             <input type="text" class="form-control" placeholder="Cari...">
-                            <button class="btn btn-info" type="button" id="button-addon2">Cari</button>
+                            <button class="btn btn-info" type="button" id="button-addon2" style="">Cari</button>
                         </div>
                     </div>
                     <div class="ml-auto">
@@ -46,7 +46,7 @@
                                 <th>Nama</th>
                                 <th>No.KK</th>
                                 <th>Tanggal Lahir</th>
-                                <th>Ummur</th>
+                                <th>Umur</th>
                                 <th>RT</th>
                                 <th>Alamat</th>
                                 <th>Status</th>
@@ -79,7 +79,7 @@
                                 Jl. Kembang Turi
                             </td>
                             <td>
-                                Jomnblo
+                                Jomblo
                             </td>
                             </tr>
                             <tr>
@@ -108,7 +108,7 @@
                                     Jl. Kembang Turi
                                 </td>
                                 <td>
-                                    Jomnblo
+                                    Jomblo
                                 </td>
                             </tr>
                             <tr>
@@ -137,7 +137,7 @@
                                     Jl. Kembang Turi
                                 </td>
                                 <td>
-                                    Jomnblo
+                                    Jomblo
                                 </td>
                             </tr>
                         </tbody>
