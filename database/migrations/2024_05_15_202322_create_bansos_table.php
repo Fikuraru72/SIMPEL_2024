@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('bansos', function (Blueprint $table) {
             $table->id('id_alternatif');
-            $table->integer('pendapatan');
-            $table->integer('tanggungan');
-            $table->integer('pbb');
-            $table->integer('tagihanAir');
-            $table->integer('tagihanListrik');
+            $table->enum('pendapatan',['1','2','3']);
+            $table->enum('tanggungan',['1','2','3']);
+            $table->enum('pbb',['1','2','3']);
+            $table->enum('tagihanAir',['1','2','3']);
+            $table->enum('tagihanListrik',['1','2','3']);
+            $table->enum('status',['terkonfirmasi', 'belum terkonfirmasi'])->default('belum terkonfirmasi');;
             $table->unsignedBigInteger('id_penduduk')->index();
             $table->timestamps();
 
