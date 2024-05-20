@@ -12,8 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bansos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_alternatif');
+            $table->integer('pendapatan');
+            $table->integer('tanggungan');
+            $table->integer('pbb');
+            $table->integer('tagihanAir');
+            $table->integer('tagihanListrik');
+            $table->unsignedBigInteger('id_penduduk')->index();
             $table->timestamps();
+
+            $table->foreign('id_penduduk')->references('id_penduduk')->on('penduduk');
         });
     }
 

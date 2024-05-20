@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('statuses', function (Blueprint $table) {
-            $table->id();
+        Schema::create('pengaduan', function (Blueprint $table) {
+            $table->id('id_pengaduan');
+            $table->string('Subjek');
+            $table->text('Isi');
             $table->timestamps();
+            $table->unsignedBigInteger('id_user')->index();
+
+            $table->foreign('id_user')->references('id_user')->on('users');
         });
     }
 
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('statuses');
+        Schema::dropIfExists('pengaduan');
     }
 };
