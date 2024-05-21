@@ -7,7 +7,7 @@
     </li>
   
     <li class="nav-item">
-      <a class="nav-link" href="{{ url('/penduduk/datakk') }}">
+      <a class="nav-link" href="{{ url('/dataKeluarga') }}">
         <i class="mdi mdi-account-group menu-icon"></i>
         <span class="menu-title">Lihat Data Keluarga</span>
       </a>
@@ -21,7 +21,7 @@
     </li>
   
     <li class="nav-item">
-      <a class="nav-link" href="{{ url('/penduduk/pengaduan') }}">
+      <a class="nav-link" href="{{ url('/user/pengaduan') }}">
         <i class="mdi mdi-message-alert menu-icon"></i>
         <span class="menu-title">Pengaduan</span>
       </a>

@@ -36,7 +36,7 @@
                                 Bambang Setai Kawan Boy
                             </td>
                             <td class="py-1">
-                                <a href="{{ url('/penduduk/detail')}}">
+                                <a href="{{ url('/dataKeluarga/detail')}}">
                                     <button class="btn btn-warning btn-sm">Detail</button>
                                 </a>
                             </td>
