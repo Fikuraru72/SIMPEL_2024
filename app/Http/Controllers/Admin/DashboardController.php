@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Penduduk;
+
+
 
 class DashboardController extends Controller
 {
@@ -13,6 +16,8 @@ class DashboardController extends Controller
             'list' => ['Home','Dashboard']
         ];
 
-        return view('admin.index', ['breadcrumb' => $breadcrumb]);
+        $penduduk = Penduduk::all();
+
+        return view('admin.index', ['breadcrumb' => $breadcrumb, 'penduduk' => $penduduk]);
     }
 }
