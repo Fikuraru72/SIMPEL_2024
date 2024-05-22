@@ -2,12 +2,12 @@
     <li class="nav-item">
       <a class="nav-link" href="{{ url('/penduduk') }}">
         <i class="mdi mdi-account menu-icon"></i>
-        <span class="menu-title">Home</span>
+        <span class="menu-title">Beranda</span>
       </a>
     </li>
   
     <li class="nav-item">
-      <a class="nav-link" href="{{ url('/penduduk/datakk') }}">
+      <a class="nav-link" href="{{ url('/dataKeluarga') }}">
         <i class="mdi mdi-account-group menu-icon"></i>
         <span class="menu-title">Lihat Data Keluarga</span>
       </a>
