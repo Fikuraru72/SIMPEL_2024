@@ -9,7 +9,6 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="card-body pb-0 text-center">
-                {{--  --}}
                 <h1>10</h1>
                 <p class="card-title text-white">Jumlah RT</p>
               </div>
@@ -26,7 +25,7 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="card-body pb-0 text-center">
-                <h1>100</h1>
+                <h1>10</h1>
                 <p class="card-title text-white">Jumlah Penduduk</p>
               </div>
               <canvas height="133" id="feedbacks-chart-a"></canvas>
@@ -79,9 +78,9 @@
 
   @push('js')
         <!-- Chart js -->
-        <script src="{{ asset('tamplate/assets/vendors/chart.js/chart.umd.js') }}""></script>
+        <script src="{{ asset('template/assets/vendors/chart.js/chart.umd.js') }}""></script>
 
         <!-- Custom chart js for this page-->
-        <script src="{{ asset('tamplate/assets/js/chart.js') }}"></script>
+        <script src="{{ asset('template/assets/js/chart.js') }}"></script>
         <!-- End custom chart js for this page-->
   @endpush

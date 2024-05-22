@@ -30,11 +30,13 @@ Route::get('regrist/', [RegristController::class, 'index']);
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
+    Route::post('/list', [DashboardController::class, 'list']);
 });
 
 
 Route::prefix('datapenduduk')->group(function () {
     Route::get('/', [PopulationController::class, 'index']);
+    Route::post('/list', [PopulationController::class, 'list']);
 });
 
 Route::prefix('laporan')->group(function () {
