@@ -12,8 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bansos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_alternatif');
+            $table->enum('pendapatan',['1','2','3']);
+            $table->enum('tanggungan',['1','2','3']);
+            $table->enum('pbb',['1','2','3']);
+            $table->enum('tagihanAir',['1','2','3']);
+            $table->enum('tagihanListrik',['1','2','3']);
+            $table->enum('status',['terkonfirmasi', 'belum terkonfirmasi'])->default('belum terkonfirmasi');;
+            $table->unsignedBigInteger('id_penduduk')->index();
             $table->timestamps();
+
+            $table->foreign('id_penduduk')->references('id_penduduk')->on('penduduk');
         });
     }
 

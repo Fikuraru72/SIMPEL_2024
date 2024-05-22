@@ -8,16 +8,13 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\PopulationController;
 use App\Http\Controllers\admin\ReportController;
 use App\Http\Controllers\admin\HistoryPopulationController;
-<<<<<<< Updated upstream
-=======
 use App\Http\Controllers\admin\AssistanceDataController;
 use App\Http\Controllers\admin\AssistanceDataVerificationController;
 use App\Http\Controllers\User\BerandaController;
 use App\Http\Controllers\User\DataKeluargaController;
 use App\Http\Controllers\User\DataPendudukController;
->>>>>>> Stashed changes
-use App\Http\Controllers\User\PendudukController;
-use App\Http\Controllers\User\PengaduanController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,10 +47,16 @@ Route::prefix('riwayatPenduduk')->group(function () {
     Route::get('/', [HistoryPopulationController::class, 'index']);
 });
 
+Route::prefix('dataBansos')->group(function () {
+    Route::get('/', [AssistanceDataController::class, 'index']);
+});
+
+Route::prefix('verifikasiBansos')->group(function () {
+    Route::get('/', [AssistanceDataVerificationController::class, 'index']);
+});
+
 Route::prefix('penduduk')->group(function () {
-<<<<<<< Updated upstream
-    
-=======
+
     Route::get('/', [BerandaController::class, 'index']);
 });
 
@@ -65,4 +68,4 @@ Route::prefix('dataKeluarga')->group(function () {
 Route::prefix('pengaduan')->group(function () {
     Route::get('/', [PengaduanController::class, 'index']);
 });
->>>>>>> Stashed changes
+
