@@ -23,7 +23,9 @@ class AssistanceDataController extends Controller
 
     public function list(Request $request)
     {
-        $dataAssitance = Bansos::with('penduduk')->select(
+        $dataAssitance = Bansos::with('penduduk')
+        ->where('status', 'terkonfirmasi')
+        ->select(
             'id_alternatif',
             'id_penduduk',
             'pendapatan',
@@ -39,7 +41,6 @@ class AssistanceDataController extends Controller
             ->addColumn('NoKK', function ($data) {
                 return $data->penduduk->NoKK;
             })
-            ->rawColumns(['NoKK'])
             ->make(true);
     }
 }

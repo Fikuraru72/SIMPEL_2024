@@ -21,10 +21,16 @@ class Penduduk extends Model
         'Agama',
         'Jenis Kelamin',
         'Alamat',
+        'id_status',
+        'id_user'
     ];
 
     public function user(): BelongsTo{
         return $this->belongsTo(User::class, 'id_user', 'id_user');
+    }
+
+    public function status(): BelongsTo{
+        return $this->belongsTo(Status::class, 'id_status', 'id_status');
     }
 
     public function  bansos (){

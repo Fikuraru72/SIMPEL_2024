@@ -22,7 +22,7 @@ class PopulationController extends Controller
 
     public function list(Request $request)
     {
-        $dataPopulation = Penduduk::select(
+        $dataPopulation = Penduduk::with('user', 'status')->select(
             'id_penduduk',
             'NIK',
             'nama',
@@ -30,7 +30,9 @@ class PopulationController extends Controller
             'TTL',
             'Agama',
             'Jenis Kelamin',
-            'Alamat'
+            'Alamat',
+            'id_status',
+            'id_user'
         );
 
         return DataTables::of($dataPopulation)
@@ -38,7 +40,13 @@ class PopulationController extends Controller
             // ->editColumn('aksi', function ($data) {
             //     return '<a href="' . route('penduduk.edit', $data->NIK) . '">Edit</a> <a href="' . route('penduduk.destroy', $data->id_penduduk) . '" onclick="return confirm(\'Apakah anda yakin?\')">Hapus</a>';
             // })
-            ->rawColumns(['aksi'])
+            ->addColumn('rt', function ($data) {
+                return $data->user->rt;
+            })
+            ->addColumn('status_nikah', function ($data) {
+                return $data->status->status_nikah;
+            })
+            // ->rawColumns(['rt'])
             ->make(true);
     }
 }

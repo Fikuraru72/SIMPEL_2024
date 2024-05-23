@@ -100,18 +100,18 @@
                         data: 'Jenis Kelamin'
                     },
                     {
-                        data: 'Jenis Kelamin'
+                        data: 'rt'
                     },
                     {
-                        data: 'Jenis Kelamin'
+                        data: 'Alamat'
                     },
                     {
-                        data: 'Jenis Kelamin'
+                        data: 'status_nikah'
                     },
                 ],
-                lengthChange: false, // Disable the "Show entries" dropdown
-                pageLength: 10, // Set the number of entries per page to 10
-                // searching: false // Disable the search bar
+                lengthChange: false,
+                pageLength: 10,
+                scrollX: false 
             });
         });
     </script>

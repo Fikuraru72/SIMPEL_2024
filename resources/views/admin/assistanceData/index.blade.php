@@ -77,25 +77,27 @@
                     // }
                 },
                 columns: [{
-                        data: "id_alternatif",
-                    },{
+                        data: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false,
+                    }, {
                         data: "NoKK",
-                    },{
+                    }, {
                         data: "pendapatan",
-                    },{
+                    }, {
                         data: "tanggungan",
-                    },{
+                    }, {
                         data: "pbb",
-                    },{
+                    }, {
                         data: "tagihanAir",
-                    },{
+                    }, {
                         data: "tagihanListrik",
                     },
 
                 ],
-                lengthChange: false, // Disable the "Show entries" dropdown
-                pageLength: 10, // Set the number of entries per page to 10
-                // searching: false // Disable the search bar
+                lengthChange: false, 
+                pageLength: 10,
+                scrollX: false
             });
         });
     </script>
