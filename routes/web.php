@@ -43,6 +43,7 @@ Route::prefix('datapenduduk')->group(function () {
 
 Route::prefix('laporan')->group(function () {
     Route::get('/', [ReportController::class, 'index']);
+    Route::post('/list', [ReportController::class, 'list']);
 });
 
 Route::prefix('riwayatPenduduk')->group(function () {
@@ -51,6 +52,7 @@ Route::prefix('riwayatPenduduk')->group(function () {
 
 Route::prefix('dataBansos')->group(function () {
     Route::get('/', [AssistanceDataController::class, 'index']);
+    Route::post('/list', [AssistanceDataController::class, 'list']);
 });
 
 Route::prefix('verifikasiBansos')->group(function () {

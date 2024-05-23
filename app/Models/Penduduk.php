@@ -23,9 +23,12 @@ class Penduduk extends Model
         'Alamat',
     ];
 
-    public function user(): BelongsTo
-    {
+    public function user(): BelongsTo{
         return $this->belongsTo(User::class, 'id_user', 'id_user');
+    }
+
+    public function  bansos (){
+        return $this->hashMany(Bansos::class, 'id_penduduk', 'id_penduduk');
     }
 
 }

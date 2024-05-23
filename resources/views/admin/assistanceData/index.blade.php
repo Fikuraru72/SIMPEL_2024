@@ -37,109 +37,22 @@
                     </div>
                 </div>
 
-                <div class="table-responsive pt-8">
-                    <table class="table table-striped">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover table-sm" id="table-Assistance">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>NIK</th>
-                                <th>Nama</th>
-                                <th>No.KK</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Umur</th>
-                                <th>RT</th>
-                                <th>Alamat</th>
-                                <th>Status</th>
+                                <th>Pendapatan</th>
+                                <th>Tanggungan</th>
+                                <th>pbb</th>
+                                <th>tagihanAir</th>
+                                <th>tagihanListrik</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                1234567891234567
-                            </td>
-                            <td>
-                                Bambang Setai Kawan Boy
-                            </td>
-                            <td>
-                                1234567891234567
-                            </td>
-                            <td>
-                                01-01-2000
-                            </td>
-                            <td>
-                                24
-                            </td>
-                            <td>
-                                09
-                            </td>
-                            <td>
-                                Jl. Kembang Turi
-                            </td>
-                            <td>
-                                Jomblo
-                            </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    1234567891234567
-                                </td>
-                                <td>
-                                    Bambang Setai Kawan Boy
-                                </td>
-                                <td>
-                                    1234567891234567
-                                </td>
-                                <td>
-                                    01-01-2000
-                                </td>
-                                <td>
-                                    24
-                                </td>
-                                <td>
-                                    09
-                                </td>
-                                <td>
-                                    Jl. Kembang Turi
-                                </td>
-                                <td>
-                                    Jomblo
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    1234567891234567
-                                </td>
-                                <td>
-                                    Bambang Setai Kawan Boy
-                                </td>
-                                <td>
-                                    1234567891234567
-                                </td>
-                                <td>
-                                    01-01-2000
-                                </td>
-                                <td>
-                                    24
-                                </td>
-                                <td>
-                                    09
-                                </td>
-                                <td>
-                                    Jl. Kembang Turi
-                                </td>
-                                <td>
-                                    Jomblo
-                                </td>
-                            </tr>
+
                         </tbody>
 
                     </table>
@@ -150,7 +63,44 @@
 @endsection
 
 @push('js')
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var table = $('#table-Assistance').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ url('dataBansos/list') }}",
+                    dataType: "json",
+                    type: "POST",
+                    // data: function(d) {
+                    //     d.kategori_nama = $('#kategori_nama').val();
+                    // }
+                },
+                columns: [{
+                        data: "id_alternatif",
+                    },{
+                        data: "NoKK",
+                    },{
+                        data: "pendapatan",
+                    },{
+                        data: "tanggungan",
+                    },{
+                        data: "pbb",
+                    },{
+                        data: "tagihanAir",
+                    },{
+                        data: "tagihanListrik",
+                    },
+
+                ],
+                lengthChange: false, // Disable the "Show entries" dropdown
+                pageLength: 10, // Set the number of entries per page to 10
+                // searching: false // Disable the search bar
+            });
+        });
+    </script>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script> --}}
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endpush

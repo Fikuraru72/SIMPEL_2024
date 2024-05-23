@@ -13,60 +13,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive pt-3">
-                    <table class="table table-striped">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover table-sm" id="table-report">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Subjek</th>
                                 <th>Pesan</th>
-                                <th>status</th>
+                                <th>Tanggal</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td class="py-1">
-                                    1
-                                </td>
-                                <td>
-                                    Herman Beck
-                                </td>
-                                <td>
-                                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae enim adipisci temporibus dolore quos accusantium repellendus dolorem quod doloremque. Saepe ad sequi quisquam similique corrupti. Mollitia rerum perspiciatis consequuntur ea.</p>
-                                </td>
-                                <td>
-                                    Sliwik Saja
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="py-1">
-                                    1
-                                </td>
-                                <td>
-                                    Messsy Adam
-                                </td>
-                                <td>
-                                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae enim adipisci temporibus dolore quos accusantium repellendus dolorem quod doloremque. Saepe ad sequi quisquam similique corrupti. Mollitia rerum perspiciatis consequuntur ea.</p>
-                                </td>
-                                <td>
-                                    Sliwik Saja
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="py-1">
-                                    1
-                                </td>
-                                <td>
-                                    John Richards
-                                </td>
-                                <td>
-                                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae enim adipisci temporibus dolore quos accusantium repellendus dolorem quod doloremque. Saepe ad sequi quisquam similique corrupti. Mollitia rerum perspiciatis consequuntur ea.</p>
-                                </td>
-                                <td>
-                                    Sliwik Saja
-                                </td>
-                            </tr>
                         </tbody>
 
                     </table>
@@ -75,3 +33,41 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+    <script>
+        $(document).ready(function() {
+            var table = $('#table-report').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ url('laporan/list') }}",
+                    dataType: "json",
+                    type: "POST",
+                    // data: function(d) {
+                    //     d.kategori_nama = $('#kategori_nama').val();
+                    // }
+                },
+                columns: [{
+                        data: "id_pengaduan",
+                    },
+                    {
+                        data: 'Subjek'
+                    },
+                    {
+                        data: 'Isi'
+                    },{
+                        data : 'created_at'
+                    }
+                ],
+                lengthChange: false, // Disable the "Show entries" dropdown
+                pageLength: 10, // Set the number of entries per page to 10
+                // searching: false // Disable the search bar
+            });
+        });
+    </script>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script> --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+@endpush

@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.bootstrap4.min.css">
+    {{-- <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.bootstrap4.min.css"> --}}
     <link rel="stylesheet" href="{{ asset('template/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/assets/vendors/css/vendor.bundle.base.css') }}">
 
@@ -23,8 +23,21 @@
     <!-- endinject -->
     {{-- <link rel="shortcut icon" href="{{ asset('template/assets/images/favicon.ico') }}" /> --}}
 
-    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    {{-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
+    <style>
+        table {
+            width: 100% !important;
+        }
 
+        .dataTables_wrapper .dataTables_filter input {
+            width: 250px;
+            height: 40px;
+            margin: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+
+        }
+    </style>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @stack('css')

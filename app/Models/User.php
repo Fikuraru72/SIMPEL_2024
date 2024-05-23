@@ -28,8 +28,12 @@ class User extends Authenticatable
         'level',
     ];
 
-    public function user (){
-        return $this->hashMany(users::class, 'id_user', 'id_user');
+    public function penduduk (){
+        return $this->hashMany(Penduduk::class, 'id_user', 'id_user');
+    }
+
+    public function pengaduan (){
+        return $this->hashMany(Pengaduan::class, 'id_user', 'id_user');
     }
 
     /**

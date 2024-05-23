@@ -4,30 +4,13 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                {{-- <h5 class="card-title">Data Penduduk</h5>
-                <div class="d-flex justify-content-between align-items-end flex-wrap">
-                    <div>
-                        <div class="input-group mb-2">
-                            <input type="text" class="form-control" placeholder="Cari..." id="search-input">
-                            <button class="btn btn-info" type="button" id="search-button">Cari</button>
-                        </div>
-                    </div>
-                    <div class="ml-auto">
-                        <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
-                            <i class="mdi mdi-clock-outline text-muted"></i>
-                        </button>
-                        <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0" data-toggle="modal"
-                            data-target="#penduduk-baru">
-                            <i class="mdi mdi-plus text-muted"></i>
-                        </button>
-                    </div> --}}
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <h5 class="card-title">Data Penduduk</h5>
                     <div>
-                        <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
+                        <button type="button" class="btn btn-outline-warning me-3 mt-2 mt-xl-0">
                             <i class="mdi mdi-clock-outline text-muted"></i>
                         </button>
-                        <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0" data-toggle="modal"
+                        <button type="button" class="btn btn-outline-info me-3 mt-2 mt-xl-0" data-toggle="modal"
                             data-target="#penduduk-baru">
                             <i class="mdi mdi-plus text-muted"></i>
                         </button>
@@ -78,21 +61,7 @@
 @endsection
 
 @push('css')
-    <style>
-        table {
-            width: 100% !important;
-        }
 
-
-        .dataTables_wrapper .dataTables_filter input {
-            width: 250px;
-            height: 40px;
-            margin: 20px;
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
-
-        }
-    </style>
 @endpush
 
 @push('js')

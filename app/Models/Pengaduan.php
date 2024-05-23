@@ -7,5 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pengaduan extends Model
 {
-    use HasFactory;
+    protected $table = 'pengaduan';
+    protected $primarykey = 'id_pengaduan';
+
+    protected $fillable = [
+        'id_pengaduan',
+        'Subjek',
+        'Isi',
+        'created_at',
+    ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id_user');
+    }
+
+    
+
 }

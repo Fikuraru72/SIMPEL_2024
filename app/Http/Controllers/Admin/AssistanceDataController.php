@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
+use App\Models\Bansos;
+use App\Models\User;
 
 class AssistanceDataController extends Controller
 {
@@ -13,6 +16,30 @@ class AssistanceDataController extends Controller
             'list' => ['Home','Dashboard']
         ];
 
+        // $dataAssitance = Bansos::all();
+
         return view('admin.assistanceData.index', ['breadcrumb' => $breadcrumb]);
+    }
+
+    public function list(Request $request)
+    {
+        $dataAssitance = Bansos::with('penduduk')->select(
+            'id_alternatif',
+            'id_penduduk',
+            'pendapatan',
+            'tanggungan',
+            'pbb',
+            'tagihanAir',
+            'tagihanListrik',
+            'status',
+        );
+
+        return DataTables::of($dataAssitance)
+            ->addIndexColumn()
+            ->addColumn('NoKK', function ($data) {
+                return $data->penduduk->NoKK;
+            })
+            ->rawColumns(['NoKK'])
+            ->make(true);
     }
 }
