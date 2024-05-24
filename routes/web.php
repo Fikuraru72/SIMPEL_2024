@@ -57,7 +57,10 @@ Route::prefix('dataBansos')->group(function () {
 
 Route::prefix('verifikasiBansos')->group(function () {
     Route::get('/', [AssistanceDataVerificationController::class, 'index']);
+    Route::get('/details/{id}', [AssistanceDataVerificationController::class, 'detail']);
+    Route::put('/konfirmasi/{id}', [AssistanceDataVerificationController::class, 'konfirmasi']);
 });
+
 
 Route::prefix('penduduk')->group(function () {
 

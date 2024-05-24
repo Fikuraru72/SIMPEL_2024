@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Penduduk extends Model
 {
     protected $table = 'penduduk';
-    protected $primarykey = 'id_penduduk';
+    protected $primaryKey = 'id_penduduk';
 
     protected $fillable = [
         'id_penduduk',
@@ -35,7 +35,7 @@ class Penduduk extends Model
     }
 
     public function  bansos (){
-        return $this->hashMany(Bansos::class, 'id_penduduk', 'id_penduduk');
+        return $this->hasMany(Bansos::class, 'id_penduduk', 'id_penduduk');
     }
 
 }

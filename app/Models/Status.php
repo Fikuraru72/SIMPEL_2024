@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Status extends Model
 {
     protected $table = 'status';
-    protected $primarykey = 'id_status';
+    protected $primaryKey = 'id_status';
 
     protected $fillable = [
         'id_status',
