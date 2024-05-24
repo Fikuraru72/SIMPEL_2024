@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Penduduk;
+use App\Models\Bansos;
 
 
 
@@ -16,8 +17,12 @@ class DashboardController extends Controller
             'list' => ['Home','Dashboard']
         ];
 
-        $penduduk = Penduduk::all();
+        $total = (object) [
+            'penduduk' => Penduduk::count(),
+            'bansos' => Bansos::count()
+        ];
 
-        return view('admin.index', ['breadcrumb' => $breadcrumb, 'penduduk' => $penduduk]);
+
+        return view('admin.index', ['breadcrumb' => $breadcrumb, 'total' => $total]);
     }
 }

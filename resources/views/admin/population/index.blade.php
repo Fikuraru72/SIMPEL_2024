@@ -7,9 +7,9 @@
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <h5 class="card-title">Data Penduduk</h5>
                     <div>
-                        <button type="button" class="btn btn-outline-warning me-3 mt-2 mt-xl-0">
+                        <a href="/riwayatPenduduk" class="btn btn-outline-warning me-3 mt-2 mt-xl-0">
                             <i class="mdi mdi-clock-outline text-muted"></i>
-                        </button>
+                        </a>
                         <button type="button" class="btn btn-outline-info me-3 mt-2 mt-xl-0" data-toggle="modal"
                             data-target="#penduduk-baru">
                             <i class="mdi mdi-plus text-muted"></i>
@@ -40,7 +40,7 @@
                                 <th>Nama</th>
                                 <th>NIK</th>
                                 <th>No.KK</th>
-                                <th>Tanggal Lahir</th>
+                                <th>Tgl Lahir</th>
                                 <th>Agama</th>
                                 <th>JK</th>
                                 <th>RT</th>
@@ -61,7 +61,6 @@
 @endsection
 
 @push('css')
-
 @endpush
 
 @push('js')
@@ -110,8 +109,8 @@
                     },
                 ],
                 lengthChange: false,
-                pageLength: 10,
-                scrollX: false 
+                pageLength: 5,
+                scrollX: false
             });
         });
     </script>

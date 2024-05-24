@@ -30,6 +30,7 @@ class PopulationController extends Controller
             'TTL',
             'Agama',
             'Jenis Kelamin',
+            'rt',
             'Alamat',
             'id_status',
             'id_user'
@@ -40,9 +41,6 @@ class PopulationController extends Controller
             // ->editColumn('aksi', function ($data) {
             //     return '<a href="' . route('penduduk.edit', $data->NIK) . '">Edit</a> <a href="' . route('penduduk.destroy', $data->id_penduduk) . '" onclick="return confirm(\'Apakah anda yakin?\')">Hapus</a>';
             // })
-            ->addColumn('rt', function ($data) {
-                return $data->user->rt;
-            })
             ->addColumn('status_nikah', function ($data) {
                 return $data->status->status_nikah;
             })

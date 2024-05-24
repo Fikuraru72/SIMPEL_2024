@@ -20,6 +20,7 @@ class Penduduk extends Model
         'TTL',
         'Agama',
         'Jenis Kelamin',
+        'rt',
         'Alamat',
         'id_status',
         'id_user'

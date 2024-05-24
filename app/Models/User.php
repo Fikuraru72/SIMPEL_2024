@@ -24,7 +24,6 @@ class User extends Authenticatable
         'id_user',
         'username',
         'password',
-        'rt',
         'level',
     ];
 

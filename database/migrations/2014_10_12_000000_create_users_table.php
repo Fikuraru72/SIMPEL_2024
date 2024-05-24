@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id('id_user');
             $table->string('username');
             $table->string('password');
-            $table->enum('rt',['1','2','3','4','5','6','7','8','9','10']);
             $table->enum('Level',['1','2','3']);
             $table->rememberToken();
             $table->timestamps();

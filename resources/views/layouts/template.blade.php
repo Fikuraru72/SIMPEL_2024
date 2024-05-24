@@ -61,12 +61,13 @@
                 @include('layouts.bread')
                 @yield('content')
             </div>
+            <div class="row">
+                @include('layouts.footer')
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        @include('layouts.footer')
-    </div>
+
 
 
     <!-- plugins:js -->

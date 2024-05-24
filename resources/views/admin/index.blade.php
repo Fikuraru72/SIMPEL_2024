@@ -25,7 +25,7 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="card-body pb-0 text-center">
-                <h1>10</h1>
+                <h1>{{$total->penduduk}}</h1>
                 <p class="card-title text-white">Jumlah Penduduk</p>
               </div>
               <canvas height="133" id="feedbacks-chart-a"></canvas>
@@ -41,7 +41,7 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="card-body pb-0 text-center">
-                <h1>10</h1>
+                <h1>{{$total->bansos}}</h1>
                 <p class="card-title text-white">Jumlah Penerima Bansos</p>
               </div>
               <canvas height="133" id="customers-chart-a"></canvas>
