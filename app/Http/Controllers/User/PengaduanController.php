@@ -11,14 +11,13 @@ class PengaduanController extends Controller
     {
         $breadcrumb = (object) [
             'title' => 'Pengaduan Penduduk',
-            'list'  => ['Home', 'Pengaduan Penduduk']
+            'list'  => ['Beranda', 'Pengaduan Penduduk']
         ];
 
         //$complaints = \App\Models\Pengaduan::all();
 
         return view('user.pengaduan.index', [
             'breadcrumb' => $breadcrumb,
-            //'complaints' => $complaints
         ]);
     }
 }

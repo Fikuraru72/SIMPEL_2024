@@ -10,7 +10,7 @@ class DataKeluargaController extends Controller
     public function index() 
     {
         $breadcrumb = (object) [
-            'title' => 'Welcome Back at SIMPEL',
+            'title' => 'Data Keluarga',
             'list'  => ['Beranda', 'Data Keluarga']
         ];
         
