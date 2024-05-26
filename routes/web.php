@@ -49,6 +49,7 @@ Route::prefix('laporan')->group(function () {
 
 Route::prefix('riwayatPenduduk')->group(function () {
     Route::get('/', [HistoryPopulationController::class, 'index']);
+    Route::post('/list', [HistoryPopulationController::class, 'list']);
 });
 
 Route::prefix('dataBansos')->group(function () {

@@ -23,6 +23,7 @@ class Penduduk extends Model
         'JenisKelamin',
         'rt',
         'Alamat',
+        'updated_at'
     ];
 
     public function user (){

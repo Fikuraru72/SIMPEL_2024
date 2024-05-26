@@ -78,7 +78,9 @@
                     // }
                 },
                 columns: [{
-                        data: "id_penduduk",
+                    data: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false,
                     },
                     {
                         data: 'nama'

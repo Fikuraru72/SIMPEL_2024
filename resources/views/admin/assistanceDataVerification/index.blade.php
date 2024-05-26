@@ -5,11 +5,13 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Data Penduduk</h5>
-
-                @foreach ($dataAssitance as $item)
-                    <x-card nama="{{ $item->penduduk->nama }}" id_alternatif="{{ $item->id_alternatif }}" />
-                @endforeach
-
+                @if ($dataAssitance->isEmpty())
+                    <h5>Tidak Ada Pengajuan</h5>
+                @else
+                    @foreach ($dataAssitance as $item)
+                        <x-card nama="{{ $item->penduduk->nama }}" id_alternatif="{{ $item->id_alternatif }}" />
+                    @endforeach
+                @endif
 
             </div>
         </div>

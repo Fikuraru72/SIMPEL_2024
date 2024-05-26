@@ -1,122 +1,41 @@
 @extends('layouts.template')
 
 @section('content')
-
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Data Penduduk</h5>
-                <div class="d-flex justify-content-between align-items-end flex-wrap">
+                <div class="card-body d-flex justify-content-between align-items-end">
+                    <h5 class="card-title">Data Penduduk</h5>
                     <div>
-                        <div class="input-group mb-2">
-                            <input type="text" class="form-control" placeholder="Cari...">
-                            <button class="btn btn-info" type="button" id="button-addon2">Cari</button>
-                        </div>
+                        <a href="/riwayatPenduduk" class="btn btn-outline-warning me-3 mt-2 mt-xl-0">
+                            <i class="mdi mdi-clock-outline text-muted"></i>
+                        </a>
+                        <button type="button" class="btn btn-outline-info me-3 mt-2 mt-xl-0" data-toggle="modal"
+                            data-target="#penduduk-baru">
+                            <i class="mdi mdi-plus text-muted"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="table-responsive pt-8">
-                    <table class="table table-striped">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover table-sm" id="table-population">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>NIK</th>
                                 <th>Nama</th>
+                                <th>NIK</th>
                                 <th>No.KK</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Ummur</th>
+                                <th>Tgl Lahir</th>
+                                <th>Agama</th>
+                                <th>JK</th>
                                 <th>RT</th>
                                 <th>Alamat</th>
-                                <th>Status</th>
+                                <th>Tanggal</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                1234567891234567
-                            </td>
-                            <td>
-                                Bambang Setai Kawan Boy
-                            </td>
-                            <td>
-                                1234567891234567
-                            </td>
-                            <td>
-                                01-01-2000
-                            </td>
-                            <td>
-                                24
-                            </td>
-                            <td>
-                                09
-                            </td>
-                            <td>
-                                Jl. Kembang Turi
-                            </td>
-                            <td>
-                                Jomnblo
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                1234567891234567
-                            </td>
-                            <td>
-                                Bambang Setai Kawan Boy
-                            </td>
-                            <td>
-                                1234567891234567
-                            </td>
-                            <td>
-                                01-01-2000
-                            </td>
-                            <td>
-                                24
-                            </td>
-                            <td>
-                                09
-                            </td>
-                            <td>
-                                Jl. Kembang Turi
-                            </td>
-                            <td>
-                                Jomnblo
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                1234567891234567
-                            </td>
-                            <td>
-                                Bambang Setai Kawan Boy
-                            </td>
-                            <td>
-                                1234567891234567
-                            </td>
-                            <td>
-                                01-01-2000
-                            </td>
-                            <td>
-                                24
-                            </td>
-                            <td>
-                                09
-                            </td>
-                            <td>
-                                Jl. Kembang Turi
-                            </td>
-                            <td>
-                                Jomnblo
-                            </td>
-                        </tr>
+
                         </tbody>
 
                     </table>
@@ -125,3 +44,65 @@
         </div>
     </div>
 @endsection
+
+@push('css')
+@endpush
+
+@push('js')
+    <script>
+        $(document).ready(function() {
+            var table = $('#table-population').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ url('riwayatPenduduk/list') }}",
+                    dataType: "json",
+                    type: "POST",
+                    // data: function(d) {
+                    //     d.kategori_nama = $('#kategori_nama').val();
+                    // }
+                },
+                columns: [{
+                        data: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false,
+                    },
+                    {
+                        data: 'nama'
+                    },
+                    {
+                        data: 'NIK'
+                    },
+                    {
+                        data: 'NoKK'
+                    },
+                    {
+                        data: 'TTL'
+                    },
+                    {
+                        data: 'Agama'
+                    },
+                    {
+                        data: 'JenisKelamin'
+                    },
+                    {
+                        data: 'rt'
+                    },
+                    {
+                        data: 'Alamat'
+                    },
+                    {
+                        data: 'updated_at'
+                    },
+                ],
+                lengthChange: false,
+                pageLength: 5,
+                scrollX: false
+            });
+        });
+    </script>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script> --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+@endpush
