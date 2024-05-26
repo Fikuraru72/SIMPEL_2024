@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\PopulationController;
 use App\Http\Controllers\admin\ReportController;
 use App\Http\Controllers\admin\HistoryPopulationController;
+use App\Http\Controllers\admin\HistoryAssistanceController;
 use App\Http\Controllers\admin\AssistanceDataController;
 use App\Http\Controllers\admin\AssistanceDataVerificationController;
 use App\Http\Controllers\User\BansosController;
@@ -55,6 +56,11 @@ Route::prefix('riwayatPenduduk')->group(function () {
 Route::prefix('dataBansos')->group(function () {
     Route::get('/', [AssistanceDataController::class, 'index']);
     Route::post('/list', [AssistanceDataController::class, 'list']);
+});
+
+Route::prefix('riwayatBansos')->group(function () {
+    Route::get('/', [HistoryAssistanceController::class, 'index']);
+    Route::post('/list', [HistoryAssistanceController::class, 'list']);
 });
 
 Route::prefix('verifikasiBansos')->group(function () {

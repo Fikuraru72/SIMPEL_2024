@@ -6,21 +6,37 @@
             <div class="card-body">
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <h5 class="card-title">Data Penduduk</h5>
+                    <div>
+                        <button type="button" class="btn btn-outline-warning me-3 mt-2 mt-xl-0">
+                            <i class="mdi mdi-clock-outline text-muted"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-info me-3 mt-2 mt-xl-0" data-toggle="modal"
+                            data-target="#bansos-baru">
+                            <i class="mdi mdi-plus text-muted"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal fade" id="bansos-baru" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Tambah Penduduk Baru</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <x-modal.store-asisstance-data />
+                        </div>
+                    </div>
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover table-sm" id="table-population">
+                    <table class="table table-bordered table-striped table-hover table-sm" id="table-Assistance">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
                                 <th>NIK</th>
-                                <th>No.KK</th>
-                                <th>Tgl Lahir</th>
-                                <th>Agama</th>
-                                <th>JK</th>
-                                <th>RT</th>
-                                <th>Alamat</th>
                                 <th>Tanggal</th>
                             </tr>
                         </thead>
@@ -36,17 +52,14 @@
     </div>
 @endsection
 
-@push('css')
-@endpush
-
 @push('js')
     <script>
         $(document).ready(function() {
-            var table = $('#table-population').DataTable({
+            var table = $('#table-Assistance').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ url('riwayatPenduduk/list') }}",
+                    url: "{{ url('riwayatBansos/list') }}",
                     dataType: "json",
                     type: "POST",
                     // data: function(d) {
@@ -57,34 +70,12 @@
                         data: 'DT_RowIndex',
                         orderable: false,
                         searchable: false,
+                    }, {
+                        data: "NoKK",
+                    }, {
+                        data: "updated_at",
                     },
-                    {
-                        data: 'nama'
-                    },
-                    {
-                        data: 'NIK'
-                    },
-                    {
-                        data: 'NoKK'
-                    },
-                    {
-                        data: 'TTL'
-                    },
-                    {
-                        data: 'Agama'
-                    },
-                    {
-                        data: 'JenisKelamin'
-                    },
-                    {
-                        data: 'rt'
-                    },
-                    {
-                        data: 'Alamat'
-                    },
-                    {
-                        data: 'updated_at'
-                    },
+
                 ],
                 lengthChange: false,
                 pageLength: 5,

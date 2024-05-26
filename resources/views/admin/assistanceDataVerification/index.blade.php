@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h5 class="card-title">Data Penduduk</h5>
                 @if ($dataAssitance->isEmpty())
-                    <h5>Tidak Ada Pengajuan</h5>
+                    <h3>Tidak Ada Pengajuan</h3>
                 @else
                     @foreach ($dataAssitance as $item)
                         <x-card nama="{{ $item->penduduk->nama }}" id_alternatif="{{ $item->id_alternatif }}" />

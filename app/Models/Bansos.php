@@ -20,7 +20,8 @@ class Bansos extends Model
         'tagihanAir',
         'tagihanListrik',
         'status',
-        'id_penduduk'
+        'id_penduduk',
+        'updated_at'
     ];
 
     public function penduduk(): BelongsTo
