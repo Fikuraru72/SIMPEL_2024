@@ -14,6 +14,9 @@
           <div class="form-group">
             <label for="exampleInputName1">No.KK</label>
             <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+          </div><div class="form-group">
+            <label for="exampleInputName1">Tanggal Lahir</label>
+            <input type="date" class="form-control" id="exampleInputName1" placeholder="Name">
           </div>
           <div class="form-group">
             <label for="exampleSelectGender">Agama</label>
@@ -37,8 +40,8 @@
           <div class="form-group">
             <label for="exampleSelectGender">Gender</label>
               <select class="form-select" id="exampleSelectGender">
-                <option>Male</option>
-                <option>Female</option>
+                <option>Pria</option>
+                <option>Wanita</option>
               </select>
             </div>
           <div class="form-group">

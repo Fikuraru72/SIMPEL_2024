@@ -18,15 +18,13 @@ return new class extends Migration
             $table->string('nama');
             $table->string('TTL');
             $table->string('Agama');
-            $table->enum('Jenis Kelamin', ['Pria', 'Wanita']);
+            $table->enum('JenisKelamin', ['Pria', 'Wanita']);
             $table->enum('rt',['1','2','3','4','5','6','7','8','9','10']);
             $table->string('Alamat');
-            $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_status');
+
+
             $table->timestamps();
 
-            $table->foreign('id_user')->references('id_user')->on('users');
-            $table->foreign('id_status')->references('id_status')->on('status');
         });
     }
 

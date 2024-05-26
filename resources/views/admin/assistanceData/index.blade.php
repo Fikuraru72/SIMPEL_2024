@@ -16,8 +16,8 @@
                         </button>
                     </div>
                 </div>
-                <div class="modal fade" id="bansos-baru" tabindex="-1" role="dialog"
-                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal fade" id="bansos-baru" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -26,7 +26,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            @include('layouts.modals.storePopulation')
+                            <x-modal.store-asisstance-data />
                         </div>
                     </div>
                 </div>

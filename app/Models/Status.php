@@ -17,9 +17,14 @@ class Status extends Model
         'status_nikah',
         'status_keluarga',
         'status_warga',
+        'id_penduduk',
     ];
 
-    public function  penduduk (){
-        return $this->hashMany(Penduduk::class, 'id_status', 'id_status');
+    // public function  penduduk (){
+    //     return $this->hashMany(Penduduk::class, 'id_status', 'id_status');
+    // }
+
+    public function penduduk(): BelongsTo{
+        return $this->belongsTo(penduduk::class, 'id_penduduk', 'id_penduduk');
     }
 }

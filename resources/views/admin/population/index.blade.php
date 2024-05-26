@@ -27,7 +27,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            @include('layouts.modals.storePopulation')
+                            <x-modal.store-population />
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         data: 'Agama'
                     },
                     {
-                        data: 'Jenis Kelamin'
+                        data: 'JenisKelamin'
                     },
                     {
                         data: 'rt'

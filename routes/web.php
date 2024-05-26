@@ -38,6 +38,7 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('datapenduduk')->group(function () {
     Route::get('/', [PopulationController::class, 'index']);
+    Route::post('/store', [PopulationController::class, 'store']);
     Route::post('/list', [PopulationController::class, 'list']);
 });
 

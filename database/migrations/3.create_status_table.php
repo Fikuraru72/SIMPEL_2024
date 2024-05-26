@@ -16,7 +16,11 @@ return new class extends Migration
             $table->enum('status_nikah', ['Belum Kawin', 'Kawin', 'Cerai Hidup', 'Cerai Mati']);
             $table->enum('status_keluarga', ['Kepala Keluarga', 'Anggota Keluarga']);
             $table->enum('status_warga', ['Tinggal', 'Meninggal', 'Pindah']);
+            $table->unsignedBigInteger('id_penduduk');
             $table->timestamps();
+
+            $table->foreign('id_penduduk')->references('id_penduduk')->on('penduduk');
+
         });
     }
 

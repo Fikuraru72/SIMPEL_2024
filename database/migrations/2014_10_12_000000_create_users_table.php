@@ -16,8 +16,12 @@ return new class extends Migration
             $table->string('username');
             $table->string('password');
             $table->enum('Level',['1','2','3']);
+            $table->unsignedBigInteger('id_Penduduk');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('id_penduduk')->references('id_penduduk')->on('penduduk');
+
         });
     }
 

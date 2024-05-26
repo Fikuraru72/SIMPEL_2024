@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable
 {
@@ -25,10 +27,15 @@ class User extends Authenticatable
         'username',
         'password',
         'level',
+        'id_penduduk',
     ];
 
-    public function penduduk (){
-        return $this->hashMany(Penduduk::class, 'id_user', 'id_user');
+    // public function penduduk (){
+    //     return $this->hashMany(Penduduk::class, 'id_user', 'id_user');
+    // }
+
+    public function penduduk(): BelongsTo{
+        return $this->belongsTo(Penduduk::class, 'id_penduduk', 'id_penduduk');
     }
 
     public function pengaduan (){

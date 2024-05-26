@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pengaduan extends Model
 {
@@ -22,6 +24,6 @@ class Pengaduan extends Model
         return $this->belongsTo(User::class, 'id_user', 'id_user');
     }
 
-    
+
 
 }

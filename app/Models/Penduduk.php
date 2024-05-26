@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
@@ -19,19 +20,17 @@ class Penduduk extends Model
         'nama',
         'TTL',
         'Agama',
-        'Jenis Kelamin',
+        'JenisKelamin',
         'rt',
         'Alamat',
-        'id_status',
-        'id_user'
     ];
 
-    public function user(): BelongsTo{
-        return $this->belongsTo(User::class, 'id_user', 'id_user');
+    public function user (){
+        return $this->hasOne(User::class, 'id_penduduk', 'id_penduduk');
     }
 
-    public function status(): BelongsTo{
-        return $this->belongsTo(Status::class, 'id_status', 'id_status');
+    public function status(){
+        return $this->hasOne(Status::class, 'id_penduduk', 'id_penduduk');
     }
 
     public function  bansos (){

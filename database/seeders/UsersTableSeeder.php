@@ -19,18 +19,21 @@ class UsersTableSeeder extends Seeder
                 'username' => 'admin',
                 'password' => Hash::make('password'),
                 'Level' => '3',
+                'id_penduduk' => '1',
                 'remember_token' => null,
             ],
             [
                 'username' => 'user1',
                 'password' => Hash::make('password1'),
                 'Level' => '1',
+                'id_penduduk' => '2',
                 'remember_token' => null,
             ],
             [
                 'username' => 'user2',
                 'password' => Hash::make('password2'),
                 'Level' => '2',
+                'id_penduduk' => '3',
                 'remember_token' => null,
             ],
         ]);

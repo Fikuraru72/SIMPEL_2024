@@ -18,21 +18,25 @@ class StatusTableSeeder extends Seeder
                 'status_nikah' => 'Belum Kawin',
                 'status_keluarga' => 'Kepala Keluarga',
                 'status_warga' => 'Tinggal',
+                'id_penduduk' => '1',
             ],
             [
                 'status_nikah' => 'Kawin',
                 'status_keluarga' => 'Anggota Keluarga',
                 'status_warga' => 'Tinggal',
+                'id_penduduk' => '2',
             ],
             [
                 'status_nikah' => 'Cerai Hidup',
                 'status_keluarga' => 'Anggota Keluarga',
                 'status_warga' => 'Tinggal',
+                'id_penduduk' => '3',
             ],
             [
                 'status_nikah' => 'Cerai Mati',
                 'status_keluarga' => 'Kepala Keluarga',
                 'status_warga' => 'Meninggal',
+                'id_penduduk' => '4',
             ],
         ]);
     }
