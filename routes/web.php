@@ -10,11 +10,11 @@ use App\Http\Controllers\admin\ReportController;
 use App\Http\Controllers\admin\HistoryPopulationController;
 use App\Http\Controllers\admin\AssistanceDataController;
 use App\Http\Controllers\admin\AssistanceDataVerificationController;
+use App\Http\Controllers\User\BansosController;
 use App\Http\Controllers\User\BerandaController;
 use App\Http\Controllers\User\DataKeluargaController;
 use App\Http\Controllers\User\DataPendudukController;
-
-
+use App\Http\Controllers\User\PengaduanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,7 +63,6 @@ Route::prefix('verifikasiBansos')->group(function () {
 
 
 Route::prefix('penduduk')->group(function () {
-
     Route::get('/', [BerandaController::class, 'index']);
 });
 
@@ -72,7 +71,11 @@ Route::prefix('dataKeluarga')->group(function () {
     Route::get('/detail', [DataKeluargaController::class, 'detail']);
 });
 
+Route::prefix('bansos')->group(function () {
+    Route::get('/', [BansosController::class, 'index']);
+    Route::get('/detail', [BansosController::class, 'detail']);
+});
+
 Route::prefix('pengaduan')->group(function () {
     Route::get('/', [PengaduanController::class, 'index']);
 });
-

@@ -15,40 +15,44 @@
             @else --}}
             <table class="table table-bordered table-striped table-hover tablesm">
                 <tr>
-                    <th>Nama</th>
-                    <td>Bambang Setai Kawan Boy</td>
+                    <th>Tanggal Pengajuan</th>
+                    <td>01-01-2024</td>
                 </tr>
                 <tr>
                     <th>NIK</th>
                     <td>1234567891234567</td>
                 </tr>
                 <tr>
-                    <th>No. KK</th>
-                    <td>111111111111111</td>
+                    <th>Nama</th>
+                    <td>Bambang Setai Kawan Boy</td>
                 </tr>
                 <tr>
-                    <th>Tanggal Lahir</th>
-                    <td>01-01-2025</td>
+                    <th>Pendapatan</th>
+                    <td>Rp. 1,000,000,00 - Rp. 3,000,000,00</td>
                 </tr>
                 <tr>
-                    <th>Agama</th>
-                    <td>Islam</td>
+                    <th>Tanggungan</th>
+                    <td>3 - 5 orang</td>
                 </tr>
                 <tr>
-                    <th>Jenis Kelamin</th>
-                    <td>Laki-laki</td>
+                    <th>PBB</th>
+                    <td>Rp. 100,000,00 - Rp. 300,000,00</td>
                 </tr>
                 <tr>
-                    <th>Alamat</th>
-                    <td>RT 2 RW 2 no.12, Ds.Arjosari, Kec.Blimbing, Kab. Malang</td>
+                    <th>Tagihan Air</th>
+                    <td>Rp. 100,000,00 - Rp. 200,000,00</td>
+                </tr>
+                <tr>
+                    <th>Tagihan Listrik</th>
+                    <td>Rp. 100,000,00 - Rp. 200,000,00</td>
                 </tr>
                 <tr>
                     <th>Status</th>
-                    <td>Menikah</td>
+                    <td>Diproses</td>
                 </tr>
             </table>
             {{-- @endempty --}}
-            <a href="{{ url('/dataKeluarga') }}" class="btn btn-info btn-sm btn-default mt-2">Kembali</a>
+            <a href="{{ url('/bansos') }}" class="btn btn-info btn-sm btn-default mt-2">Kembali</a>
         </div>
     </div>
 @endsection
