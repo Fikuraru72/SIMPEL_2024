@@ -14,35 +14,37 @@
                     </div>
                 </div>
 
-                    <table class="table table-bordered table-striped table-hover table-sm">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>NIK</th>
-                                <th>Nama</th>
-                                <th>Aksi</th>
-                        </thead>
+                <table class="table table-bordered table-striped table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>NIK</th>
+                            <th>Nama</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
 
-                        <tbody>
+                    <tbody>
+                        @foreach ($dataKeluarga as $index => $keluarga)
                             <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                1234567891234567
-                            </td>
-                            <td>
-                                Bambang Setai Kawan Boy
-                            </td>
-                            <td class="py-1">
-                                <a href="{{ url('/dataKeluarga/detail')}}">
-                                    <button class="btn btn-warning btn-sm">Detail</button>
-                                </a>
-                            </td>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $keluarga->NIK }}</td>
+                                <td>{{ $keluarga->nama }}</td>
+                                <td class="py-1">
+                                    <a href="{{ url('/dataKeluarga/detail', ['id' => $keluarga->id]) }}">
+                                        <button class="btn btn-warning btn-sm">Detail</button>
+                                    </a>
+                                </td>
                             </tr>
-                        </tbody>
+                        @endforeach
 
-                    </table>
+                        @if ($dataKeluarga->isEmpty())
+                            <tr>
+                                <td colspan="4" class="text-center">Tidak ada data yang ditemukan.</td>
+                            </tr>
+                        @endif
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

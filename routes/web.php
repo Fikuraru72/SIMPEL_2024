@@ -86,4 +86,5 @@ Route::prefix('bansos')->group(function () {
 
 Route::prefix('pengaduan')->group(function () {
     Route::get('/', [PengaduanController::class, 'index']);
+    Route::post('/store', [PengaduanController::class, 'store'])->name('pengaduan.store');
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\DataKeluarga;
 
 class DataKeluargaController extends Controller
 {
@@ -13,8 +14,10 @@ class DataKeluargaController extends Controller
             'title' => 'Data Keluarga',
             'list'  => ['Beranda', 'Data Keluarga']
         ];
+
+        $dataKeluarga = DataKeluarga::all();
         
-        return view('user.dataKeluarga.index', ['breadcrumb' => $breadcrumb]);
+        return view('user.dataKeluarga.index', ['breadcrumb' => $breadcrumb, 'dataKeluarga' => $dataKeluarga]);
     }
 
     public function detail()
