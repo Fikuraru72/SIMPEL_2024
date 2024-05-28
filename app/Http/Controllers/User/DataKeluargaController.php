@@ -17,22 +17,20 @@ class DataKeluargaController extends Controller
 
         $dataKeluarga = DataKeluarga::all();
         
-        return view('user.dataKeluarga.index', ['breadcrumb' => $breadcrumb, 'dataKeluarga' => $dataKeluarga]);
+        return view('user.dataKeluarga.index', compact('breadcrumb', 'dataKeluarga'));
     }
 
-    public function detail()
-    {
-        $breadcrumb = (object) [
-            'title' => 'Detail Data Penduduk',
-            'list'  => ['Beranda', 'Data Keluarga', 'Detail']
-        ];
+    public function search(Request $request)
+{
+    $id_penduduk = $request->input('id_penduduk');
+    
+    $dataKeluarga = DataKeluarga::where('id_penduduk', $id_penduduk)->get();
 
-        $page = (object) [
-            'title' => 'Detail Data Penduduk'
-        ];
+    $breadcrumb = (object) [
+        'title' => 'Data Keluarga',
+        'list'  => ['Beranda', 'Data Keluarga']
+    ];
 
-        $activeMenu = 'penduduk';
-
-        return view('user.dataKeluarga.detail', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
-    }
+    return view('user.dataKeluarga.index', compact('breadcrumb', 'dataKeluarga'));
+}
 }

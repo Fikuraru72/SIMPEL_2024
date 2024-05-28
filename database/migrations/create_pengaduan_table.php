@@ -15,8 +15,6 @@
                 $table->text('pesan');
                 $table->string('rt');
                 $table->timestamps();
-                $table->unsignedBigInteger('id_user')->index();
-                $table->foreign('id_user')->references('id')->on('akun');
             });
         }
 

@@ -75,8 +75,8 @@ Route::prefix('penduduk')->group(function () {
 });
 
 Route::prefix('dataKeluarga')->group(function () {
-    Route::get('/', [DataKeluargaController::class, 'index']);
-    Route::get('/detail', [DataKeluargaController::class, 'detail']);
+    Route::get('/', [DataKeluargaController::class, 'index'])->name('dataKeluarga.index');
+    Route::get('/search', [DataKeluargaController::class, 'search'])->name('dataKeluarga.search');
 });
 
 Route::prefix('bansos')->group(function () {
@@ -85,6 +85,6 @@ Route::prefix('bansos')->group(function () {
 });
 
 Route::prefix('pengaduan')->group(function () {
-    Route::get('/', [PengaduanController::class, 'index']);
+    Route::get('/', [PengaduanController::class, 'index'])->name('pengaduan.index');
     Route::post('/store', [PengaduanController::class, 'store'])->name('pengaduan.store');
 });

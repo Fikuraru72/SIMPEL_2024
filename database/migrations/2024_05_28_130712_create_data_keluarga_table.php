@@ -13,19 +13,23 @@ return new class extends Migration
     {
         Schema::create('data_keluarga', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('penduduk_id');
+            $table->unsignedBigInteger('id_penduduk');
+            $table->foreign('id_penduduk')->references('id_penduduk')->on('penduduk');
             $table->string('NIK');
             $table->string('nama');
+            $table->string('TTL');
+            $table->string('Agama');
+            $table->enum('JenisKelamin', ['Pria', 'Wanita']);
             $table->timestamps();
-
-            $table->foreign('penduduk_id')->references('id_penduduk')->on('penduduk')->onDelete('cascade');
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('data_keluarga');
     }
