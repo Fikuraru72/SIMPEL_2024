@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengaduan', function (Blueprint $table) {
-            $table->id('id_pengaduan');
-            $table->string('Subjek');
-            $table->text('Isi');
+        Schema::create('akun', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('id_user')->index();
-
-            $table->foreign('id_user')->references('id_user')->on('users');
         });
     }
 
@@ -27,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pengaduan');
+        Schema::dropIfExists('akun');
     }
 };
