@@ -4,35 +4,40 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\DataKeluarga;
+use App\Models\Penduduk;
 
 class DataKeluargaController extends Controller
 {
-    public function index() 
+    public function index(Request $request, $id = null, $noKK = null)
     {
         $breadcrumb = (object) [
             'title' => 'Data Keluarga',
             'list'  => ['Beranda', 'Data Keluarga']
         ];
 
-        $dataKeluarga = DataKeluarga::all();
-        
-        return view('user.dataKeluarga.index', ['breadcrumb' => $breadcrumb, 'dataKeluarga' => $dataKeluarga]);
+        if ($id || $noKK) {
+            $dataKeluarga = Penduduk::where('id_penduduk', $id)
+                                        ->orWhere('NoKK', $noKK)
+                                        ->get();
+        } elseif ($request->has('id_penduduk')) {
+            $id_penduduk = $request->input('id_penduduk');
+            $dataKeluarga = Penduduk::where('id_penduduk', $id_penduduk)->get();
+        }
+
+        return view('user.dataKeluarga.index', compact('breadcrumb', 'dataKeluarga'));
     }
 
-    public function detail()
+    public function search(Request $request)
     {
+        $id_penduduk = $request->input('id_penduduk');
+
+        $dataKeluarga = Penduduk::where('id_penduduk', $id_penduduk)->get();
+
         $breadcrumb = (object) [
-            'title' => 'Detail Data Penduduk',
-            'list'  => ['Beranda', 'Data Keluarga', 'Detail']
+            'title' => 'Data Keluarga',
+            'list'  => ['Beranda', 'Data Keluarga']
         ];
 
-        $page = (object) [
-            'title' => 'Detail Data Penduduk'
-        ];
-
-        $activeMenu = 'penduduk';
-
-        return view('user.dataKeluarga.detail', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
+        return view('user.dataKeluarga.index', compact('breadcrumb', 'dataKeluarga'));
     }
 }

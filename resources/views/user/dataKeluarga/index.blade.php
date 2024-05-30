@@ -5,44 +5,39 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Data Keluarga</h5>
-                <div class="d-flex justify-content-between align-items-end flex-wrap">
-                    <div>
+                <form action="{{ route('dataKeluarga.index') }}" method="GET">
+                    <div class="d-flex justify-content-between align-items-end flex-wrap">
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control" placeholder="Cari...">
-                            <button class="btn btn-info" type="button" id="button-addon2" style="">Cari</button>
+                            <input type="text" name="id_penduduk" class="form-control" placeholder="Cari ID Penduduk...">
+                            <div class="input-group-append">
+                                <button class="btn btn-info" type="submit" id="button-addon2">Cari</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
 
                 <table class="table table-bordered table-striped table-hover table-sm">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th>ID Penduduk</th>
                             <th>NIK</th>
                             <th>Nama</th>
-                            <th>Aksi</th>
+                            <th>TTL</th>
+                            <th>Agama</th>
+                            <th>Jenis Kelamin</th>
                         </tr>
                     </thead>
-
                     <tbody>
-                        @foreach ($dataKeluarga as $index => $keluarga)
+                        @foreach ($dataKeluarga as $keluarga)
                             <tr>
-                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $keluarga->id_penduduk }}</td>
                                 <td>{{ $keluarga->NIK }}</td>
                                 <td>{{ $keluarga->nama }}</td>
-                                <td class="py-1">
-                                    <a href="{{ url('/dataKeluarga/detail', ['id' => $keluarga->id]) }}">
-                                        <button class="btn btn-warning btn-sm">Detail</button>
-                                    </a>
-                                </td>
+                                <td>{{ $keluarga->TTL }}</td>
+                                <td>{{ $keluarga->Agama }}</td>
+                                <td>{{ $keluarga->JenisKelamin }}</td>
                             </tr>
                         @endforeach
-
-                        @if ($dataKeluarga->isEmpty())
-                            <tr>
-                                <td colspan="4" class="text-center">Tidak ada data yang ditemukan.</td>
-                            </tr>
-                        @endif
                     </tbody>
                 </table>
             </div>

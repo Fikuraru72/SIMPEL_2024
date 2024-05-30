@@ -13,7 +13,7 @@
                 </div>
             @endif
 
-            <form method="post" action="{{ route('pengaduan.store') }}" id="formPengaduan" style="display: none; border: 1px solid #ced4da; border-radius: 5px; padding: 20px;">
+            <form method="post" action="{{ route('pengaduan.store') }}" id="formPengaduan" style="border: 1px solid #ced4da; border-radius: 5px; padding: 20px;">
                 @csrf
                 <h5 class="card-title">Form Pengaduan</h5>
                 <div class="form-group">

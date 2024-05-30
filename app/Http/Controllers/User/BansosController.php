@@ -4,18 +4,25 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Bansos; 
 
 class BansosController extends Controller
 {
-    public function index()
-    {
-        $breadcrumb = (object) [
-            'title' => 'Pengajuan Bantuan Sosial',
-            'list'  => ['Beranda', 'Pengajuan Bantuan Sosial']
-        ];
+    public function index($id = null)
+{
+    $breadcrumb = (object) [
+        'title' => 'Pengajuan Bantuan Sosial',
+        'list'  => ['Beranda', 'Pengajuan Bantuan Sosial']
+    ];
 
-        return view('user.bansos.index', ['breadcrumb' => $breadcrumb]);
+    if ($id) {
+        $bansos = Bansos::findOrFail($id);
+    } else {
+        $bansos = Bansos::with('penduduk')->get();
     }
+
+    return view('user.bansos.index', compact('breadcrumb', 'bansos'));
+}
 
     public function detail()
     {
@@ -30,6 +37,6 @@ class BansosController extends Controller
 
         $activeMenu = 'bansos';
 
-        return view('user.bansos.detail', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
+        return view('user.bansos.detail', compact('breadcrumb', 'page', 'activeMenu'));
     }
 }

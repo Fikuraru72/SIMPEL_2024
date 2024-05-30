@@ -1,13 +1,13 @@
 <ul class="nav">
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/penduduk') }}">
+        <a class="nav-link" href="{{ url('/penduduk/1') }}">
             <i class="mdi mdi-account menu-icon"></i>
             <span class="menu-title">Beranda</span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/dataKeluarga') }}">
+        <a class="nav-link" href="{{ url('/dataKeluarga/1/123') }}">
             <i class="mdi mdi-account-group menu-icon"></i>
             <span class="menu-title">Lihat Data Keluarga</span>
         </a>
