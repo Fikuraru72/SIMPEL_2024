@@ -72,16 +72,19 @@ Route::prefix('verifikasiBansos')->group(function () {
 
 Route::prefix('penduduk')->group(function () {
     Route::get('/', [BerandaController::class, 'index']);
+    Route::get('/{id}', [BerandaController::class, 'index'])->name('beranda.index');
 });
 
 Route::prefix('dataKeluarga')->group(function () {
     Route::get('/', [DataKeluargaController::class, 'index'])->name('dataKeluarga.index');
-    Route::get('/search', [DataKeluargaController::class, 'search'])->name('dataKeluarga.search');
+    Route::get('/{id}/{noKK}', [DataKeluargaController::class, 'index']);
+
 });
 
 Route::prefix('bansos')->group(function () {
     Route::get('/', [BansosController::class, 'index']);
-    Route::get('/detail', [BansosController::class, 'detail']);
+    Route::get('/{id}', [BansosController::class, 'index']);
+    Route::get('/detail/{id}', [BansosController::class, 'detail']);
 });
 
 Route::prefix('pengaduan')->group(function () {

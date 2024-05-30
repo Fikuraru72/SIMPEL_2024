@@ -4,16 +4,22 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Penduduk;
 
 class BerandaController extends Controller
 {
-    public function index()
+    public function index($id)
     {
+        // Ambil data penduduk berdasarkan ID yang diberikan
+        $user = Penduduk::find($id);
+        
+        // Definisikan breadcrumb sesuai kebutuhan Anda
         $breadcrumb = (object) [
-            'title' => 'Welcome Back at SIMPEL',
+            'title' => 'Beranda',
             'list'  => ['Home','Penduduk']
         ];
         
-        return view('user.index', ['breadcrumb' => $breadcrumb]);
+        // Kirim data penduduk dan breadcrumb ke tampilan
+        return view('user.index', compact('breadcrumb', 'user'));
     }
 }

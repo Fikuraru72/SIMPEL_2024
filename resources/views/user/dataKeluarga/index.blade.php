@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Data Keluarga</h5>
-                <form action="{{ route('dataKeluarga.search') }}" method="GET">
+                <form action="{{ route('dataKeluarga.index') }}" method="GET">
                     <div class="d-flex justify-content-between align-items-end flex-wrap">
                         <div class="input-group mb-2">
                             <input type="text" name="id_penduduk" class="form-control" placeholder="Cari ID Penduduk...">
@@ -35,7 +35,7 @@
                                 <td>{{ $keluarga->nama }}</td>
                                 <td>{{ $keluarga->TTL }}</td>
                                 <td>{{ $keluarga->Agama }}</td>
-                                <td>{{ $keluarga->Jenis_Kelamin }}</td>
+                                <td>{{ $keluarga->JenisKelamin }}</td>
                             </tr>
                         @endforeach
                     </tbody>
