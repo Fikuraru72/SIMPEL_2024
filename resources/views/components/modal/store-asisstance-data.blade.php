@@ -1,60 +1,55 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Menambah Data Penduduk Baru</h4>
-        <form class="forms-sample">
-          <div class="form-group">
-            <label for="exampleInputName1">Nama</label>
-            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1">NIK</label>
-            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1">No.KK</label>
-            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-          </div><div class="form-group">
-            <label for="exampleInputName1">Tanggal Lahir</label>
-            <input type="date" class="form-control" id="exampleInputName1" placeholder="Name">
-          </div>
-          <div class="form-group">
-            <label for="exampleSelectGender">Agama</label>
-              <select class="form-select">
-                <option>Islam</option>
-                <option>Katolik</option>
-                <option>Protestan</option>
-                <option>Hindu</option>
-                <option>Budha</option>
-                <option>Khonghuchu</option>
-              </select>
-            </div>
-          {{-- <div class="form-group">
-            <label for="exampleInputEmail3">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword4">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-          </div> --}}
-          <div class="form-group">
-            <label for="exampleSelectGender">Gender</label>
-              <select class="form-select" id="exampleSelectGender">
-                <option>Pria</option>
-                <option>Wanita</option>
-              </select>
-            </div>
-          <div class="form-group">
-            <label for="exampleInputCity1">Alamat</label>
-            <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-          </div>
-          <div class="form-group">
-            <label for="exampleTextarea1">Textarea</label>
-            <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary me-2">Submit</button>
-          <button class="btn btn-light">Cancel</button>
-        </form>
-      </div>
+        <div class="card-body">
+            <h4 class="card-title">Menambah Data Penduduk Baru</h4>
+            <form class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputName1">NIK</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelectGender">Pendapatan</label>
+                    <select class="form-select" id="exampleSelectGender">
+                        <option> > 3.000.000 </option>
+                        <option>3.000.000 - 1.000.000</option>
+                        <option> < 1.000.000 </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelectGender">Tanggungan</label>
+                    <select class="form-select" id="exampleSelectGender">
+                        <option> > 5 </option>
+                        <option> 5 - 3 </option>
+                        <option> < 3 </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelectGender">PBB</label>
+                    <select class="form-select" id="exampleSelectGender">
+                        <option> > 300.000</option>
+                        <option> 300.000 - 150.000 </option>
+                        <option> < 150.000 </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelectGender">Tagihan Air</label>
+                    <select class="form-select" id="exampleSelectGender">
+                        <option> < 100.000 </option>
+                        <option> 200.000 - 100.000 </option>
+                        <option> > 200.000 </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelectGender">Tagihan Listrik</label>
+                    <select class="form-select" id="exampleSelectGender">
+                        <option> < 100.000 </option>
+                        <option> 200.000 - 100.000 </option>
+                        <option> > 200.000 </option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
