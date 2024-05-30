@@ -15,13 +15,17 @@ class PengaduanTableSeeder extends Seeder
     {
         DB::table('pengaduan')->insert([
             [
-                'Subjek' => 'Lampu Jalan Rusak',
-                'Isi' => 'Lampu jalan di depan rumah saya rusak.',
+                'nama' => 'John Doe',
+                'nik' => '1234567890123456',
+                'pesan' => 'Lampu jalan di depan rumah saya rusak.',
+                'rt' => '01',
                 'id_user' => 1,
             ],
             [
-                'Subjek' => 'Jalan Berlubang',
-                'Isi' => 'Ada jalan berlubang di sekitar komplek.',
+                'nama' => 'Jane Smith',
+                'nik' => '2345678901234567',
+                'pesan' => 'Ada jalan berlubang di sekitar komplek.',
+                'rt' => '02',
                 'id_user' => 2,
             ],
         ]);

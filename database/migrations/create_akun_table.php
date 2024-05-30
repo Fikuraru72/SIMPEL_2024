@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('akun', function (Blueprint $table) {
             $table->id();
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->unsignedTinyInteger('Level');
+            $table->unsignedBigInteger('id_penduduk');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
