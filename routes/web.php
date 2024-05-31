@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\HistoryPopulationController;
 use App\Http\Controllers\admin\HistoryAssistanceController;
 use App\Http\Controllers\admin\AssistanceDataController;
 use App\Http\Controllers\admin\AssistanceDataVerificationController;
+use App\Http\Controllers\Admin\PerhitunganMooraController;
 use App\Http\Controllers\User\BansosController;
 use App\Http\Controllers\User\BerandaController;
 use App\Http\Controllers\User\DataKeluargaController;
@@ -67,6 +68,10 @@ Route::prefix('verifikasiBansos')->group(function () {
     Route::get('/', [AssistanceDataVerificationController::class, 'index']);
     Route::get('/details/{id}', [AssistanceDataVerificationController::class, 'detail']);
     Route::put('/konfirmasi/{id}', [AssistanceDataVerificationController::class, 'konfirmasi']);
+});
+
+Route::prefix('perhitunganBansos')->group(function () {
+    Route::get('/', [PerhitunganMooraController::class, 'index']);
 });
 
 
