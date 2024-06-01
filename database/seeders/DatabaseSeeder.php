@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             StatusTableSeeder::class,
             UsersTableSeeder::class,
             PengaduanTableSeeder::class,
+            KriteriaTableSeeder::class
         ]);
     }
 }

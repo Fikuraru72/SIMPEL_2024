@@ -41,6 +41,9 @@ class AssistanceDataController extends Controller
             ->addColumn('NoKK', function ($data) {
                 return $data->penduduk->NoKK;
             })
+            ->addColumn('nama', function ($data) {
+                return $data->penduduk->nama;
+            })
             ->make(true);
     }
 }

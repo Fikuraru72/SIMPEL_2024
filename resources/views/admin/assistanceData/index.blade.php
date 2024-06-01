@@ -37,6 +37,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>NIK</th>
+                                <th>Nama</th>
                                 <th>Pendapatan</th>
                                 <th>Tanggungan</th>
                                 <th>pbb</th>
@@ -77,6 +78,8 @@
                     }, {
                         data: "NoKK",
                     }, {
+                        data: "nama"
+                    },{
                         data: "pendapatan",
                     }, {
                         data: "tanggungan",
