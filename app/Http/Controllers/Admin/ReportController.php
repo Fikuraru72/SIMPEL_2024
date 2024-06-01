@@ -24,8 +24,8 @@ class ReportController extends Controller
     public function list(Request $request){
     $dataReport = Pengaduan::select(
         'id_pengaduan',
-        'Subjek',
-        'Isi',
+        'subjek',
+        'pesan',
         'created_at'
     );
 

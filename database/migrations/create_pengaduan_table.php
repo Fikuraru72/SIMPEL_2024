@@ -10,8 +10,7 @@
         {
             Schema::create('pengaduan', function (Blueprint $table) {
                 $table->id('id_pengaduan');
-                $table->string('nama');
-                $table->string('nik');
+                $table->text('subjek');
                 $table->text('pesan');
                 $table->string('rt');
                 $table->timestamps();

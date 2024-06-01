@@ -71,7 +71,7 @@ Route::prefix('verifikasiBansos')->group(function () {
 
 
 Route::prefix('penduduk')->group(function () {
-    Route::get('/', [BerandaController::class, 'index']);
+    // Route::get('/', [BerandaController::class, 'index']);
     Route::get('/{id}', [BerandaController::class, 'index'])->name('beranda.index');
 });
 
@@ -82,7 +82,7 @@ Route::prefix('dataKeluarga')->group(function () {
 });
 
 Route::prefix('bansos')->group(function () {
-    Route::get('/', [BansosController::class, 'index']);
+    // Route::get('/', [BansosController::class, 'index']);
     Route::get('/{id}', [BansosController::class, 'index']);
     Route::get('/detail/{id}', [BansosController::class, 'detail']);
 });

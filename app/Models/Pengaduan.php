@@ -13,11 +13,9 @@ class Pengaduan extends Model
     protected $primaryKey = 'id_pengaduan';
 
     protected $fillable = [
-        'nama',
-        'nik',
+        'subjek',
         'pesan',
         'rt',
-        'id_user'
     ];
 
     public function user()

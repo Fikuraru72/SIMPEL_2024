@@ -44,10 +44,10 @@
                         data: "id_pengaduan",
                     },
                     {
-                        data: 'Subjek'
+                        data: 'subjek'
                     },
                     {
-                        data: 'Isi'
+                        data: 'pesan'
                     },{
                         data : 'created_at'
                     }

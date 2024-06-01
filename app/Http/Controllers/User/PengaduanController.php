@@ -25,15 +25,13 @@ class PengaduanController extends Controller
     public function store(Request $request)
 {
     $request->validate([
-        'nama' => 'required|string|max:255',
-        'nik' => 'required|string|max:16',
+        'subjek' => 'required|string|max:30',
         'pesan' => 'required|string',
         'rt' => 'required|string|max:3',
     ]);
 
     Pengaduan::create([
-        'nama' => $request->nama, 
-        'nik' => $request->nik,
+        'subjek' => $request->subjek,
         'pesan' => $request->pesan,
         'rt' => $request->rt,
     ]);
