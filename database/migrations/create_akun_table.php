@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
-            $table->unsignedTinyInteger('Level');
+            $table->string('level');
             $table->unsignedBigInteger('id_penduduk');
             $table->rememberToken();
             $table->timestamps();

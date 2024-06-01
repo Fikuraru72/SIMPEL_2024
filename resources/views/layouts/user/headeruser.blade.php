@@ -15,11 +15,13 @@
         </button>
 
         <li class="nav-item">
-            <button type="button" class="btn btn-danger">
-                <a class="dropdown-item">
-                    <i class="mdi mdi-logout"></i>
-                    Logout
-                </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            <button type="button" class="btn btn-danger"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="mdi mdi-logout"></i>
+                Logout
             </button>
         </li>
     </ul>
