@@ -36,6 +36,8 @@ Route::get('regrist/', [RegristController::class, 'index']);
 Route::prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::post('/list', [DashboardController::class, 'list']);
+    Route::get('/bansos-data', [DashboardController::class, 'getBansosData']);
+    Route::get('/penduduk-data', [DashboardController::class, 'getPendudukData']);
 });
 
 Route::prefix('datapenduduk')->group(function () {
