@@ -108,19 +108,19 @@
                     <table class="table table-bordered table-striped table-hover table-sm">
                         <thead>
                             <tr>
+                                <th>Ranking</th>
                                 <th>NIK</th>
                                 <th>Nama</th>
                                 <th>Total</th>
-                                <th>Ranking</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($ranking as $items)
                                 <tr>
+                                    <td>{{ $items['Ranking'] }}</td>
                                     <td>{{ $items['NIK'] }}</td>
                                     <td>{{ $items['Nama'] }}</td>
                                     <td>{{ $items['Total'] }}</td>
-                                    <td>{{ $items['Ranking'] }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

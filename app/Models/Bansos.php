@@ -21,7 +21,8 @@ class Bansos extends Model
         'tagihanListrik',
         'status',
         'id_penduduk',
-        'updated_at'
+        'updated_at',
+        'created_at'
     ];
 
     public function penduduk(): BelongsTo
