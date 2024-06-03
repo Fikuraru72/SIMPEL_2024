@@ -32,13 +32,19 @@
                                 <div class="col-12">
                                     <label for="username" class="form-label">Username <span
                                             class="text-danger">*</span></label>
-                                    <input type="username" class="form-control" name="username" id="username" required>
+                                    <input type="text" class="form-control" name="username" id="username" required>
+                                    @error('username')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="col-12">
                                     <label for="password" class="form-label">Password <span
                                             class="text-danger">*</span></label>
                                     <input type="password" class="form-control" name="password" id="password"
                                         value="" required>
+                                    @error('password')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="col-12">

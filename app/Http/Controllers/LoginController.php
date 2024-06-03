@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function index (){
+    public function index (Request $request){
         return view('login');
     }
 
@@ -21,24 +20,27 @@ class LoginController extends Controller
 
         $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        // dd(Auth::attempt($credentials));
 
-            \Log::info('Login successful. User level: ' . Auth::user()->level);
+        $isAuthenticated = Auth::attempt($credentials);
 
-            $user = Auth::user();
-            if ($user->level == 'admin') {
+        if ($isAuthenticated) {
+
+
+            if (Auth::user()->level == 'admin') {
+                dd($request->user()->username);
+
                 return redirect("admin/");
-            } elseif ($user->level == 'penduduk') {
-                return redirect()->intended("penduduk/{$user->id_penduduk}");
+                // return response()->json('AUTH KONTOL');
+            } else {
+                return redirect("/penduduk/{Auth::user()->id_penduduk}");
             }
-
-            // return redirect()->intended('dashboard');
         }
 
         return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ]);
+        'username' => 'The provided credentials do not match our records.',
+    ]);
+
     }
 
 public function logout(Request $request)

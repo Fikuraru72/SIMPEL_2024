@@ -35,13 +35,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-    Route::prefix('admin')->group(function () {
-        Route::get('/', [DashboardController::class, 'index']);
-        Route::post('/list', [DashboardController::class, 'list']);
-        Route::get('/bansos-data', [DashboardController::class, 'getBansosData']);
-        Route::get('/penduduk-data', [DashboardController::class, 'getPendudukData']);
-    });
-
+Route::middleware(['auth'])->group(function () {
     Route::prefix('datapenduduk')->group(function () {
         Route::get('/', [PopulationController::class, 'index']);
         Route::post('/store', [PopulationController::class, 'store']);
@@ -102,3 +96,7 @@ Route::prefix('pengaduan')->group(function () {
     Route::get('/', [PengaduanController::class, 'index'])->name('pengaduan.index');
     Route::post('/store', [PengaduanController::class, 'store'])->name('pengaduan.store');
 });
+
+});
+
+
