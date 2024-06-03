@@ -13,7 +13,7 @@ class PerhitunganMooraController extends Controller
     {
         $breadcrumb = (object) [
             'title' => 'Welcome Back at SIMPEL',
-            'list' => ['Home', 'Dashboard']
+            'list' => ['Home', 'Perhitungan Moora']
         ];
 
         $bansos = Bansos::all();
@@ -25,12 +25,12 @@ class PerhitunganMooraController extends Controller
         $ranking = $this->hitungRanking($matriksNormalisasiTertimbang);
 
         return view('admin.moora.index', [
-            'breadcrumb' => $breadcrumb,
-            'bansos' => $bansos,
-            'kriteria' => $kriteria,
-            'normalisasiMatriks' => $normalisasiMatriks,
-            'matriksNormalisasiTertimbang' => $matriksNormalisasiTertimbang,
-            'ranking' => $ranking,
+            'breadcrumb'                    => $breadcrumb,
+            'bansos'                        => $bansos,
+            'kriteria'                      => $kriteria,
+            'normalisasiMatriks'            => $normalisasiMatriks,
+            'matriksNormalisasiTertimbang'  => $matriksNormalisasiTertimbang,
+            'ranking'                       => $ranking,
         ]);
     }
 

@@ -38,7 +38,7 @@
                 </div>
 
                 <br><br>
-                <h3 class="card-title">Matriks Ternormalisasi</h3>
+                <h3 class="card-title">Normalisasi Matriks Keputusan</h3>
 
                 <div class="table-responsive p-4">
                     <table class="table table-bordered table-striped table-hover table-sm">
@@ -54,7 +54,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($normalisasiMatriks as $items)
+                            @foreach ($dataTernormalisasi as $items)
                                 <tr>
                                     <td>{{ $items['NIK'] }}</td>
                                     <td>{{ $items['Nama'] }}</td>
@@ -70,7 +70,7 @@
                 </div>
 
                 <br><br>
-                <h3 class="card-title">Matriks Normalisasi Terbobot</h3>
+                <h3 class="card-title">Matriks Bobot Keputusan</h3>
 
                 <div class="table-responsive p-4">
                     <table class="table table-bordered table-striped table-hover table-sm">
@@ -86,7 +86,65 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($matriksNormalisasiTertimbang as $items)
+                            @foreach ($dataTerbobot as $items)
+                                <tr>
+                                    <td>{{ $items['NIK'] }}</td>
+                                    <td>{{ $items['Nama'] }}</td>
+                                    <td>{{ $items['Pendapatan'] }}</td>
+                                    <td>{{ $items['Tanggungan'] }}</td>
+                                    <td>{{ $items['PBB'] }}</td>
+                                    <td>{{ $items['TagihanAir'] }}</td>
+                                    <td>{{ $items['TagihanListrik'] }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <br><br>
+                <h3 class="card-title">Nilai Batas Matriks</h3>
+
+                <div class="table-responsive p-4">
+                    <table class="table table-bordered table-striped table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th>Pendapatan</th>
+                                <th>Tanggungan</th>
+                                <th>PBB</th>
+                                <th>Tagihan Air</th>
+                                <th>Tagihan Listrik</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $dataNilaiBatas['Pendapatan'] }}</td>
+                                <td>{{ $dataNilaiBatas['Tanggungan'] }}</td>
+                                <td>{{ $dataNilaiBatas['PBB'] }}</td>
+                                <td>{{ $dataNilaiBatas['TagihanAir'] }}</td>
+                                <td>{{ $dataNilaiBatas['TagihanListrik'] }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <br><br>
+                <h3 class="card-title">Matriks Jarak Alternatif dari Daerah Perkiraan Perbatasan</h3>
+
+                <div class="table-responsive p-4">
+                    <table class="table table-bordered table-striped table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th>NIK</th>
+                                <th>Nama</th>
+                                <th>Pendapatan</th>
+                                <th>Tanggungan</th>
+                                <th>PBB</th>
+                                <th>Tagihan Air</th>
+                                <th>Tagihan Listrik</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($dataMatriksJarak as $items)
                                 <tr>
                                     <td>{{ $items['NIK'] }}</td>
                                     <td>{{ $items['Nama'] }}</td>
@@ -126,6 +184,7 @@
                         </tbody>
                     </table>
                 </div>
+
             </div>
         </div>
     </div>
