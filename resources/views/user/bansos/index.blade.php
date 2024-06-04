@@ -24,9 +24,9 @@
                         <td>{{ $bansoso->created_at }}</td>
                         <td>{{ $bansoso->penduduk->NIK }}</td>
                         <td>{{ $bansoso->penduduk->nama }}</td>
-                        <td>{{ $bansoso->status }}</td>     
+                        <td>{{ $bansoso->status }}</td>
                         <td>
-                            <a href="{{ url('/bansos/detail') }}">
+                            <a href="{{ url('/bansos/detail/'. Auth::user()->id_penduduk) }}">
                                 <button class="btn btn-warning btn-sm">Detail</button>
                             </a>
                         </td>

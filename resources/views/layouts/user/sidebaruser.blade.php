@@ -14,7 +14,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ url('/bansos') }}">
+        <a class="nav-link" href="{{ url('/bansos/' . Auth::user()->id_penduduk) }}">
             <i class="mdi mdi-cash-plus menu-icon"></i>
             <span class="menu-title">Pengajuan Bantuan Sosial</span>
         </a>
