@@ -14,7 +14,7 @@ class Authenticate extends Middleware
 
     public function handle($request, $next, ...$guards)
     {
-        dd(Auth::check());
+        // dd(Auth::check());
 
 
         if (!Auth::user()) {

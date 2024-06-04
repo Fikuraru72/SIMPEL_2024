@@ -13,14 +13,10 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
-
-        $credentials = $request->only('username', 'password');
-
-        // dd(Auth::attempt($credentials));
 
         $isAuthenticated = Auth::attempt($credentials);
 
@@ -28,12 +24,9 @@ class LoginController extends Controller
 
 
             if (Auth::user()->level == 'admin') {
-                dd($request->user()->username);
-
                 return redirect("admin/");
-                // return response()->json('AUTH KONTOL');
             } else {
-                return redirect("/penduduk/{Auth::user()->id_penduduk}");
+                return redirect("/penduduk/" . Auth::user()->id_penduduk);
             }
         }
 
