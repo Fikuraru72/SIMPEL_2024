@@ -34,13 +34,14 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
+Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
         Route::post('/list', [DashboardController::class, 'list']);
         Route::get('/bansos-data', [DashboardController::class, 'getBansosData']);
         Route::get('/penduduk-data', [DashboardController::class, 'getPendudukData']);
     });
+
 
     Route::prefix('datapenduduk')->group(function () {
         Route::get('/', [PopulationController::class, 'index']);
@@ -77,28 +78,34 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::prefix('perhitunganBansos')->group(function () {
         Route::get('/', [PerhitunganMooraController::class, 'index']);
     });
-
-
-
-
-Route::prefix('penduduk')->group(function () {
-    // Route::get('/', [BerandaController::class, 'index']);
-    Route::get('/{id}', [BerandaController::class, 'index'])->name('beranda.index');
 });
 
-Route::prefix('dataKeluarga')->group(function () {
-    Route::get('/', [DataKeluargaController::class, 'index'])->name('dataKeluarga.index');
-    Route::get('/{id}', [DataKeluargaController::class, 'index']);
+
+
+Route::group(['middleware' => ['auth', 'checkUserLevel:penduduk']], function () {
+
+    Route::prefix('penduduk')->group(function () {
+        // Route::get('/', [BerandaController::class, 'index']);
+        Route::get('/{id}', [BerandaController::class, 'index'])->name('beranda.index');
+    });
+
+    Route::prefix('dataKeluarga')->group(function () {
+        Route::get('/', [DataKeluargaController::class, 'index'])->name('dataKeluarga.index');
+        Route::get('/{id}', [DataKeluargaController::class, 'index']);
+
+    });
+
+    Route::prefix('bansos')->group(function () {
+        // Route::get('/', [BansosController::class, 'index']);
+        Route::get('/{id}', [BansosController::class, 'index']);
+        Route::get('/detail/{id}', [BansosController::class, 'detail']);
+    });
+
+    Route::prefix('pengaduan')->group(function () {
+        Route::get('/', [PengaduanController::class, 'index'])->name('pengaduan.index');
+        Route::post('/store', [PengaduanController::class, 'store'])->name('pengaduan.store');
+    });
 
 });
 
-Route::prefix('bansos')->group(function () {
-    // Route::get('/', [BansosController::class, 'index']);
-    Route::get('/{id}', [BansosController::class, 'index']);
-    Route::get('/detail/{id}', [BansosController::class, 'detail']);
-});
 
-Route::prefix('pengaduan')->group(function () {
-    Route::get('/', [PengaduanController::class, 'index'])->name('pengaduan.index');
-    Route::post('/store', [PengaduanController::class, 'store'])->name('pengaduan.store');
-});
