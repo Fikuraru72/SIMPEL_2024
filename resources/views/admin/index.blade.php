@@ -96,7 +96,7 @@
                     var lineChart = new Chart(ctx, {
                         type: 'line',
                         data: {
-                            labels: monthsz,
+                            labels: months,
                             datasets: [{
                                 label: 'Jumlah Pengajuan Bansos',
                                 data: counts,
