@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\HistoryPopulationController;
 use App\Http\Controllers\admin\HistoryAssistanceController;
 use App\Http\Controllers\admin\AssistanceDataController;
 use App\Http\Controllers\admin\AssistanceDataVerificationController;
+use App\Http\Controllers\Admin\PerhitunganMabacController;
 use App\Http\Controllers\Admin\PerhitunganMooraController;
 use App\Http\Controllers\User\BansosController;
 use App\Http\Controllers\User\BerandaController;
@@ -54,33 +55,42 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
         Route::post('/list', [ReportController::class, 'list']);
     });
 
-    Route::prefix('riwayatPenduduk')->group(function () {
-        Route::get('/', [HistoryPopulationController::class, 'index']);
-        Route::post('/list', [HistoryPopulationController::class, 'list']);
-    });
+Route::prefix('datapenduduk')->group(function () {
+    Route::get('/', [PopulationController::class, 'index']);
+    Route::post('/store', [PopulationController::class, 'store']);
+    Route::post('/list', [PopulationController::class, 'list']);
+});
 
-    Route::prefix('dataBansos')->group(function () {
-        Route::get('/', [AssistanceDataController::class, 'index']);
-        Route::post('/list', [AssistanceDataController::class, 'list']);
-    });
+Route::prefix('laporan')->group(function () {
+    Route::get('/', [ReportController::class, 'index']);
+    Route::post('/list', [ReportController::class, 'list']);
+});
 
-    Route::prefix('riwayatBansos')->group(function () {
-        Route::get('/', [HistoryAssistanceController::class, 'index']);
-        Route::post('/list', [HistoryAssistanceController::class, 'list']);
-    });
+Route::prefix('riwayatPenduduk')->group(function () {
+    Route::get('/', [HistoryPopulationController::class, 'index']);
+    Route::post('/list', [HistoryPopulationController::class, 'list']);
+});
 
-    Route::prefix('verifikasiBansos')->group(function () {
-        Route::get('/', [AssistanceDataVerificationController::class, 'index']);
-        Route::get('/details/{id}', [AssistanceDataVerificationController::class, 'detail']);
-        Route::put('/konfirmasi/{id}', [AssistanceDataVerificationController::class, 'konfirmasi']);
-    });
+Route::prefix('dataBansos')->group(function () {
+    Route::get('/', [AssistanceDataController::class, 'index']);
+    Route::post('/list', [AssistanceDataController::class, 'list']);
+});
 
     Route::prefix('perhitunganBansos')->group(function () {
         Route::get('/', [PerhitunganMooraController::class, 'index']);
     });
 });
 
+Route::prefix('verifikasiBansos')->group(function () {
+    Route::get('/', [AssistanceDataVerificationController::class, 'index']);
+    Route::get('/details/{id}', [AssistanceDataVerificationController::class, 'detail']);
+    Route::put('/konfirmasi/{id}', [AssistanceDataVerificationController::class, 'konfirmasi']);
+});
 
+Route::prefix('perhitunganBansosMoora')->group(function () {
+    Route::get('/', [PerhitunganMooraController::class, 'index'])->name('admin.moora.index');
+    Route::post('/simpan', [PerhitunganMooraController::class, 'store'])->name('admin.moora.store');
+});
 
 Route::group(['middleware' => ['auth', 'checkUserLevel:penduduk']], function () {
 

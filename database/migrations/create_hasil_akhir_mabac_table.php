@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hasil_akhir_moora', function (Blueprint $table) {
-            $table->id();
+        Schema::create('hasil_akhir_mabac', function (Blueprint $table) {
+            $table->id(); // Auto-increment primary key
             $table->string('kode', 20);
             $table->string('NIK');
             $table->string('nama', 255);
@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('ranking');
             $table->string('tanggal', 40);
             $table->timestamps();
+
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hasil_akhir_moora');
+        Schema::dropIfExists('hasil_akhir_mabac');
     }
 };

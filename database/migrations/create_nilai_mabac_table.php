@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hasil_akhir_moora', function (Blueprint $table) {
+        Schema::create('nilai_mabac', function (Blueprint $table) {
             $table->id();
-            $table->string('kode', 20);
-            $table->string('NIK');
-            $table->string('nama', 255);
-            $table->decimal('total', 10, 2);
-            $table->integer('ranking');
-            $table->string('tanggal', 40);
+            $table->float('total');
+            $table->unsignedBigInteger('id_penduduk')->index();
             $table->timestamps();
+
+            // Add foreign key constraint to link with 'penduduk' table
+            $table->foreign('id_penduduk')->references('id_penduduk')->on('penduduk');
         });
     }
 
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hasil_akhir_moora');
+        Schema::dropIfExists('nilai_mabac');
     }
 };

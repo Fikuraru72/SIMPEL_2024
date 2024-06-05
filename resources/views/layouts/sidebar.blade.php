@@ -24,7 +24,8 @@
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="{{url('/verifikasiBansos')}}"> Verifikasi </a></li>
               <li class="nav-item"> <a class="nav-link" href="{{url('/dataBansos')}}"> Data Bantuan Sosial </a></li>
-              <li class="nav-item"> <a class="nav-link" href="{{url('/perhitunganBansos')}}"> Perhitungan Moora </a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{url('/perhitunganBansosMabac')}}"> Perhitungan Mabac </a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{url('/perhitunganBansosMoora')}}"> Perhitungan Moora </a></li>
             </ul>
           </div>
       </li>

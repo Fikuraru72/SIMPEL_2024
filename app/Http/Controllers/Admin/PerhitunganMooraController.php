@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bansos;
+use App\Models\HasilAkhirMoora;
 use App\Models\Kriteria;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PerhitunganMooraController extends Controller
@@ -13,7 +15,7 @@ class PerhitunganMooraController extends Controller
     {
         $breadcrumb = (object) [
             'title' => 'Welcome Back at SIMPEL',
-            'list' => ['Home', 'Dashboard']
+            'list' => ['Home', 'Perhitungan Moora']
         ];
 
         $bansos = Bansos::all();
@@ -25,13 +27,51 @@ class PerhitunganMooraController extends Controller
         $ranking = $this->hitungRanking($matriksNormalisasiTertimbang);
 
         return view('admin.moora.index', [
-            'breadcrumb' => $breadcrumb,
-            'bansos' => $bansos,
-            'kriteria' => $kriteria,
-            'normalisasiMatriks' => $normalisasiMatriks,
-            'matriksNormalisasiTertimbang' => $matriksNormalisasiTertimbang,
-            'ranking' => $ranking,
+            'breadcrumb'                    => $breadcrumb,
+            'bansos'                        => $bansos,
+            'kriteria'                      => $kriteria,
+            'normalisasiMatriks'            => $normalisasiMatriks,
+            'matriksNormalisasiTertimbang'  => $matriksNormalisasiTertimbang,
+            'ranking'                       => $ranking,
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $bansos = Bansos::all();
+        $kriteria = Kriteria::pluck('bobot', 'kriteria');
+
+        $akar = $this->hitungAkar($bansos);
+        $normalisasiMatriks = $this->hitungNormalisasiMatriks($bansos, $akar);
+        $matriksNormalisasiTertimbang = $this->hitungMatriksNormalisasiTertimbang($normalisasiMatriks, $kriteria);
+        $ranking = $this->hitungRanking($matriksNormalisasiTertimbang);
+
+        $maxKode = HasilAkhirMoora::max('kode');
+
+        if ($maxKode) {
+            $urutan = (int) substr($maxKode, 1, 3);
+            $urutan++;
+        } else {
+            $urutan = 1;
+        }
+
+        $kodebarang = 'k' . sprintf('%03s', $urutan);
+
+        $currentTime = Carbon::now()->toDateTimeString();
+
+        foreach ($ranking as $item) {
+            $hasilPerankingan = new HasilAkhirMoora();
+            $hasilPerankingan->kode = $kodebarang;
+            $hasilPerankingan->NIK = $item['NIK'];
+            $hasilPerankingan->nama = $item['Nama'];
+            $hasilPerankingan->total = $item['Total'];
+            $hasilPerankingan->ranking = $item['Ranking'];
+            $hasilPerankingan->tanggal = $currentTime;
+            $hasilPerankingan->save();
+        }
+
+        session()->flash('success', 'Data berhasil ditambahkan');
+        return redirect()->route('admin.moora.index');
     }
 
     private function hitungAkar($bansos)
