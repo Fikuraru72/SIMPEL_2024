@@ -5,22 +5,20 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Penduduk;
+use Illuminate\Support\Facades\Auth;
+
 
 class DataKeluargaController extends Controller
 {
-    public function index($id)
+    public function index()
     {
         $breadcrumb = (object) [
             'title' => 'Data Keluarga',
             'list'  => ['Beranda', 'Data Keluarga']
         ];
-
-        if ($id) {
-            $dataUser = Penduduk::where('id_penduduk', $id)->first();
-        } elseif ($request->has('id_penduduk')) {
-            // $id_penduduk = $request->input('id_penduduk');
-            // $dataKeluarga = Penduduk::where('id_penduduk', $id_penduduk)->get();
-        }
+        $user = Auth::user();
+        $dataUser = Penduduk::where('id_penduduk', $user->id_penduduk)->first();
+        // dd($dataUser);  
         $dataKeluarga = Penduduk::where('NoKK', $dataUser->NoKK)->get();
 
         // dd($dataUser->Nokk);

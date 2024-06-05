@@ -96,14 +96,14 @@
                     var lineChart = new Chart(ctx, {
                         type: 'line',
                         data: {
-                            labels: months,
+                            labels: monthsz,
                             datasets: [{
                                 label: 'Jumlah Pengajuan Bansos',
                                 data: counts,
                                 borderColor: 'rgba(75, 192, 192, 1)',
                                 borderWidth: 1,
                                 fill: false,
-                                tension: 0.1
+                                tension: 0.2
                             }]
                         },
                         options: {

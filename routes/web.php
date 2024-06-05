@@ -85,19 +85,18 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
 Route::group(['middleware' => ['auth', 'checkUserLevel:penduduk']], function () {
 
     Route::prefix('penduduk')->group(function () {
-        // Route::get('/', [BerandaController::class, 'index']);
-        Route::get('/{id}', [BerandaController::class, 'index'])->name('beranda.index');
+        Route::get('/', [BerandaController::class, 'index']);
     });
 
     Route::prefix('dataKeluarga')->group(function () {
         Route::get('/', [DataKeluargaController::class, 'index'])->name('dataKeluarga.index');
-        Route::get('/{id}', [DataKeluargaController::class, 'index']);
+
 
     });
 
     Route::prefix('bansos')->group(function () {
-        // Route::get('/', [BansosController::class, 'index']);
-        Route::get('/{id}', [BansosController::class, 'index']);
+        Route::get('/', [BansosController::class, 'index']);
+
         Route::get('/detail/{id}', [BansosController::class, 'detail']);
     });
 
