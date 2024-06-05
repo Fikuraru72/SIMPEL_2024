@@ -30,7 +30,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($bansos->slice(0, 15) as $items)
+                                @foreach (collect($bansos)->take(15) as $items)
                                     <tr>
                                         <td>{{ $items->penduduk->NIK }}</td>
                                         <td>{{ $items->penduduk->nama }}</td>
@@ -62,7 +62,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataTernormalisasi->slice(0, 15) as $items)
+                                @foreach (collect($dataTernormalisasi)->take(15) as $items)
                                     <tr>
                                         <td>{{ $items['NIK'] }}</td>
                                         <td>{{ $items['Nama'] }}</td>
@@ -94,7 +94,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataTerbobot->slice(0, 15) as $items)
+                                @foreach (collect($dataTerbobot)->take(15) as $items)
                                     <tr>
                                         <td>{{ $items['NIK'] }}</td>
                                         <td>{{ $items['Nama'] }}</td>
@@ -152,7 +152,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataMatriksJarak->slice(0, 15) as $items)
+                                @foreach (collect($dataMatriksJarak)->take(15) as $items)
                                     <tr>
                                         <td>{{ $items['NIK'] }}</td>
                                         <td>{{ $items['Nama'] }}</td>
@@ -183,7 +183,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($ranking->slice(0, 15) as $items)
+                                    @foreach (collect($ranking)->take(15) as $items)
                                         <tr>
                                             <td>{{ $items['Ranking'] }}</td>
                                             <td>{{ $items['NIK'] }}</td>

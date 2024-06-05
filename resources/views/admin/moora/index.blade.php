@@ -30,7 +30,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($bansos->slice(0, 15) as $items)
+                                @foreach (collect($bansos)->take(15) as $items)
                                     <tr>
                                         <td>{{ $items->penduduk->NIK }}</td>
                                         <td>{{ $items->penduduk->nama }}</td>
@@ -62,7 +62,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($normalisasiMatriks->slice(0, 15) as $items)
+                                @foreach (collect($normalisasiMatriks)->take(15) as $items)
                                     <tr>
                                         <td>{{ $items['NIK'] }}</td>
                                         <td>{{ $items['Nama'] }}</td>
@@ -94,7 +94,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($matriksNormalisasiTertimbang->slice(0, 15) as $items)
+                                @foreach (collect($matriksNormalisasiTertimbang)->take(15) as $items)
                                     <tr>
                                         <td>{{ $items['NIK'] }}</td>
                                         <td>{{ $items['Nama'] }}</td>
@@ -125,7 +125,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($ranking->slice(0, 15) as $items)
+                                    @foreach (collect($ranking)->take(15) as $items)
                                         <tr>
                                             <td>{{ $items['Ranking'] }}</td>
                                             <td>{{ $items['NIK'] }}</td>
