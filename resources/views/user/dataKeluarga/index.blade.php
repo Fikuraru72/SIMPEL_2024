@@ -4,22 +4,12 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Data Keluarga</h5>
-                {{-- <form action="{{ route('dataKeluarga.index') }}" method="GET">
-                    <div class="d-flex justify-content-between align-items-end flex-wrap">
-                        <div class="input-group mb-2">
-                            <input type="text" name="id_penduduk" class="form-control" placeholder="Cari ID Penduduk...">
-                            <div class="input-group-append">
-                                <button class="btn btn-info" type="submit" id="button-addon2">Cari</button>
-                            </div>
-                        </div>
-                    </div>
-                </form> --}}
+                <h5 class="card-title">Data Keluarga </h5>
 
                 <table class="table table-bordered table-striped table-hover table-sm">
                     <thead>
                         <tr>
-                            {{-- <th>ID Penduduk</th> --}}
+                            <th>No</th>
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>TTL</th>
@@ -30,7 +20,7 @@
                     <tbody>
                         @foreach ($dataKeluarga as $keluarga)
                             <tr>
-                                {{-- <td>{{ $keluarga->id_penduduk }}</td> --}}
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $keluarga->NIK }}</td>
                                 <td>{{ $keluarga->nama }}</td>
                                 <td>{{ $keluarga->TTL }}</td>
