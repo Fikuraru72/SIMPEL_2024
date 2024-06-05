@@ -35,13 +35,25 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/', [DashboardController::class, 'index']);
+        Route::post('/list', [DashboardController::class, 'list']);
+        Route::get('/bansos-data', [DashboardController::class, 'getBansosData']);
+        Route::get('/penduduk-data', [DashboardController::class, 'getPendudukData']);
+    });
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', [DashboardController::class, 'index']);
-    Route::post('/list', [DashboardController::class, 'list']);
-    Route::get('/bansos-data', [DashboardController::class, 'getBansosData']);
-    Route::get('/penduduk-data', [DashboardController::class, 'getPendudukData']);
-});
+
+    Route::prefix('datapenduduk')->group(function () {
+        Route::get('/', [PopulationController::class, 'index']);
+        Route::post('/store', [PopulationController::class, 'store']);
+        Route::post('/list', [PopulationController::class, 'list']);
+    });
+
+    Route::prefix('laporan')->group(function () {
+        Route::get('/', [ReportController::class, 'index']);
+        Route::post('/list', [ReportController::class, 'list']);
+    });
 
 Route::prefix('datapenduduk')->group(function () {
     Route::get('/', [PopulationController::class, 'index']);
@@ -64,9 +76,9 @@ Route::prefix('dataBansos')->group(function () {
     Route::post('/list', [AssistanceDataController::class, 'list']);
 });
 
-Route::prefix('riwayatBansos')->group(function () {
-    Route::get('/', [HistoryAssistanceController::class, 'index']);
-    Route::post('/list', [HistoryAssistanceController::class, 'list']);
+    Route::prefix('perhitunganBansos')->group(function () {
+        Route::get('/', [PerhitunganMooraController::class, 'index']);
+    });
 });
 
 Route::prefix('verifikasiBansos')->group(function () {
@@ -80,27 +92,29 @@ Route::prefix('perhitunganBansosMoora')->group(function () {
     Route::post('/simpan', [PerhitunganMooraController::class, 'store'])->name('admin.moora.store');
 });
 
-Route::prefix('perhitunganBansosMabac')->group(function () {
-    Route::get('/', [PerhitunganMabacController::class, 'index'])->name('admin.mabac.index');
-    Route::post('/simpan', [PerhitunganMabacController::class, 'store'])->name('admin.mabac.store');
+Route::group(['middleware' => ['auth', 'checkUserLevel:penduduk']], function () {
+
+    Route::prefix('penduduk')->group(function () {
+        Route::get('/', [BerandaController::class, 'index']);
+    });
+
+    Route::prefix('dataKeluarga')->group(function () {
+        Route::get('/', [DataKeluargaController::class, 'index'])->name('dataKeluarga.index');
+
+
+    });
+
+    Route::prefix('bansos')->group(function () {
+        Route::get('/', [BansosController::class, 'index']);
+
+        Route::get('/detail/{id}', [BansosController::class, 'detail']);
+    });
+
+    Route::prefix('pengaduan')->group(function () {
+        Route::get('/', [PengaduanController::class, 'index'])->name('pengaduan.index');
+        Route::post('/store', [PengaduanController::class, 'store'])->name('pengaduan.store');
+    });
+
 });
 
-Route::prefix('penduduk')->group(function () {
-    Route::get('/{id}', [BerandaController::class, 'index'])->name('beranda.index');
-});
 
-Route::prefix('dataKeluarga')->group(function () {
-    Route::get('/', [DataKeluargaController::class, 'index'])->name('dataKeluarga.index');
-    Route::get('/{id}', [DataKeluargaController::class, 'index']);
-});
-
-Route::prefix('bansos')->group(function () {
-    // Route::get('/', [BansosController::class, 'index']);
-    Route::get('/{id}', [BansosController::class, 'index']);
-    Route::get('/detail/{id}', [BansosController::class, 'detail']);
-});
-
-Route::prefix('pengaduan')->group(function () {
-    Route::get('/', [PengaduanController::class, 'index'])->name('pengaduan.index');
-    Route::post('/store', [PengaduanController::class, 'store'])->name('pengaduan.store');
-});

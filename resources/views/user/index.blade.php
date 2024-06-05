@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="avatar mb-3"></div>
-    <h2>{{ $user->nama }}</h2> 
+    <h2>{{ $user->nama }}</h2>
     <p>NIK  :  {{ $user->NIK }}</p>
     <p>No KK : {{ $user->NoKK }}</p>
     <p>Tanggal Lahir : {{ $user->TTL }}</p>
@@ -37,7 +37,7 @@
         border-radius: 50%;
         margin: 0 auto;
     }
-    
-    
+
+
 </style>
 @endpush

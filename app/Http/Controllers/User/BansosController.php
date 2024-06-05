@@ -5,18 +5,21 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Bansos;
+use Illuminate\Support\Facades\Auth;
+
 
 class BansosController extends Controller
 {
-    public function index($id)
+    public function index()
 {
     $breadcrumb = (object) [
         'title' => 'Pengajuan Bantuan Sosial',
         'list'  => ['Beranda', 'Pengajuan Bantuan Sosial']
     ];
 
+    $user = Auth::user();
     $bansos = Bansos::with('penduduk')
-    ->where('id_penduduk', $id)
+    ->where('id_penduduk', $user->id_penduduk)
     ->get();
 
     return view('user.bansos.index', compact('breadcrumb', 'bansos'));

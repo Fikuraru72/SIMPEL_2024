@@ -3,42 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function index (){
+    public function index (Request $request){
         return view('login');
     }
 
     public function login(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        $credentials = $request->only('username', 'password');
+        $isAuthenticated = Auth::attempt($credentials);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        if ($isAuthenticated) {
 
-            \Log::info('Login successful. User level: ' . Auth::user()->level);
 
-            $user = Auth::user();
-            if ($user->level == 'admin') {
+            if (Auth::user()->level == 'admin') {
                 return redirect("admin/");
-            } elseif ($user->level == 'penduduk') {
-                return redirect()->intended("penduduk/{$user->id_penduduk}");
+            } else {
+                return redirect("penduduk/");
             }
-
-            // return redirect()->intended('dashboard');
         }
 
         return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ]);
+        'username' => 'The provided credentials do not match our records.',
+    ]);
+
     }
 
 public function logout(Request $request)
