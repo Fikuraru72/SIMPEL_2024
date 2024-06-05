@@ -90,7 +90,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Tentang Website SIMPEL</h2>
+          <h2>SIMPEL</h2>
         </div>
 
         <div class="row content">
