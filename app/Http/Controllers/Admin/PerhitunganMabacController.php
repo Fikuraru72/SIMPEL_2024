@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bansos;
+use App\Models\HasilAkhirMabac;
 use App\Models\Kriteria;
+use App\Models\NilaiMabac;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PerhitunganMabacController extends Controller
 {
+
     public function index()
     {
         $breadcrumb = (object) [
@@ -38,9 +42,52 @@ class PerhitunganMabacController extends Controller
             'dataNilaiBatas' => $dataNilaiBatas,
             'nilaiBatas'    => $nilaiBatas,
             'dataMatriksJarak' => $dataMatriksJarak,
-            'ranking'       => $ranking
+            'ranking'       => $ranking,
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $bansos = Bansos::all();
+        $kriteria = Kriteria::pluck('bobot', 'kriteria');
+
+        $dataTernormalisasi = $this->normalisasiMatriks($bansos);
+        $dataTerbobot = $this->bobotKeputusan($dataTernormalisasi, $kriteria);
+        $perkalian = $this->hitungPerkalian($dataTerbobot, $bansos);
+        $dataNilaiBatas = $this->nilaiBatas($perkalian, $bansos);
+        $nilaiBatas = $this->nilaiBatas($perkalian, $bansos);
+        $dataMatriksJarak = $this->matriksJarak($dataTerbobot, $nilaiBatas);
+        $ranking = $this->hitungRanking($dataMatriksJarak);
+
+        // Mengambil data dengan kode paling besar
+        $maxKode = HasilAkhirMabac::max('kode');
+
+        if ($maxKode) {
+            $urutan = (int) substr($maxKode, 1, 3); // Mengambil angka dari kode terbesar
+            $urutan++;
+        } else {
+            $urutan = 1; // Jika tidak ada data, mulai dari 1
+        }
+
+        $kodebarang = 'k' . sprintf('%03s', $urutan); // Membentuk kode baru
+
+        $currentTime = Carbon::now()->toDateTimeString();
+        // Simpan hasil perankingan bersama dengan tanggal saat ini
+        foreach ($ranking as $item) {
+            $hasilPerankingan = new HasilAkhirMabac();
+            $hasilPerankingan->kode = $kodebarang;
+            $hasilPerankingan->NIK = $item['NIK'];
+            $hasilPerankingan->nama = $item['Nama'];
+            $hasilPerankingan->total = $item['Total'];
+            $hasilPerankingan->ranking = $item['Ranking'];
+            $hasilPerankingan->tanggal = $currentTime; // Menyimpan tanggal saat ini
+            $hasilPerankingan->save();
+        }
+
+        session()->flash('success', 'Data berhasil ditambahkan');
+        return redirect()->route('admin.mabac.index');
+    }
+
 
     private function normalisasiMatriks($bansos)
     {

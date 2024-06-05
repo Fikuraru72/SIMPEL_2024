@@ -76,15 +76,16 @@ Route::prefix('verifikasiBansos')->group(function () {
 });
 
 Route::prefix('perhitunganBansosMoora')->group(function () {
-    Route::get('/', [PerhitunganMooraController::class, 'index']);
+    Route::get('/', [PerhitunganMooraController::class, 'index'])->name('admin.moora.index');
+    Route::post('/simpan', [PerhitunganMooraController::class, 'store'])->name('admin.moora.store');
 });
 
 Route::prefix('perhitunganBansosMabac')->group(function () {
-    Route::get('/', [PerhitunganMabacController::class, 'index']);
+    Route::get('/', [PerhitunganMabacController::class, 'index'])->name('admin.mabac.index');
+    Route::post('/simpan', [PerhitunganMabacController::class, 'store'])->name('admin.mabac.store');
 });
 
 Route::prefix('penduduk')->group(function () {
-    // Route::get('/', [BerandaController::class, 'index']);
     Route::get('/{id}', [BerandaController::class, 'index'])->name('beranda.index');
 });
 
