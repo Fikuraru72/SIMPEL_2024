@@ -30,7 +30,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($bansos as $items)
+                                @foreach ($bansos->slice(0, 15) as $items)
                                     <tr>
                                         <td>{{ $items->penduduk->NIK }}</td>
                                         <td>{{ $items->penduduk->nama }}</td>
@@ -62,7 +62,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataTernormalisasi as $items)
+                                @foreach ($dataTernormalisasi->slice(0, 15) as $items)
                                     <tr>
                                         <td>{{ $items['NIK'] }}</td>
                                         <td>{{ $items['Nama'] }}</td>
@@ -94,7 +94,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataTerbobot as $items)
+                                @foreach ($dataTerbobot->slice(0, 15) as $items)
                                     <tr>
                                         <td>{{ $items['NIK'] }}</td>
                                         <td>{{ $items['Nama'] }}</td>
@@ -152,7 +152,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataMatriksJarak as $items)
+                                @foreach ($dataMatriksJarak->slice(0, 15) as $items)
                                     <tr>
                                         <td>{{ $items['NIK'] }}</td>
                                         <td>{{ $items['Nama'] }}</td>
@@ -176,19 +176,19 @@
                             <table class="table table-bordered table-striped table-hover table-sm">
                                 <thead>
                                     <tr>
+                                        <th>Ranking</th>
                                         <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Total</th>
-                                        <th>Ranking</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($ranking as $items)
+                                    @foreach ($ranking->slice(0, 15) as $items)
                                         <tr>
+                                            <td>{{ $items['Ranking'] }}</td>
                                             <td>{{ $items['NIK'] }}</td>
                                             <td>{{ $items['Nama'] }}</td>
                                             <td>{{ $items['Total'] }}</td>
-                                            <td>{{ $items['Ranking'] }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
