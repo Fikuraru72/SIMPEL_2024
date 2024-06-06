@@ -5,3 +5,6 @@
       <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-muted text-center">SIMPEL - Sistem Pelayanan Masyarakat</span>
     </div>
   </footer>
+
+
+  
