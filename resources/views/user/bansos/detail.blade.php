@@ -52,7 +52,7 @@
                 </tr>
             </table>
             {{-- @endempty --}}
-            <a href="{{ url('/bansos/' . Auth::user()->id_penduduk) }}" class="btn btn-info btn-sm btn-default mt-2">Kembali</a>
+            <a href="{{ url('/bansos') }}" class="btn btn-info btn-sm btn-default mt-2">Kembali</a>
         </div>
     </div>
 @endsection
