@@ -12,9 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Memanggil factory
-        Penduduk::factory()->count(15)->create();
-        Bansos::factory()->count(15)->create();
-        Status::factory()->count(15)->create();
+        Penduduk::factory()->count(50)->create();
+        Bansos::factory()->count(25)->create();
+        Status::factory()->count(50)->create();
 
         // Memanggil seeder lain
         $this->call([
