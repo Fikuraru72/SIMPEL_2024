@@ -115,10 +115,12 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:penduduk']], function () 
     });
 
     Route::prefix('bansos')->group(function () {
-        Route::get('/', [BansosController::class, 'index']);
-
-        Route::get('/detail/{id}', [BansosController::class, 'detail']);
+        Route::get('/', [BansosController::class, 'index'])->name('bansos.index');
+        Route::get('/detail/{id_alternatif}', [BansosController::class, 'detail'])->name('bansos.detail');
+        Route::post('/submit', [BansosController::class, 'submit'])->name('bansos.submit');
     });
+    
+    
 
     Route::prefix('pengaduan')->group(function () {
         Route::get('/', [PengaduanController::class, 'index'])->name('pengaduan.index');

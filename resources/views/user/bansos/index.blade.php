@@ -16,17 +16,16 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     @foreach ($bansos as $bansoso)
                     <tr>
-                        <td>{{ $bansoso->id_alternatif}}</td>
+                        <td>{{ $bansoso->id_alternatif }}</td>
                         <td>{{ $bansoso->created_at }}</td>
                         <td>{{ $bansoso->penduduk->NIK }}</td>
                         <td>{{ $bansoso->penduduk->nama }}</td>
                         <td>{{ $bansoso->status }}</td>
                         <td>
-                            <a href="{{ url('/bansos/detail/'. Auth::user()->id_penduduk) }}">
+                            <a href="{{ route('bansos.detail', $bansoso->id_alternatif) }}">
                                 <button class="btn btn-warning btn-sm">Detail</button>
                             </a>
                         </td>
@@ -42,19 +41,11 @@
         <div class="card-body">
             <h5 class="card-title">Pengajuan Bantuan Sosial</h5>
             <button class="btn btn-primary mb-3" id="btnAjukan">Buat Pengajuan</button>
-
-            <form method="post" action="" id="formPengaduan"
+            <form method="post" action="{{ route('bansos.submit') }}" id="formPengaduan"
                 style="display: none; border: 1px solid #ced4da; border-radius: 5px; padding: 20px;">
                 @csrf
                 <h5 class="card-title">Form Pengajuan</h5>
-                <div class="form-group">
-                    <label for="nik">NIK</label>
-                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK">
-                </div>
-                <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama">
-                </div>
+                
                 <div class="form-group">
                     <label for="pendapatan">Pendapatan</label>
                     <select class="form-control" id="pendapatan" name="pendapatan">
@@ -100,7 +91,7 @@
                         <option value="1">&gt; Rp. 200,000,00</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Kirim Pengaduan</button>
+                <button type="submit" class="btn btn-primary">Kirim Pengajuan Bansos</button>
             </form>
         </div>
     </div>
