@@ -24,7 +24,7 @@ class BansosController extends Controller
         return view('user.bansos.index', compact('breadcrumb', 'bansos'));
     }
 
-    public function detail($id_alternatif)
+    public function detail()
     {
         $breadcrumb = (object) [
             'title' => 'Detail Pengajuan Bantuan Sosial',
@@ -35,7 +35,12 @@ class BansosController extends Controller
             'title' => 'Detail Pengajuan Bantuan Sosial'
         ];
 
-        $bansoso = Bansos::with('penduduk')->where('id_alternatif', $id_alternatif)->first();
+        // $bansoso = Bansos::with('penduduk')->where('id_alternatif', $id_alternatif)->first();
+        $user = Auth::user();
+        $bansoso = Bansos::with('penduduk')
+            ->where('id_penduduk', $user->id_penduduk)
+            ->first();
+            // dd($bansoso);
 
         if (!$bansoso) {
             return redirect()->route('bansos.index')->with('error', 'Data tidak ditemukan.');

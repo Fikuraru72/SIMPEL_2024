@@ -10,7 +10,7 @@
             <table class="table table-bordered table-striped table-hover table-sm">
                 <tr>
                     <th>Tanggal Pengajuan</th>
-                    <td>{{ $bansoso->created_at->format('d-m-Y') }}</td>
+                    <td>{{  $bansoso->created_at ? $bansoso->created_at->format('d-m-Y') : '' }}</td>
                 </tr>
                 <tr>
                     <th>NIK</th>
@@ -90,50 +90,9 @@
                     <h5><i class="icon fas fa-ban"></i> Kesalahan!</h5>
                     Data yang Anda cari tidak ditemukan.
                 </div>
-<<<<<<< HEAD
-            @else --}}
-            <table class="table table-bordered table-striped table-hover tablesm">
-                <tr>
-                    <th>Tanggal Pengajuan</th>
-                    <td>01-01-2024</td>
-                </tr>
-                <tr>
-                    <th>NIK</th>
-                    <td>1234567891234567</td>
-                </tr>
-                <tr>
-                    <th>Nama</th>
-                    <td>Bambang Setai Kawan Boy</td>
-                </tr>
-                <tr>
-                    <th>Pendapatan</th>
-                    <td>Rp. 1,000,000,00 - Rp. 3,000,000,00</td>
-                </tr>
-                <tr>
-                    <th>Tanggungan</th>
-                    <td>3 - 5 orang</td>
-                </tr>
-                <tr>
-                    <th>PBB</th>
-                    <td>Rp. 100,000,00 - Rp. 300,000,00</td>
-                </tr>
-                <tr>
-                    <th>Tagihan Air</th>
-                    <td>Rp. 100,000,00 - Rp. 200,000,00</td>
-                </tr>
-                <tr>
-                    <th>Tagihan Listrik</th>
-                    <td>Rp. 100,000,00 - Rp. 200,000,00</td>
-                </tr>
-                <tr>
-                    <th>Status</th>
-                    <td>Diproses</td>
-                </tr>
-            </table>
-            {{-- @endempty --}}
-=======
+
             @endif
->>>>>>> 4b67cfba3d0325bbb7a2f5104574be4b39fa67ec
+
             <a href="{{ url('/bansos') }}" class="btn btn-info btn-sm btn-default mt-2">Kembali</a>
         </div>
     </div>
