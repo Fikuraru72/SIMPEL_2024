@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Bansos extends Model
 {
+    use HasFactory;
     protected $table = 'bansos';
     protected $primaryKey = 'id_alternatif';
 

@@ -9,15 +9,12 @@ use App\Models\Status;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         // Memanggil factory
-        Penduduk::factory()->count(20)->create();
-        Bansos::factory()->count(20)->create();
-        Status::factory()->count(20)->create();
+        Penduduk::factory()->count(15)->create();
+        Bansos::factory()->count(15)->create();
+        Status::factory()->count(15)->create();
 
         // Memanggil seeder lain
         $this->call([
