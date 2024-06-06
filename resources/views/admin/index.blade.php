@@ -52,7 +52,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-7 grid-margin stretch-card mt-4">
+        <div class="col-lg-6 grid-margin stretch-card mt-4">
             <div class="card p-4">
                 <div class="card-body">
                     <h3 class="card-title">Jumlah Penerima Bansos</h3>
@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        <div class="col-lg-5 grid-margin stretch-card mt-4">
+        <div class="col-lg-6 grid-margin stretch-card mt-4">
             <div class="card p-4">
                 <div class="card-body">
                     <h3 class="card-title">Diagram Penduduk</h3>
@@ -81,14 +81,19 @@
     <script>
         $(document).ready(function() {
             // Fetch Bansos Data
+
             $.ajax({
                 url: 'admin/bansos-data',
                 method: 'GET',
                 success: function(data) {
-                    var months = [];
+                    // var months = [];
+                    var monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
+                        "Agustus", "September", "Oktober", "November", "Desember"
+                    ];
+
                     var counts = [];
                     for (var i = 1; i <= 12; i++) {
-                        months.push(i);
+                        // months.push(i);
                         counts.push(data[i] || 0);
                     }
 
@@ -96,7 +101,7 @@
                     var lineChart = new Chart(ctx, {
                         type: 'line',
                         data: {
-                            labels: months,
+                            labels: monthNames,
                             datasets: [{
                                 label: 'Jumlah Pengajuan Bansos',
                                 data: counts,
@@ -125,40 +130,36 @@
                 $.ajax({
                     url: 'admin/penduduk-data',
                     method: 'GET',
-                    data: { rt: rt },
+                    data: {
+                        rt: rt
+                    },
                     success: function(data) {
-                        var labels = Object.keys(data);
+                        var labels = Object.keys(data).map(function(label) {
+                            return 'Rt.' + ('0' + label).slice(-
+                                2); // Mengonversi angka menjadi format 'Rt.01', 'Rt.02', dst.
+                        });
                         var counts = Object.values(data);
 
                         var ctx = document.getElementById('pendudukChart').getContext('2d');
                         var pendudukChart = new Chart(ctx, {
-                            type: 'doughnut',
+                            type: 'bar', // Ubah tipe diagram menjadi 'bar'
                             data: {
                                 labels: labels,
                                 datasets: [{
                                     label: 'Jumlah Penduduk',
                                     data: counts,
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)',
-                                        'rgba(255, 206, 86, 0.2)',
-                                        'rgba(75, 192, 192, 0.2)',
-                                        'rgba(153, 102, 255, 0.2)',
-                                        'rgba(255, 159, 64, 0.2)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(255, 99, 132, 1)',
-                                        'rgba(54, 162, 235, 1)',
-                                        'rgba(255, 206, 86, 1)',
-                                        'rgba(75, 192, 192, 1)',
-                                        'rgba(153, 102, 255, 1)',
-                                        'rgba(255, 159, 64, 1)'
-                                    ],
+                                    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Warna latar belakang batang
+                                    borderColor: 'rgba(54, 162, 235, 1)', // Warna border batang
                                     borderWidth: 1
                                 }]
                             },
                             options: {
                                 responsive: true,
+                                scales: { // Atur skala sumbu
+                                    y: {
+                                        beginAtZero: true // Mulai sumbu y dari angka 0
+                                    }
+                                }
                             }
                         });
                     }
@@ -167,6 +168,7 @@
 
             // Initial load
             fetchPendudukData();
+
 
         });
     </script>
