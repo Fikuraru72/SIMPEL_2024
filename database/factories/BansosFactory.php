@@ -17,7 +17,7 @@ class BansosFactory extends Factory
             'pbb' => $this->faker->randomElement(['1', '2', '3']),
             'tagihanAir' => $this->faker->randomElement(['1', '2', '3']),
             'tagihanListrik' => $this->faker->randomElement(['1', '2', '3']),
-            'status' => $this->faker->randomElement(['terkonfirmasi', 'belum terkonfirmasi']),
+            'status' => $this->faker->randomElement(['Pending_RT', 'Pending_RW', 'Ditolak', 'terkonfirmasi']),
             'id_penduduk' => Penduduk::factory(),
         ];
     }

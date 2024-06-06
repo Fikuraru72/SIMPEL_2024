@@ -16,7 +16,7 @@ class AssistanceDataVerificationController extends Controller
         ];
 
         $dataAssitance = Bansos::with('penduduk')
-        ->where('status', 'belum terkonfirmasi')
+        ->where('status', 'Pending_RW')
         ->select('bansos.*')
         ->get();
 
@@ -27,7 +27,7 @@ class AssistanceDataVerificationController extends Controller
     {
         $data = Bansos::with('penduduk')
             ->where('id_alternatif', $id)
-            ->where('status', 'belum terkonfirmasi')
+            ->where('status', 'Pending_RW')
             ->first();
 
         return response()->json($data);

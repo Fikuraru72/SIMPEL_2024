@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('pbb',['1','2','3']);
             $table->enum('tagihanAir',['1','2','3']);
             $table->enum('tagihanListrik',['1','2','3']);
-            $table->enum('status',['terkonfirmasi', 'belum terkonfirmasi'])->default('belum terkonfirmasi');;
+            $table->enum('status',['Pending_RT', 'Pending_RW', 'Ditolak', 'terkonfirmasi'])->default('Pending_RT');;
             $table->unsignedBigInteger('id_penduduk')->index();
             $table->timestamps();
 
