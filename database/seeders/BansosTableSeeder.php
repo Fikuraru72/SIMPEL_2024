@@ -11,6 +11,6 @@ class BansosTableSeeder extends Seeder
 {
     public function run()
     {
-        Bansos::factory()->count(20)->create();
+        // Bansos::factory()->count(20)->create();
     }
 }

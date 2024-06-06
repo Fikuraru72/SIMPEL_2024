@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Penduduk;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class PendudukFactory extends Factory
 {

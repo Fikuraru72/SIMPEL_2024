@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Penduduk;
+use App\Models\Bansos;
+use App\Models\Status;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,13 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Memanggil factory
+        Penduduk::factory()->count(20)->create();
+        Bansos::factory()->count(20)->create();
+        Status::factory()->count(20)->create();
+
+        // Memanggil seeder lain
         $this->call([
-            PendudukTableSeeder::class,
-            BansosTableSeeder::class,
-            StatusTableSeeder::class,
             UsersTableSeeder::class,
             PengaduanTableSeeder::class,
-            KriteriaTableSeeder::class
+            KriteriaTableSeeder::class,
         ]);
     }
 }
+
