@@ -8,6 +8,7 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Models\Bansos;
 use App\Models\User;
 use App\Models\Penduduk;
+use App\Models\NilaiMabac;
 
 
 class AssistanceDataController extends Controller
@@ -18,9 +19,9 @@ class AssistanceDataController extends Controller
             'list' => ['Home','Dashboard']
         ];
 
-        // $dataAssitance = Bansos::all();
+        $data = NilaiMabac::all();
 
-        return view('admin.assistanceData.index', ['breadcrumb' => $breadcrumb]);
+        return view('admin.assistanceData.index', ['breadcrumb' => $breadcrumb, 'data' => $data]);
     }
 
     public function list(Request $request)
@@ -63,16 +64,12 @@ class AssistanceDataController extends Controller
             'tagListrik' => 'required|integer',
         ]);
 
-        // $user = Auth::user();
         $penduduk = Penduduk::where('NIK', $request->nik)
                             ->where('NoKK', $request->nokk)
                             ->first();
-        // dd($penduduk);
-        // if(!$penduduk){
-        //     dd('kontol');
-        // } else {
-        //     dd($penduduk);
-        // }
+            if (!$penduduk) {
+                return redirect()->route('dataBansos.index')->with('error', 'Data penduduk tidak ditemukan. Pengajuan bantuan sosial gagal disimpan.');
+            }
 
         $bansos = new Bansos();
         $bansos->id_penduduk = $penduduk->id_penduduk;

@@ -7,15 +7,20 @@
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <h5 class="card-title">Data Bantuan Sosial</h5>
                     <div>
-                        <button type="button" class="btn btn-primary btn-rounded btn-icon me-3 mt-2 mt-xl-0">
+                        <button type="button" class="btn btn-primary btn-rounded btn-icon me-3 mt-2 mt-xl-0" data-toggle="modal" data-target="#ranking">
                             <i class="mdi mdi-format-list-numbered"></i>
                         </button>
-                        <button type="button" class="btn btn-info btn-rounded btn-icon me-3 mt-2 mt-xl-0"
-                            data-toggle="modal" data-target="#bansos-baru">
+                        <button type="button" class="btn btn-info btn-rounded btn-icon me-3 mt-2 mt-xl-0" data-toggle="modal"
+                            data-target="#bansos-baru">
                             <i class="mdi mdi-plus"></i>
                         </button>
                     </div>
                 </div>
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <div class="modal fade" id="bansos-baru" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -26,7 +31,22 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <x-modal.store-asisstance-data />
+                            <x-modal.store-asisstance-data data={{$data}} />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="ranking" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Tambah Penduduk Baru</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <x-modal.ranking />
                         </div>
                     </div>
                 </div>

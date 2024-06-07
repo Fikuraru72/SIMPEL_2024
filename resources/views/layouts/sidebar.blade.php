@@ -46,7 +46,6 @@
         <div class="collapse" id="history">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ url('/riwayatPenduduk') }}"> Data Penduduk </a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{ url('/riwayatBansos') }}"> Bantuan Sosial </a></li>
           </ul>
         </div>
       </li>
