@@ -5,14 +5,14 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-body d-flex justify-content-between align-items-end">
-                    <h5 class="card-title">Data Penduduk</h5>
+                    <h5 class="card-title">Data Bantuan Sosial</h5>
                     <div>
-                        <button type="button" class="btn btn-outline-warning me-3 mt-2 mt-xl-0">
-                            <i class="mdi mdi-clock-outline text-muted"></i>
+                        <button type="button" class="btn btn-primary btn-rounded btn-icon me-3 mt-2 mt-xl-0">
+                            <i class="mdi mdi-format-list-numbered"></i>
                         </button>
-                        <button type="button" class="btn btn-outline-info me-3 mt-2 mt-xl-0" data-toggle="modal"
-                            data-target="#bansos-baru">
-                            <i class="mdi mdi-plus text-muted"></i>
+                        <button type="button" class="btn btn-info btn-rounded btn-icon me-3 mt-2 mt-xl-0"
+                            data-toggle="modal" data-target="#bansos-baru">
+                            <i class="mdi mdi-plus"></i>
                         </button>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                         data: "NoKK",
                     }, {
                         data: "nama"
-                    },{
+                    }, {
                         data: "pendapatan",
                     }, {
                         data: "tanggungan",

@@ -72,8 +72,9 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
     });
 
     Route::prefix('dataBansos')->group(function () {
-        Route::get('/', [AssistanceDataController::class, 'index']);
+        Route::get('/', [AssistanceDataController::class, 'index'])->name('dataBansos.index');
         Route::post('/list', [AssistanceDataController::class, 'list']);
+        Route::post('/store', [AssistanceDataController::class, 'store'])->name('dataBansos.store');
     });
 
     // Route::prefix('perhitunganBansos')->group(function () {

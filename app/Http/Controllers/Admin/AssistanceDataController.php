@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Bansos;
 use App\Models\User;
+use App\Models\Penduduk;
+
 
 class AssistanceDataController extends Controller
 {
@@ -45,5 +47,43 @@ class AssistanceDataController extends Controller
                 return $data->penduduk->nama;
             })
             ->make(true);
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request);
+
+        $validatedData = $request->validate([
+            'nik' => 'required|string|',
+            'nokk' => 'required|string',
+            'pendapatan' => 'required|integer',
+            'tanggungan' => 'required|integer',
+            'pbb' => 'required|integer',
+            'tagAir' => 'required|integer',
+            'tagListrik' => 'required|integer',
+        ]);
+
+        // $user = Auth::user();
+        $penduduk = Penduduk::where('NIK', $request->nik)
+                            ->where('NoKK', $request->nokk)
+                            ->first();
+        // dd($penduduk);
+        // if(!$penduduk){
+        //     dd('kontol');
+        // } else {
+        //     dd($penduduk);
+        // }
+
+        $bansos = new Bansos();
+        $bansos->id_penduduk = $penduduk->id_penduduk;
+        $bansos->pendapatan = $validatedData['pendapatan'];
+        $bansos->tanggungan = $validatedData['tanggungan'];
+        $bansos->pbb = $validatedData['pbb'];
+        $bansos->tagihanAir = $validatedData['tagAir'];
+        $bansos->tagihanListrik = $validatedData['tagListrik'];
+        $bansos->status = 'Pending_RW';
+        $bansos->save();
+
+        return redirect()->route('dataBansos.index')->with('success', 'Pengajuan bantuan sosial berhasil diajukan.');
     }
 }
