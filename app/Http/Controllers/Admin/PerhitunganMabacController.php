@@ -21,7 +21,7 @@ class PerhitunganMabacController extends Controller
             'list'  => ['Home', 'Perhitungan Mabac']
         ];
 
-        $bansos = Bansos::all();
+        $bansos = Bansos::all()->where('status', 'terkonfirmasi');
         $kriteria = Kriteria::pluck('bobot', 'kriteria');
 
         $dataTernormalisasi = $this->normalisasiMatriks($bansos);
@@ -48,7 +48,7 @@ class PerhitunganMabacController extends Controller
 
     public function store(Request $request)
     {
-        $bansos = Bansos::all();
+        $bansos = Bansos::all()->where('status', 'terkonfirmasi');
         $kriteria = Kriteria::pluck('bobot', 'kriteria');
 
         $dataTernormalisasi = $this->normalisasiMatriks($bansos);

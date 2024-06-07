@@ -18,7 +18,7 @@ class PerhitunganMooraController extends Controller
             'list' => ['Home', 'Perhitungan Moora']
         ];
 
-        $bansos = Bansos::all();
+        $bansos = Bansos::all()->where('status', 'terkonfirmasi');
         $kriteria = Kriteria::pluck('bobot', 'kriteria');
 
         $akar = $this->hitungAkar($bansos);
@@ -38,7 +38,7 @@ class PerhitunganMooraController extends Controller
 
     public function store(Request $request)
     {
-        $bansos = Bansos::all();
+        $bansos = Bansos::all()->where('status', 'terkonfirmasi');
         $kriteria = Kriteria::pluck('bobot', 'kriteria');
 
         $akar = $this->hitungAkar($bansos);

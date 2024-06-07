@@ -66,9 +66,9 @@ class BansosController extends Controller
         $bansos->pendapatan = $validatedData['pendapatan'];
         $bansos->tanggungan = $validatedData['tanggungan'];
         $bansos->pbb = $validatedData['pbb'];
-        $bansos->tag_air = $validatedData['tagAir'];
-        $bansos->tag_listrik = $validatedData['tagListrik'];
-        $bansos->status = 'belum terkonfirmasi';
+        $bansos->tagihanAir = $validatedData['tagAir'];
+        $bansos->tagihanListrik = $validatedData['tagListrik'];
+        // $bansos->status = 'P';
         $bansos->save();
 
         return redirect()->route('bansos.index')->with('success', 'Pengajuan bantuan sosial berhasil diajukan.');

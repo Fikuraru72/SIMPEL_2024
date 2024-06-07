@@ -41,3 +41,6 @@
 
 </style>
 @endpush
+@push('js')
+
+@endpush

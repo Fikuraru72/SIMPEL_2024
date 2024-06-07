@@ -83,6 +83,7 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
     Route::prefix('verifikasiBansos')->group(function () {
         Route::get('/', [AssistanceDataVerificationController::class, 'index']);
         Route::get('/details/{id}', [AssistanceDataVerificationController::class, 'detail']);
+        Route::put('/tolak/{id}', [AssistanceDataVerificationController::class, 'tolak']);
         Route::put('/konfirmasi/{id}', [AssistanceDataVerificationController::class, 'konfirmasi']);
     });
 

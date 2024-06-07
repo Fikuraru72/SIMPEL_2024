@@ -45,5 +45,18 @@ class AssistanceDataVerificationController extends Controller
         }
     }
 
+    public function tolak($id) {
+        try {
+            $bansos = Bansos::findOrFail($id);
+            $bansos->status = 'Ditolak';
+            $bansos->save();
+
+            // return response()->json(['message' => 'Data berhasil dikonfirmasi',], 200,);
+            return redirect('/verifikasiBansos');
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal mengkonfirmasi data: ' . $e->getMessage()], 500);
+        }
+    }
+
 
 }
