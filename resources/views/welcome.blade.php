@@ -145,7 +145,7 @@
               <div class="stat">
                 <h2 class="counter" data-target="521">0</h2>
                 <p>Jumlah Penduduk</p>
-                <span>Total Jumlah Penduduk</span>
+                <span> Jumlah Penduduk</span>
               </div>
               <div class="stat">
                 
