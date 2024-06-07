@@ -68,11 +68,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>SIMPEL Better Solutions</h1>
-          <h2>Sistem Pelayanan Masyarakat RW 01 Kelurahan Jatimulyo</h2>
+          <h1>Sistem Pelayanan Masyarakat</h1>
+          <h2>RW 04 Kelurahan Jatimulyo, Kecamatan Lowokwaru, Kota Malang</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <a href="https://youtu.be/8TO38KzkgaI?si=6Zukb3-1h5HAOE-Y" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -90,22 +90,26 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Tentang Website SIMPEL</h2>
+          <h2>SIMPEL</h2>
         </div>
 
         <div class="row content">
+          <div class="text-center">
           <div class="abt col-lg-12 pt-4 pt-lg-0">
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Dolorum fugiat adipisci velit eveniet illum sed officia repellat, placeat nostrum, corrupti reiciendis ab qui enim
-              repellendus quidem, et est! Veniam, sapiente?
+              SIMPEL merupakan platform digital yang dirancang untuk memudahkan dan meningkatkan
+              efisiensi pelayanan publik di tingkat lokal. 
+              Melalui website ini, warga dapat melakukan pengaduan masalah, melihat data pribadinya, dan mengajukan diri sebagai penerima bantuan sosial. 
+            </p> 
+              Dengan tujuan untuk meningkatkan transparansi, efisiensi, dan aksesibilitas, 
+              Website SIMPLE berupaya memberikan pelayanan yang lebih baik, cepat, dan terbuka bagi seluruh warga, 
+              sehingga dapat meningkatkan kualitas hidup masyarakat di lingkungan RW 04 Jatimulyo.
             </p>
             <br>
             <div class="text-center">
               <a href="#" class="btn-learn-more">Learn More</a>
             </div>
+          </div>
           </div>
         </div>
 
@@ -122,10 +126,13 @@
             <img src="{{asset('arsha/assets/img/skills.png')}}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-            <h3>Tentang RW 01 Kelurahan Jatimulyo</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            <div class="text-center">
+            <h3>RW 04 Kelurahan Jatimulyo</h3>
+            <p>Berada di Kecamatan Lowokwaru, Kota Malang 
+            </p>
+            <p>Terdiri dari 10 RT yaitu RT 1-10
+            </p>
+            <p>Merupakan RW yang berprestasi di Kota Malang
             </p>
 
             <!-- Tentang RW 01 -->
@@ -133,17 +140,15 @@
               <div class="stat">
                 <h2 class="counter" data-target="232">0</h2>
                 <p>Jumlah Keluarga</p>
-                <span>consequuntur quae diredo para mesta</span>
+                <span>Total Jumlah Kartu Keluarga</span>
               </div>
               <div class="stat">
                 <h2 class="counter" data-target="521">0</h2>
                 <p>Jumlah Penduduk</p>
-                <span>adipisci atque cum quia aut</span>
+                <span>Total Jumlah Penduduk</span>
               </div>
               <div class="stat">
-                <h2 class="counter" data-target="453">0</h2>
-                <p>Jumlah Kegiatan</p>
-                <span>aut commodi quaerat</span>
+                
               </div>
             </div>
 
