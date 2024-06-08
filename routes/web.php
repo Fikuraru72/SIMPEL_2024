@@ -59,6 +59,8 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
         Route::get('/', [PopulationController::class, 'index']);
         Route::post('/store', [PopulationController::class, 'store']);
         Route::post('/list', [PopulationController::class, 'list']);
+        Route::get('/show/{id}', [PopulationController::class, 'show']);
+        // Route::get('/show/{$id}', [PopulationController::class, 'show']);
     });
 
     Route::prefix('laporan')->group(function () {

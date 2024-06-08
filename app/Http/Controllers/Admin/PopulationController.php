@@ -24,7 +24,11 @@ class PopulationController extends Controller
 
     public function list(Request $request)
     {
-        $dataPopulation = Penduduk::with('user', 'status')->select(
+        $dataPopulation = Penduduk::with('user', 'status')
+        ->whereHas('status', function ($query) {
+            $query->whereNotIn('status_warga', ['Meninggal', 'Pindah']);
+        })
+        ->select(
             'id_penduduk',
             'NIK',
             'nama',
@@ -38,14 +42,24 @@ class PopulationController extends Controller
 
         return DataTables::of($dataPopulation)
             ->addIndexColumn()
-            // ->editColumn('aksi', function ($data) {
-            //     return '<a href="' . route('penduduk.edit', $data->NIK) . '">Edit</a> <a href="' . route('penduduk.destroy', $data->id_penduduk) . '" onclick="return confirm(\'Apakah anda yakin?\')">Hapus</a>';
-            // })
-            ->addColumn('status_nikah', function ($data) {
-                return $data->status ? $data->status->status_nikah : ' - ';
+            ->editColumn('aksi', function ($data) {
+                return '<button href=""type="button" class="btn btn-rounded btn-info confirmation" data-toggle="modal"
+                data-target="#modal-detail" data-id="'.$data->id_penduduk.'"> Detail </button>';
             })
-            // ->rawColumns(['rt'])
+            ->addColumn('status_warga', function ($data) {
+                return $data->status ? $data->status->status_warga : ' - ';
+            })
+            ->rawColumns(['aksi'])
             ->make(true);
+    }
+
+    public function show($id)
+    {
+        $data = Penduduk::with('status')
+            ->where('id_penduduk', $id)
+            ->first();
+
+        return response()->json($data);
     }
 
     public function store(Request $request){

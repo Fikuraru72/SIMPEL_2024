@@ -11,7 +11,7 @@
                             onclick="window.location.href='{{ url('/riwayatPenduduk') }}'">
                             <i class="mdi mdi-history"></i>
                         </button>
-                        <button type="button" class="btn btn-info btn-rounded btn-icon me-3 mt-2 mt-xl-0"
+                        <button type="button" class="btn btn-primary btn-rounded btn-icon me-3 mt-2 mt-xl-0"
                             data-toggle="modal" data-target="#penduduk-baru">
                             <i class="mdi mdi-plus"></i>
                         </button>
@@ -23,7 +23,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Tambah Penduduk Baru</h5>
+                                <h5 class="modal-title" id="storePenduduk">Detail Data Penduduk</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -41,12 +41,9 @@
                                 <th>Nama</th>
                                 <th>NIK</th>
                                 <th>No.KK</th>
-                                <th>Tgl Lahir</th>
-                                <th>Agama</th>
-                                <th>JK</th>
                                 <th>RT</th>
-                                <th>Alamat</th>
                                 <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
 
@@ -55,6 +52,21 @@
                         </tbody>
 
                     </table>
+                </div>
+
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-detail">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="storePenduduk">Tambah Penduduk Baru</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <x-modal.detail-penduduk />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,7 +91,7 @@
                     // }
                 },
                 columns: [{
-                    data: 'DT_RowIndex',
+                        data: 'DT_RowIndex',
                         orderable: false,
                         searchable: false,
                     },
@@ -93,22 +105,16 @@
                         data: 'NoKK'
                     },
                     {
-                        data: 'TTL'
-                    },
-                    {
-                        data: 'Agama'
-                    },
-                    {
-                        data: 'JenisKelamin'
-                    },
-                    {
                         data: 'rt'
                     },
                     {
-                        data: 'Alamat'
+                        data: 'status_warga'
                     },
                     {
-                        data: 'status_nikah'
+                        data: "aksi",
+                        className: "text-center",
+                        orderable: false,
+                        searchable: false
                     },
                 ],
                 lengthChange: false,
