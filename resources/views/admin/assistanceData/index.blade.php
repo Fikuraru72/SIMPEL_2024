@@ -37,17 +37,38 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="ranking" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="ranking" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Tambah Penduduk Baru</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Penduduk Penerima Bantuan Sosial</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <x-modal.ranking />
+                            <div class="modal-body">
+                                <!-- Tabel untuk menampilkan ranking -->
+                                <table class="table table-bordered table-striped table-hover table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Ranking</th>
+                                            <th>NIK</th>
+                                            <th>Nama</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($data as $datas)
+                                            <tr>
+                                                <td>{{ $datas->ranking }}</td>
+                                                <td>{{ $datas->NIK }}</td>
+                                                <td>{{ $datas->nama }}</td>
+                                                <td>{{ $datas->total }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,9 +82,9 @@
                                 <th>Nama</th>
                                 <th>Pendapatan</th>
                                 <th>Tanggungan</th>
-                                <th>pbb</th>
-                                <th>tagihanAir</th>
-                                <th>tagihanListrik</th>
+                                <th>PBB</th>
+                                <th>Tagihan Air</th>
+                                <th>Tagihan Listrik</th>
                             </tr>
                         </thead>
 
