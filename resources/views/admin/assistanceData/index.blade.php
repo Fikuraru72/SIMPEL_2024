@@ -7,11 +7,12 @@
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <h5 class="card-title">Data Bantuan Sosial</h5>
                     <div>
-                        <button type="button" class="btn btn-primary btn-rounded btn-icon me-3 mt-2 mt-xl-0" data-toggle="modal" data-target="#ranking">
+                        <button type="button" class="btn btn-primary btn-rounded btn-icon me-3 mt-2 mt-xl-0"
+                            data-toggle="modal" data-target="#ranking">
                             <i class="mdi mdi-format-list-numbered"></i>
                         </button>
-                        <button type="button" class="btn btn-info btn-rounded btn-icon me-3 mt-2 mt-xl-0" data-toggle="modal"
-                            data-target="#bansos-baru">
+                        <button type="button" class="btn btn-info btn-rounded btn-icon me-3 mt-2 mt-xl-0"
+                            data-toggle="modal" data-target="#bansos-baru">
                             <i class="mdi mdi-plus"></i>
                         </button>
                     </div>
@@ -31,7 +32,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <x-modal.store-asisstance-data data={{$data}} />
+                            <x-modal.store-asisstance-data data={{ $data }} />
                         </div>
                     </div>
                 </div>
@@ -52,7 +53,7 @@
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover table-sm" id="table-Assistance">
+                    <table class="table table-bordered table-striped table-hover table-sm display nowrap" id="table-Assistance" style="width:100%">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -77,7 +78,29 @@
     </div>
 @endsection
 
+{{-- @push('css')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/fixedheader/3.2.1/css/fixedHeader.dataTables.min.css">
+    <style>
+        .dataTables_wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .dataTables_scrollHead,
+        .dataTables_scrollFoot {
+            overflow: visible !important;
+        }
+
+        .dataTables_scrollBody {
+            overflow-x: auto;
+        }
+    </style>
+@endpush --}}
+
 @push('js')
+
     <script>
         $(document).ready(function() {
             var table = $('#table-Assistance').DataTable({
@@ -95,26 +118,77 @@
                         data: 'DT_RowIndex',
                         orderable: false,
                         searchable: false,
-                    }, {
-                        data: "NoKK",
-                    }, {
-                        data: "nama"
-                    }, {
-                        data: "pendapatan",
-                    }, {
-                        data: "tanggungan",
-                    }, {
-                        data: "pbb",
-                    }, {
-                        data: "tagihanAir",
-                    }, {
-                        data: "tagihanListrik",
                     },
-
+                    {
+                        data: "NoKK",
+                    },
+                    {
+                        data: "nama"
+                    },
+                    {
+                        data: "pendapatan",
+                        render: function(data, type, row) {
+                            if (data == 3) {
+                                return "< Rp. 1,000,000,00";
+                            } else if (data == 2) {
+                                return "Rp. 1,000,000,00 - Rp. 3,000,000,00";
+                            } else {
+                                return "> Rp. 3,000,000,00";
+                            }
+                        }
+                    },
+                    {
+                        data: "tanggungan",
+                        render: function(data, type, row) {
+                            if (data == 3) {
+                                return "< 3 orang";
+                            } else if (data == 2) {
+                                return "3 - 5 orang";
+                            } else {
+                                return "> 5 orang";
+                            }
+                        }
+                    },
+                    {
+                        data: "pbb",
+                        render: function(data, type, row) {
+                            if (data == 3) {
+                                return "< Rp. 100,000,00";
+                            } else if (data == 2) {
+                                return "Rp. 100,000,00 - Rp. 300,000,00";
+                            } else {
+                                return "> Rp. 300,000,00";
+                            }
+                        }
+                    },
+                    {
+                        data: "tagihanAir",
+                        render: function(data, type, row) {
+                            if (data == 3) {
+                                return "< Rp. 100,000,00";
+                            } else if (data == 2) {
+                                return "Rp. 100,000,00 - Rp. 200,000,00";
+                            } else {
+                                return "> Rp. 200,000,00";
+                            }
+                        }
+                    },
+                    {
+                        data: "tagihanListrik",
+                        render: function(data, type, row) {
+                            if (data == 3) {
+                                return "< Rp. 100,000,00";
+                            } else if (data == 2) {
+                                return "Rp. 100,000,00 - Rp. 200,000,00";
+                            } else {
+                                return "> Rp. 200,000,00";
+                            }
+                        }
+                    }
                 ],
+                fixedHeader: true,
                 lengthChange: false,
-                pageLength: 5,
-                scrollX: false
+                pageLength: 5
             });
         });
     </script>

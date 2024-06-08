@@ -5,9 +5,8 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Data Keluarga </h5>
-
-                <table class="table table-bordered table-striped table-hover table-sm">
-                    <thead>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover table-sm display nowrap" <thead>
                         <tr>
                             <th>No</th>
                             <th>NIK</th>
@@ -16,20 +15,21 @@
                             <th>Agama</th>
                             <th>Jenis Kelamin</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($dataKeluarga as $keluarga)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $keluarga->NIK }}</td>
-                                <td>{{ $keluarga->nama }}</td>
-                                <td>{{ $keluarga->TTL }}</td>
-                                <td>{{ $keluarga->Agama }}</td>
-                                <td>{{ $keluarga->JenisKelamin }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($dataKeluarga as $keluarga)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $keluarga->NIK }}</td>
+                                    <td>{{ $keluarga->nama }}</td>
+                                    <td>{{ $keluarga->TTL }}</td>
+                                    <td>{{ $keluarga->Agama }}</td>
+                                    <td>{{ $keluarga->JenisKelamin }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
