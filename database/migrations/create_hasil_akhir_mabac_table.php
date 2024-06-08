@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('kode', 20);
             $table->string('NIK');
             $table->string('nama', 255);
-            $table->decimal('total', 10, 2);
+            $table->decimal('total', 10, 3);
             $table->integer('ranking');
             $table->string('tanggal', 40);
             $table->timestamps();

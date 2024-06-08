@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Bansos;
+use App\Models\HasilAkhirMabac;
 use App\Models\User;
 use App\Models\Penduduk;
 use App\Models\NilaiMabac;
@@ -19,7 +20,7 @@ class AssistanceDataController extends Controller
             'list' => ['Home','Dashboard']
         ];
 
-        $data = NilaiMabac::all();
+        $data = HasilAkhirMabac::all();
 
         return view('admin.assistanceData.index', ['breadcrumb' => $breadcrumb, 'data' => $data]);
     }
