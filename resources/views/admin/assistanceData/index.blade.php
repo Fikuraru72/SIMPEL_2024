@@ -1,6 +1,12 @@
 @extends('layouts.template')
 
 @section('content')
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -28,7 +34,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Tambah Penerima Bantuan Sosial Baru</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -43,32 +49,46 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Penduduk Penerima Bantuan Sosial</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
+                                <div class="d-flex align-items-end">
+                                    <div class="ms-auto">
+                                        <a href="{{ route('dataBansos.rank') }}" class="btn btn-info me-3 mt-2 mt-xl-0">
+                                            <i class="mdi mdi-refresh"></i>
+                                        </a>
+                                        <a href="#" type="button" class="btn btn-success me-3 mt-2 mt-xl-0">
+                                            <i class="mdi mdi-download"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
                                 <!-- Tabel untuk menampilkan ranking -->
-                                <table class="table table-bordered table-striped table-hover table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Ranking</th>
-                                            <th>NIK</th>
-                                            <th>Nama</th>
-                                            <th>Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($data as $datas)
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover table-sm my-2">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $datas->ranking }}</td>
-                                                <td>{{ $datas->NIK }}</td>
-                                                <td>{{ $datas->nama }}</td>
-                                                <td>{{ $datas->total }}</td>
+                                                <th>Ranking</th>
+                                                <th>NIK</th>
+                                                <th>Nama</th>
+                                                <th>Total</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data as $datas)
+                                                <tr>
+                                                    <td>{{ $datas->ranking }}</td>
+                                                    <td>{{ $datas->NIK }}</td>
+                                                    <td>{{ $datas->nama }}</td>
+                                                    <td>{{ $datas->total }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -85,11 +105,8 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-
                         <tbody>
-
                         </tbody>
-
                     </table>
 
                     <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog"
@@ -98,7 +115,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Detail Bantuan Sosial</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>

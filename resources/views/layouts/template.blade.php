@@ -58,11 +58,11 @@
 
         <div class="main-panel">
             <div class="content-wrapper">
-                @include('layouts.bread')
+                {{-- @include('layouts.bread') --}}
                 @yield('content')
             </div>
             <div class="row">
-                @include('layouts.footer')
+                {{-- @include('layouts.footer') --}}
             </div>
         </div>
     </div>

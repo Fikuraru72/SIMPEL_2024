@@ -78,11 +78,9 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
         Route::post('/list', [AssistanceDataController::class, 'list']);
         Route::post('/store', [AssistanceDataController::class, 'store'])->name('dataBansos.store');
         Route::get('/show/{id}', [AssistanceDataController::class, 'show'])->name('dataBansos.show');
-    });
+        Route::get('/rank', [PerhitunganMabacController::class, 'rank'])->name('dataBansos.rank');
 
-    // Route::prefix('perhitunganBansos')->group(function () {
-    //     Route::get('/', [PerhitunganMooraController::class, 'index']);
-    // });
+    });
 
     Route::prefix('verifikasiBansos')->group(function () {
         Route::get('/', [AssistanceDataVerificationController::class, 'index']);
