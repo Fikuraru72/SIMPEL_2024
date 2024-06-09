@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{asset('arsha/assets/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('arsha/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{asset('arsha/assets/img/Garuda.png')}}" rel="icon">
+  <link href="{{asset('arsha/assets/img/Garuda.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -49,12 +49,12 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
+          <li><a class="nav-link scrollto" href="#about">Tentang</a></li>
           <li><a class="nav-link   scrollto" href="#portfolio">Dokumentasi</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Pengaduan</a></li>
-          <li><a class="getstarted scrollto" href="/login">Portal Login</a></li>
+          <li><a class="nav-link scrollto" href="#team">Perangkat</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Balai RW</a></li>
+          <li><a class="getstarted scrollto" href="/login">Masuk</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -71,12 +71,12 @@
           <h1>Sistem Pelayanan Masyarakat</h1>
           <h2>RW 04 Kelurahan Jatimulyo, Kecamatan Lowokwaru, Kota Malang</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://youtu.be/8TO38KzkgaI?si=6Zukb3-1h5HAOE-Y" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <a href="#about" class="btn-get-started scrollto">Selanjutnya</a>
+            <a href="https://youtu.be/8TO38KzkgaI?si=6Zukb3-1h5HAOE-Y" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Profil SIMPEL</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="{{asset('arsha/assets/img/hero-img.png')}}" class="img-fluid animated" alt="">
+          <img src="{{asset('arsha/assets/img/Garuda.png')}}" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
@@ -101,13 +101,13 @@
               efisiensi pelayanan publik di tingkat lokal. 
               Melalui website ini, warga dapat melakukan pengaduan masalah, melihat data pribadinya, dan mengajukan diri sebagai penerima bantuan sosial. 
             </p> 
-              Dengan tujuan untuk meningkatkan transparansi, efisiensi, dan aksesibilitas, 
+              Dengan tujuan untuk meningkatkan transparansi, efisiensi, dan aksesibilitas. 
               Website SIMPLE berupaya memberikan pelayanan yang lebih baik, cepat, dan terbuka bagi seluruh warga, 
               sehingga dapat meningkatkan kualitas hidup masyarakat di lingkungan RW 04 Jatimulyo.
             </p>
             <br>
             <div class="text-center">
-              <a href="#" class="btn-learn-more">Learn More</a>
+              <a href="#" class="btn-learn-more">Kembali</a>
             </div>
           </div>
           </div>
@@ -123,17 +123,18 @@
 
         <div class="row">
           <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-            <img src="{{asset('arsha/assets/img/skills.png')}}" class="img-fluid" alt="">
+            <img src="{{asset('arsha/assets/img/AnimasiRW.png')}}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
             <div class="text-center">
             <h3>RW 04 Kelurahan Jatimulyo</h3>
+            <p></p>
             <p>Berada di Kecamatan Lowokwaru, Kota Malang 
             </p>
-            <p>Terdiri dari 10 RT yaitu RT 1-10
+            Terdiri dari 10 RT yaitu RT 1-10
             </p>
-            <p>Merupakan RW yang berprestasi di Kota Malang
-            </p>
+        
+           
 
             <!-- Tentang RW 01 -->
             <div class="stats-container">
@@ -145,7 +146,7 @@
               <div class="stat">
                 <h2 class="counter" data-target="521">0</h2>
                 <p>Jumlah Penduduk</p>
-                <span>Total Jumlah Penduduk RW </span>
+                <span>Total Jumlah Penduduk Keseluruhan </span>
               </div>
               <div class="stat">
                 
@@ -165,11 +166,13 @@
 
         <div class="row">
           <div class="col-lg-9 text-center text-lg-start">
-            <h3>Call To Action</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>Prestasi</h3>
+            <p> Berbagai macam penghargaan atas kesuksesan program yang telah diselenggarakan
+              menjadikan RW 04 Jatimulyo menjadi RW yang seringkali mendapatkan penghargaan dari Kota Malang.</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
+            <a class="cta-btn align-middle" href="https://www.google.com/search?q=rw+04+jatimulyo&oq=rw+04+jatimulyo&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBCDUxODlqMGo5qAIAsAIB&sourceid=chrome&ie=UTF-8#ip=1">Selengkapnya</a>
+            
           </div>
         </div>
 
@@ -182,52 +185,42 @@
 
         <div class="section-title">
           <h2>DOKUMENTASI KEGIATAN</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Program yang dikembangkan oleh RW 04 sendiri saat ini meliputi Urban Farming, PKK, dan Karang Taruna. 
+            Warga cukup antusias dengan berbagai program tersebut
+          </p>
         </div>
 
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-app">App</li>
-          <li data-filter=".filter-card">Card</li>
-          <li data-filter=".filter-web">Web</li>
+          <li data-filter="*" class="filter-active">Semua</li>
+          <li data-filter=".filter-app">Urban Farming</li>
+          <li data-filter=".filter-card">PKK</li>
+          <li data-filter=".filter-web">Karang Taruna</li>
         </ul>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/portfolio-1.jpg')}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/1.png')}}" class="img-fluid" alt=""></div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/portfolio-2.jpg')}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/5.png')}}" class="img-fluid" alt=""></div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/portfolio-3.jpg')}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/2.png')}}" class="img-fluid" alt=""></div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/portfolio-4.jpg')}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/3.png')}}" class="img-fluid" alt=""></div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/portfolio-5.jpg')}}" class="img-fluid" alt=""></div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/portfolio-6.jpg')}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/6.png')}}" class="img-fluid" alt=""></div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/portfolio-7.jpg')}}" class="img-fluid" alt=""></div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/portfolio-8.jpg')}}" class="img-fluid" alt=""></div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/portfolio-9.jpg')}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="{{asset('arsha/assets/img/portfolio/4.png')}}" class="img-fluid" alt=""></div>
           </div>
 
         </div>
@@ -240,24 +233,22 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Perangkat RW 01</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
+          <h2>Perangkat</h2>
+          <p>Profil Jajaran Staff dan Perangkat RW 
+
+          </div>
 
         <div class="row">
 
           <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{{asset('arsha/assets/img/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{{asset('arsha/assets/img/team/KetuaRW.jpg')}}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                <h4>Hadi Kadarman</h4>
+                <span>Ketua RW 04 Jatimulyo</span>
+                <p>JL. Remunjung / 56</p>
                 <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                  <a href="http://wa.me/6285745111120"><i class="ri-whatsapp-fill"></i></a>
                 </div>
               </div>
             </div>
@@ -265,16 +256,13 @@
 
           <div class="col-lg-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{{asset('arsha/assets/img/team/team-2.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{{asset('arsha/assets/img/team/WakilRW.jpg')}}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
+                <h4>Bambang Herawan</h4>
+                <span>Wakil Ketua RW 04 Jatimulyo</span>
+                <p>JL. Senggani / 21</p>
                 <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                  <a href="http://wa.me/6285745111120"><i class="ri-whatsapp-fill"></i></a>
                 </div>
               </div>
             </div>
@@ -282,16 +270,14 @@
 
           <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{{asset('arsha/assets/img/team/team-3.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{{asset('arsha/assets/img/team/SekretarisRW.jpg')}}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+                <h4>Yayuk Sugiarto</h4>
+                <span>Sekretaris RW 04</span>
+                <p>JL. Kembang Turi / 12</p>
                 <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                  <a href="http://wa.me/6285745111120"><i class="ri-whatsapp-fill"></i></a>
+      
                 </div>
               </div>
             </div>
@@ -299,16 +285,13 @@
 
           <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="400">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{{asset('arsha/assets/img/team/team-4.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{{asset('arsha/assets/img/team/BendaharaRW.jpg')}}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+                <h4>Budi Pratomo</h4>
+                <span>Bendahara</span>
+                <p>JL. Pisang Kipas / 74</p>
                 <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                  <a href="http://wa.me/6285745111120"><i class="ri-whatsapp-fill"></i></a>
                 </div>
               </div>
             </div>
@@ -320,63 +303,48 @@
     </section><!-- End Team Section -->
 
     <!-- ======= Contact Section ======= -->
+    <div class="container d-flex align-items-center">
     <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
+    </div>
 
-        <div class="section-title">
-          <h2>Pengaduan</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    <div class="section-title">
+          <h2>Balai RW</h2>
+          <p> Gedung Balai RW merupakan gedung bersama yang menunjang kebersamaan warga. Karena seringkali digunakan untuk pertemuan rutin dan pembahasan tantang program baru yang akan dilaksanakan oleh RW. Kegiatan Posyandu.
+            Selain itu dengan izin Ketua RW, Gedung ini juga sering kali digunakan untuk kegiatan warga. Tidak jarang juga Balai RW menjadi tempat yang cukup nyaman untuk anak-anak bermain, karena dilengkapi dengan fasilitas bermain anak.
+
+          </p>
         </div>
 
         <div class="row">
 
           <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="container d-flex align-items-center">
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+
+                <h4>Lokasi:</h4>
+                <p>3J48+V32, Jl. Kembang Turi, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>RW04Jatimulyo@gmail.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <h4>Telepon:</h4>
+                <p>0341-2456-23</p>
               </div>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15805.84496198145!2d112.607641271473!3d-7.951194665243752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629d808c2f7f9%3A0xba0a092668d80f39!2sBalai%20RW.%20II%20Kel.%20Jatimulyo%20Kec.%20Lowokwaru%20Malang!5e0!3m2!1sid!2sid!4v1717256218291!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen ></iframe>
              </div>
 
           </div>
 
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-
-              <div class="section-title">
-                <h2>Formulir Pengaduan</h2>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Aduan Anda Telah Terkirim. Terima Kasih!</div>
-              </div>
-              <div class="text-center"><button type="submit">Kirim Aduan</button></div>
-            </form>
-          </div>
-
+         
         </div>
 
       </div>
@@ -393,10 +361,10 @@
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>SIMPEL</span></strong>. All Rights Reserved
+        &copy;  <strong><span>SIMPEL</span></strong>.
       </div>
       <div class="credits">
-         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        RW 04 Jatimulyo, Kecamatan Lowokwaru, Kota Malang
       </div>
     </div>
   </footer><!-- End Footer -->
