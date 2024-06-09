@@ -79,6 +79,7 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
         Route::post('/store', [AssistanceDataController::class, 'store'])->name('dataBansos.store');
         Route::get('/show/{id}', [AssistanceDataController::class, 'show'])->name('dataBansos.show');
         Route::get('/rank', [PerhitunganMabacController::class, 'rank'])->name('dataBansos.rank');
+        Route::get('/downloadPdf', [AssistanceDataController::class, 'downloadpdf'])->name('dataBansos.downloadPdf');
 
     });
 

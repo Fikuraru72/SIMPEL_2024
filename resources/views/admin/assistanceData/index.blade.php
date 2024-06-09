@@ -59,7 +59,7 @@
                                         <a href="{{ route('dataBansos.rank') }}" class="btn btn-info me-3 mt-2 mt-xl-0">
                                             <i class="mdi mdi-refresh"></i>
                                         </a>
-                                        <a href="#" type="button" class="btn btn-success me-3 mt-2 mt-xl-0">
+                                        <a href="{{ route('dataBansos.downloadPdf') }}" type="button" class="btn btn-success me-3 mt-2 mt-xl-0">
                                             <i class="mdi mdi-download"></i>
                                         </a>
                                     </div>
