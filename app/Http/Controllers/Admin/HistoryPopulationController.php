@@ -39,9 +39,10 @@ class HistoryPopulationController extends Controller
 
         return DataTables::of($dataHistory)
             ->addIndexColumn()
-            // ->editColumn('aksi', function ($data) {
-            //     return '<a href="' . route('penduduk.edit', $data->NIK) . '">Edit</a> <a href="' . route('penduduk.destroy', $data->id_penduduk) . '" onclick="return confirm(\'Apakah anda yakin?\')">Hapus</a>';
-            // })
+            ->editColumn('aksi', function ($data) {
+                return '<button href=""type="button" class="btn btn-rounded btn-info confirmation" data-toggle="modal"
+                data-target="#modal-detail" data-id="'.$data->id_penduduk.'"> Detail </button>';
+            })
             // ->addColumn('status_nikah', function ($data) {
             //     return $data->status ? $data->status->status_nikah : ' - ';
             // })

@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
@@ -77,6 +77,7 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
         Route::get('/', [AssistanceDataController::class, 'index'])->name('dataBansos.index');
         Route::post('/list', [AssistanceDataController::class, 'list']);
         Route::post('/store', [AssistanceDataController::class, 'store'])->name('dataBansos.store');
+        Route::get('/show/{id}', [AssistanceDataController::class, 'show'])->name('dataBansos.show');
     });
 
     // Route::prefix('perhitunganBansos')->group(function () {

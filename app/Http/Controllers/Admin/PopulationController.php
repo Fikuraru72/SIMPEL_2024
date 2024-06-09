@@ -43,7 +43,7 @@ class PopulationController extends Controller
         return DataTables::of($dataPopulation)
             ->addIndexColumn()
             ->editColumn('aksi', function ($data) {
-                return '<button href=""type="button" class="btn btn-rounded btn-info confirmation" data-toggle="modal"
+                return '<button href=""type="button" class="btn btn-rounded btn-info confirmation py-2" data-toggle="modal"
                 data-target="#modal-detail" data-id="'.$data->id_penduduk.'"> Detail </button>';
             })
             ->addColumn('status_warga', function ($data) {

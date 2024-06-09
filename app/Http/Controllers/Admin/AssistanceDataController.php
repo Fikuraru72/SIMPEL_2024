@@ -42,13 +42,26 @@ class AssistanceDataController extends Controller
 
         return DataTables::of($dataAssitance)
             ->addIndexColumn()
+            ->editColumn('aksi', function ($data) {
+                return '<button href=""type="button" class="btn btn-rounded btn-info confirmation py-2" data-toggle="modal"
+                data-target="#modal-detail" data-id="'.$data->id_alternatif.'"> Detail </button>';
+            })
             ->addColumn('NoKK', function ($data) {
                 return $data->penduduk->NoKK;
             })
             ->addColumn('nama', function ($data) {
                 return $data->penduduk->nama;
             })
+            ->rawColumns(['aksi'])
             ->make(true);
+    }
+
+    public function show($id)
+    {
+        $data = Bansos::with('penduduk')
+            ->where('id_alternatif', $id)
+            ->first();
+        return response()->json($data);
     }
 
     public function store(Request $request)
