@@ -10,6 +10,7 @@ use App\Models\HasilAkhirMabac;
 use App\Models\User;
 use App\Models\Penduduk;
 use App\Models\NilaiMabac;
+use PDF;
 
 
 class AssistanceDataController extends Controller
@@ -23,6 +24,13 @@ class AssistanceDataController extends Controller
         $data = HasilAkhirMabac::all();
 
         return view('admin.assistanceData.index', ['breadcrumb' => $breadcrumb, 'data' => $data]);
+    }
+
+    public function downloadpdf(){
+        $data = HasilAkhirMabac::all();
+        $pdf = PDF::loadView('admin.assistanceData.ranking-pdf',compact('data'));
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->download('Data Penerima Bansos.pdf');
     }
 
     public function list(Request $request)
@@ -66,7 +74,6 @@ class AssistanceDataController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
 
         $validatedData = $request->validate([
             'nik' => 'required|string|',
