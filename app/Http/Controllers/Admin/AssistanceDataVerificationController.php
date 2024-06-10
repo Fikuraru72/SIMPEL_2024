@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Bansos;
+use Illuminate\Support\Facades\Auth;
 
 
 class AssistanceDataVerificationController extends Controller
@@ -15,10 +16,23 @@ class AssistanceDataVerificationController extends Controller
             'list' => ['Home','Dashboard']
         ];
 
-        $dataAssitance = Bansos::with('penduduk')
-        ->where('status', 'Pending_RW')
-        ->select('bansos.*')
-        ->get();
+        if (Auth::user()->level == 'admin') {
+
+            $dataAssitance = Bansos::with('penduduk')
+            ->where('status', 'Pending_RW')
+            ->select('bansos.*')
+            ->get();
+        } else {
+            $rt = Auth::user()->level;
+
+            $dataAssitance = Bansos::with('penduduk')
+                ->where('status', 'Pending_RT')
+                ->whereHas('penduduk', function ($query) use ($rt) {
+                    $query->where('rt', $rt);
+                })
+                ->select('bansos.*')
+                ->get();
+        }
 
         return view('admin.assistanceDataVerification.index', ['breadcrumb' => $breadcrumb, 'dataAssitance' => $dataAssitance ]);
     }

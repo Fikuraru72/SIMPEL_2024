@@ -13,10 +13,12 @@
                 <div class="card-body d-flex justify-content-between align-items-end">
                     <h5 class="card-title">Data Bantuan Sosial</h5>
                     <div>
-                        <button type="button" class="btn btn-warning btn-rounded btn-icon me-3 mt-2 mt-xl-0"
-                            data-toggle="modal" data-target="#ranking">
-                            <i class="mdi mdi-format-list-numbered"></i>
-                        </button>
+                        @if (Auth::user()->level == 'admin')
+                            <button type="button" class="btn btn-warning btn-rounded btn-icon me-3 mt-2 mt-xl-0"
+                                data-toggle="modal" data-target="#ranking">
+                                <i class="mdi mdi-format-list-numbered"></i>
+                            </button>
+                        @endif
                         <button type="button" class="btn btn-primary btn-rounded btn-icon me-3 mt-2 mt-xl-0"
                             data-toggle="modal" data-target="#bansos-baru">
                             <i class="mdi mdi-plus"></i>
@@ -59,7 +61,8 @@
                                         <a href="{{ route('dataBansos.rank') }}" class="btn btn-info me-3 mt-2 mt-xl-0">
                                             <i class="mdi mdi-refresh"></i>
                                         </a>
-                                        <a href="{{ route('dataBansos.downloadPdf') }}" type="button" class="btn btn-success me-3 mt-2 mt-xl-0">
+                                        <a href="{{ route('dataBansos.downloadPdf') }}" type="button"
+                                            class="btn btn-success me-3 mt-2 mt-xl-0">
                                             <i class="mdi mdi-download"></i>
                                         </a>
                                     </div>

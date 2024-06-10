@@ -1,4 +1,4 @@
-@extends('layouts.user.templateuser')
+@extends('layouts.template')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
 </div>
 @endsection
 
-@push('styles')
+@push('css')
 <style>
     body {
         font-family: Arial, sans-serif;

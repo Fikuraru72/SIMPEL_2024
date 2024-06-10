@@ -35,7 +35,7 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth', 'checkUserLevel:admin']], function () {
+Route::group(['middleware' => ['auth', 'checkUserLevel:admin,1,2,3,4,5,6,7,8,9,10']], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
         Route::post('/list', [DashboardController::class, 'list']);

@@ -8,6 +8,8 @@ use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB;
 use App\Models\Penduduk;
 use App\Models\Status;
+use Illuminate\Support\Facades\Auth;
+
 
 class PopulationController extends Controller
 {
@@ -18,27 +20,49 @@ class PopulationController extends Controller
         ];
 
         $dataPopulation = Penduduk::all();
-
+        // dd(Auth::user());
         return view('admin.population.index', ['breadcrumb' => $breadcrumb, 'dataPopulation' => $dataPopulation]);
     }
 
     public function list(Request $request)
     {
-        $dataPopulation = Penduduk::with('user', 'status')
-        ->whereHas('status', function ($query) {
-            $query->whereNotIn('status_warga', ['Meninggal', 'Pindah']);
-        })
-        ->select(
-            'id_penduduk',
-            'NIK',
-            'nama',
-            'NoKK',
-            'TTL',
-            'Agama',
-            'JenisKelamin',
-            'rt',
-            'Alamat',
-        );
+        if (Auth::user()->level == 'admin') {
+            $dataPopulation = Penduduk::with('user', 'status')
+                ->whereHas('status', function ($query) {
+                    $query->whereNotIn('status_warga', ['Meninggal', 'Pindah']);
+                })
+                ->select(
+                    'id_penduduk',
+                    'NIK',
+                    'nama',
+                    'NoKK',
+                    'TTL',
+                    'Agama',
+                    'JenisKelamin',
+                    'rt',
+                    'Alamat',
+                );
+        } else {
+            $rt = Auth::user()->level;
+
+            $dataPopulation = Penduduk::with('user', 'status')
+                ->whereHas('status', function ($query) {
+                    $query->whereNotIn('status_warga', ['Meninggal', 'Pindah']);
+                })
+                ->where('rt', Auth::user()->level)
+                ->select(
+                    'id_penduduk',
+                    'NIK',
+                    'nama',
+                    'NoKK',
+                    'TTL',
+                    'Agama',
+                    'JenisKelamin',
+                    'rt',
+                    'Alamat',
+                );
+        }
+
 
         return DataTables::of($dataPopulation)
             ->addIndexColumn()
