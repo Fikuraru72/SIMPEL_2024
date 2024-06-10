@@ -28,7 +28,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @stack('css')
-    @stack('styles')
 </head>
 
 <body>
