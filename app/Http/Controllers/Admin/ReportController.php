@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Pengaduan;
-
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
@@ -22,12 +22,26 @@ class ReportController extends Controller
     }
 
     public function list(Request $request){
-    $dataReport = Pengaduan::select(
-        'id_pengaduan',
-        'subjek',
-        'pesan',
-        'created_at'
-    );
+    if (Auth::user()->level == 'admin') {
+        $dataReport = Pengaduan::select(
+            'id_pengaduan',
+            'subjek',
+            'pesan',
+            'rt',
+            'created_at'
+        );
+    } else {
+        $dataReport = Pengaduan::where('rt', Auth::user()->level)
+        ->select(
+            'id_pengaduan',
+            'subjek',
+            'pesan',
+            'rt',
+            'created_at'
+        );
+    }
+
+
 
     return DataTables::of($dataReport)
         ->addIndexColumn()

@@ -12,6 +12,7 @@
                                 <th>No</th>
                                 <th>Subjek</th>
                                 <th>Pesan</th>
+                                <th>rt</th>
                                 <th>Tanggal</th>
                             </tr>
                         </thead>
@@ -48,7 +49,11 @@
                     },
                     {
                         data: 'pesan'
-                    },{
+                    },
+                    {
+                        data: 'rt'
+                    },
+                    {
                         data : 'created_at'
                     }
                 ],

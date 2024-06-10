@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,28 +15,80 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('user')->insert([
-            [
-                'username' => 'admin',
-                'password' => Hash::make('password'),
-                'Level' => 'admin',
-                'id_penduduk' => '1',
-                'remember_token' => null,
-            ],
-            [
-                'username' => 'user1',
-                'password' => Hash::make('password1'),
-                'Level' => 'penduduk',
-                'id_penduduk' => '2',
-                'remember_token' => null,
-            ],
-            [
-                'username' => 'user2',
-                'password' => Hash::make('password2'),
-                'Level' => 'rt',
-                'id_penduduk' => '3',
-                'remember_token' => null,
-            ],
-        ]);
-    }
+            DB::table('user')->insert([
+                [
+                    'username' => 'admin',
+                    'password' => Hash::make('password'),
+                    'level' => 'admin',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'penduduk',
+                    'password' => Hash::make('password'),
+                    'level' => 'penduduk',
+                    'id_penduduk' => 1, // Sesuaikan dengan ID yang ada di tabel 'penduduk'
+                ],
+                [
+                    'username' => 'rt1',
+                    'password' => Hash::make('password'),
+                    'level' => '1',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'rt2',
+                    'password' => Hash::make('password'),
+                    'level' => '2',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'rt3',
+                    'password' => Hash::make('password'),
+                    'level' => '3',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'rt4',
+                    'password' => Hash::make('password'),
+                    'level' => '4',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'rt5',
+                    'password' => Hash::make('password'),
+                    'level' => '5',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'rt6',
+                    'password' => Hash::make('password'),
+                    'level' => '6',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'rt7',
+                    'password' => Hash::make('password'),
+                    'level' => '7',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'rt8',
+                    'password' => Hash::make('password'),
+                    'level' => '8',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'rt9',
+                    'password' => Hash::make('password'),
+                    'level' => '9',
+                    'id_penduduk' => null,
+                ],
+                [
+                    'username' => 'rt10',
+                    'password' => Hash::make('password'),
+                    'level' => '10',
+                    'id_penduduk' => null,
+                ],
+            ]);
+        }
 }
+

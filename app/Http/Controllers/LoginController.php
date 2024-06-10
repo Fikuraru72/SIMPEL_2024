@@ -25,8 +25,10 @@ class LoginController extends Controller
 
             if (Auth::user()->level == 'admin') {
                 return redirect("admin/");
-            } else {
+            } elseif (Auth::user()->level == 'penduduk') {
                 return redirect("penduduk/");
+            } else {
+                return redirect("admin/");
             }
         }
 

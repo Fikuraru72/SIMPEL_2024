@@ -1,4 +1,4 @@
-@extends('layouts.user.templateuser')
+@extends('layouts.template')
 
 @section('content')
     <div class="col-lg-12 grid-margin stretch-card">
