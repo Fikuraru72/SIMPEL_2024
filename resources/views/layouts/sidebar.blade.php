@@ -62,8 +62,6 @@
         </div>
     </li>
 
-
-
     <li class="nav-item">
             @if (Auth::user()->level == 'penduduk')
             <a class="nav-link" href="{{ url('/pengaduan') }}">
@@ -78,7 +76,7 @@
             @endif
      </li>
 
-    @if (Auth::user()->level == 'admin')
+     @if (Auth::user()->level == 'admin')
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#history" aria-expanded="false" aria-controls="auth">
                 <i class="mdi mdi-history menu-icon"></i>
@@ -92,6 +90,6 @@
                 </ul>
             </div>
         </li>
-    @endif
+     @endif
 
 </ul>
