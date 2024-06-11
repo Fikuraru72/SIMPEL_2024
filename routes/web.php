@@ -43,7 +43,6 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin,1,2,3,4,5,6,7,8,9,1
         Route::get('/penduduk-data', [DashboardController::class, 'getPendudukData']);
     });
 
-
     Route::prefix('datapenduduk')->group(function () {
         Route::get('/', [PopulationController::class, 'index']);
         Route::post('/store', [PopulationController::class, 'store']);
@@ -104,8 +103,6 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin,1,2,3,4,5,6,7,8,9,1
 
 
 
-
-
 Route::group(['middleware' => ['auth', 'checkUserLevel:penduduk']], function () {
 
     Route::prefix('penduduk')->group(function () {
@@ -123,8 +120,6 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:penduduk']], function () 
         Route::get('/detail', [BansosController::class, 'detail'])->name('bansos.detail');
         Route::post('/submit', [BansosController::class, 'submit'])->name('bansos.submit');
     });
-
-
 
     Route::prefix('pengaduan')->group(function () {
         Route::get('/', [PengaduanController::class, 'index'])->name('pengaduan.index');
