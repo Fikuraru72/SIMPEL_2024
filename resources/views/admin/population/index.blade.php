@@ -68,6 +68,22 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal-edit">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="storePenduduk">Edit Data Penduduk</h5>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <x-modal.edit-penduduk />
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

@@ -67,9 +67,13 @@ class PopulationController extends Controller
         return DataTables::of($dataPopulation)
             ->addIndexColumn()
             ->editColumn('aksi', function ($data) {
-                return '<button href=""type="button" class="btn btn-rounded btn-info confirmation py-2" data-toggle="modal"
-                data-target="#modal-detail" data-id="'.$data->id_penduduk.'"> Detail </button>';
+                $btn = '<button type="button" class="btn btn-rounded btn-info confirmation py-2 detail" data-toggle="modal"
+                        data-target="#modal-detail" data-id="'.$data->id_penduduk.'"> Detail </button>';
+                $btn2 = '<button type="button" class="btn btn-rounded btn-warning confirmation py-2 mx-1 edit" data-toggle="modal"
+                        data-target="#modal-edit" data-id="'.$data->id_penduduk.'"> Edit </button>';
+                return $btn . $btn2;
             })
+
             ->addColumn('status_warga', function ($data) {
                 return $data->status ? $data->status->status_warga : ' - ';
             })
@@ -84,6 +88,51 @@ class PopulationController extends Controller
             ->first();
 
         return response()->json($data);
+    }
+
+    public function edit($id)
+    {
+        // dd('kontol');
+        $data = Penduduk::with('status')
+            ->where('id_penduduk', $id)
+            ->first();
+
+        return response()->json($data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi data
+        $request->validate([
+            'NIK' => 'required',
+            'nama' => 'required',
+            'NoKK' => 'required',
+            'TTL' => 'required',
+            'Agama' => 'required',
+            'JenisKelamin' => 'required',
+            'rt' => 'required',
+            'Alamat' => 'required',
+            'status_warga' => 'required',
+            'status_nikah' => 'required',
+        ]);
+
+        // Update data Penduduk
+        $penduduk = Penduduk::findOrFail($id);
+        $penduduk->update($request->all());
+
+
+        // Update data Status
+        $status = Status::where('id_penduduk', $penduduk->id_penduduk)->first();
+        if (!$status) {
+            $status = new Status();
+            $status->id_penduduk = $penduduk->id_penduduk;
+        }
+        $status->status_warga = $request->status_warga;
+        $status->status_nikah = $request->status_nikah;
+        $status->save();
+
+        // Redirect atau respons berhasil
+        return redirect()->back()->with('success', 'Data berhasil diperbarui');
     }
 
     public function store(Request $request){

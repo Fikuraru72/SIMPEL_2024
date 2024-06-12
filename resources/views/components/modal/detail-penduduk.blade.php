@@ -41,9 +41,9 @@
 
 @push('js')
     <script>
-        $(document).on('click', 'button.confirmation', function() {
+        $(document).on('click', 'button.detail', function() {
             let id = $(this).data('id'); // Mengambil id_alternatif dari tombol yang diklik
-            console.log(id)
+            // console.log(id)
             fetch('/datapenduduk/show/' + id)
                 .then(response => {
                     if (!response.ok) {

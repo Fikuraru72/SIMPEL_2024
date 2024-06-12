@@ -43,11 +43,11 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin,1,2,3,4,5,6,7,8,9,1
         Route::get('/penduduk-data', [DashboardController::class, 'getPendudukData']);
     });
 
-    Route::prefix('datapenduduk')->group(function () {
-        Route::get('/', [PopulationController::class, 'index']);
-        Route::post('/store', [PopulationController::class, 'store']);
-        Route::post('/list', [PopulationController::class, 'list']);
-    });
+    // Route::prefix('datapenduduk')->group(function () {
+    //     Route::get('/', [PopulationController::class, 'index']);
+    //     Route::post('/store', [PopulationController::class, 'store']);
+    //     Route::post('/list', [PopulationController::class, 'list']);
+    // });
 
     Route::prefix('laporan')->group(function () {
         Route::get('/', [ReportController::class, 'index']);
@@ -59,7 +59,8 @@ Route::group(['middleware' => ['auth', 'checkUserLevel:admin,1,2,3,4,5,6,7,8,9,1
         Route::post('/store', [PopulationController::class, 'store']);
         Route::post('/list', [PopulationController::class, 'list']);
         Route::get('/show/{id}', [PopulationController::class, 'show']);
-        // Route::get('/show/{$id}', [PopulationController::class, 'show']);
+        Route::get('/edit/{id}', [PopulationController::class, 'edit'])->name('datapenduduk.edit');
+        Route::put('/update/{id}', [PopulationController::class, 'update'])->name('datapenduduk.update');
     });
 
     Route::prefix('laporan')->group(function () {

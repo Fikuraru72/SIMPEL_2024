@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ranking extends Component
+class editPenduduk extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class ranking extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.modal.ranking');
+        return view('components.modal.edit-penduduk');
     }
 }
