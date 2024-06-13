@@ -16,12 +16,9 @@
                                 <th>Nama</th>
                                 <th>NIK</th>
                                 <th>No.KK</th>
-                                <th>Tgl Lahir</th>
-                                <th>Agama</th>
-                                <th>JK</th>
                                 <th>RT</th>
-                                <th>Alamat</th>
-                                <th>Tanggal</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
 
@@ -31,6 +28,23 @@
 
                     </table>
                 </div>
+
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                    aria-hidden="true" id="modal-detail">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="storePenduduk">Detail Data Penduduk</h5>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <x-modal.detail-penduduk />
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -68,22 +82,16 @@
                         data: 'NoKK'
                     },
                     {
-                        data: 'TTL'
-                    },
-                    {
-                        data: 'Agama'
-                    },
-                    {
-                        data: 'JenisKelamin'
-                    },
-                    {
                         data: 'rt'
                     },
                     {
-                        data: 'Alamat'
+                        data: 'status_warga'
                     },
                     {
-                        data: 'updated_at'
+                        data: "aksi",
+                        className: "text-center",
+                        orderable: false,
+                        searchable: false
                     },
                 ],
                 lengthChange: false,

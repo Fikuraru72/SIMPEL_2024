@@ -76,7 +76,7 @@
             @endif
      </li>
 
-     @if (Auth::user()->level == 'admin')
+     @if (Auth::user()->level !== 'penduduk')
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#history" aria-expanded="false" aria-controls="auth">
                 <i class="mdi mdi-history menu-icon"></i>

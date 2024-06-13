@@ -129,6 +129,7 @@ class PopulationController extends Controller
         }
         $status->status_warga = $request->status_warga;
         $status->status_nikah = $request->status_nikah;
+        $status->status_keluarga = $request->status_keluarga;
         $status->save();
 
         // Redirect atau respons berhasil

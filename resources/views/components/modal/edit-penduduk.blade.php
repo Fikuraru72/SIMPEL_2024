@@ -21,28 +21,66 @@
         </div>
         <div class="form-group">
             <label for="Agama">Agama</label>
-            <input type="text" class="form-control" id="Agama" name="Agama" required>
+            <select class="form-select" id="Agama" name="Agama">
+                <option>Islam</option>
+                <option>Katolik</option>
+                <option>Protestan</option>
+                <option>Hindu</option>
+                <option>Budha</option>
+                <option>Khonghuchu</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="JenisKelamin">Jenis Kelamin</label>
-            <input type="text" class="form-control" id="JenisKelamin" name="JenisKelamin" required>
+            <select class="form-select" id="JenisKelamin" name="JenisKelamin">
+                <option>Pria</option>
+                <option>Wanita</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="status_nikah">Status Nikah</label>
+            {{-- <input type="text" class="form-control"  required> --}}
+            <select class="form-select" id="status_nikah" name="status_nikah">
+                <option>Belum Kawin</option>
+                <option>Kawin</option>
+                <option>Cerai Hidup</option>
+                <option>Cerai Mati</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="status_warga">Status Warga</label>
+            <select class="form-select" id="status_warga" name="status_warga">
+                <option>Tinggal</option>
+                <option>Meninggal</option>
+                <option>Pindah</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="status_keluarga">Status keluarga</label>
+            <select class="form-select" id="status_keluarga" name="status_keluarga">
+                <option>Kepala Keluarga</option>
+                <option>Anggota Keluarga</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="rt">RT</label>
-            <input type="text" class="form-control" id="rtw" name="rt" required>
+            <select class="form-select" id="rtw" name="rt">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="Alamat">Alamat</label>
             <input type="text" class="form-control" id="Alamat" name="Alamat" required>
         </div>
-        <div class="form-group">
-            <label for="status_warga">Status Warga</label>
-            <input type="text" class="form-control" id="status_warga" name="status_warga" required>
-        </div>
-        <div class="form-group">
-            <label for="status_nikah">Status Nikah</label>
-            <input type="text" class="form-control" id="status_nikah" name="status_nikah" required>
-        </div>
+
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
 </div>
@@ -69,6 +107,7 @@
                     document.getElementById('JenisKelamin').value = data.JenisKelamin;
                     document.getElementById('rtw').value = data.rt;
                     document.getElementById('Alamat').value = data.Alamat;
+                    document.getElementById('status_keluarga').value = data.status.status_keluarga;
                     document.getElementById('status_warga').value = data.status.status_warga;
                     document.getElementById('status_nikah').value = data.status.status_nikah;
 
