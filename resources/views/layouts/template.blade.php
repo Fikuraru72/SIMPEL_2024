@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Majestic Admin Pro</title>
+    <title>SIMPEL</title>
+    <link href="{{ asset('arsha/assets/img/Garuda.png') }}" rel="icon">
+    <link href="{{ asset('arsha/assets/img/Garuda.png') }}" rel="apple-touch-icon">
     <!-- plugins:css -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">

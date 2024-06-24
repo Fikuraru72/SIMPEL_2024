@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="avatar mb-3"></div>
+    <div class="mb-3">
+        <img src="{{ asset('arsha/assets/img/profile.jpg') }}">
+    </div>
     <h2>{{ $user->nama }}</h2>
     <p>NIK  :  {{ $user->NIK }}</p>
     <p>No KK : {{ $user->NoKK }}</p>
@@ -30,13 +32,13 @@
         padding: 20px;
         text-align: center;
     }
-    .avatar {
+    /* .avatar {
         width: 100px;
         height: 100px;
         background-color: #ddd;
         border-radius: 50%;
-        margin: 0 auto;
-    }
+        margin: auto;
+    } */
 
 
 </style>

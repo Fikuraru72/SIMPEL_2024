@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;   
 
 class User extends Authenticatable
 {
@@ -40,6 +42,15 @@ class User extends Authenticatable
 
     public function pengaduan (){
         return $this->hashMany(Pengaduan::class, 'id_user', 'id_user');
+    }
+
+    public function getDecryptedPassword()
+    {
+        try {
+            return Crypt::decryptString($this->password);
+        } catch (DecryptException $e) {
+            return null; // Atau handle exception sesuai kebutuhan
+        }
     }
 
     /**

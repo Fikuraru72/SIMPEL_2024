@@ -41,7 +41,7 @@ class AssistanceDataVerificationController extends Controller
     {
         $data = Bansos::with('penduduk')
             ->where('id_alternatif', $id)
-            ->where('status', 'Pending_RW')
+            ->where('status', (Auth::user()->level == 'admin')? 'Pending_RW' : 'Pending_RT')
             ->first();
 
         return response()->json($data);
