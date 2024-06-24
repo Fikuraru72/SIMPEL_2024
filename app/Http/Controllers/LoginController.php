@@ -58,8 +58,7 @@ public function logout(Request $request)
 
     public function searchPassword(Request $request)
     {
-
-       $request->validate([
+        $request->validate([
             'nokk' => 'required|string',
             'nik' => 'required|string',
         ]);
@@ -72,15 +71,26 @@ public function logout(Request $request)
 
         if ($penduduk) {
             // Mencari user berdasarkan id_penduduk
-            $user = User::where('id_penduduk', $penduduk->id)->first();
-
+            $user = User::where('id_penduduk', $penduduk->id_penduduk)->first();
             if ($user) {
-                return response()->json(['password' => $penduduk->password]);
+                // Mendapatkan password terdekripsi
+            dd($user->password);
+
+                $decryptedPassword = $user->password->getDecryptedPassword();
+
+                if ($decryptedPassword) {
+                    return response()->json(['password' => $decryptedPassword]);
+            // dd($user);
+
+                } else {
+                    return back()->withErrors(['message' => 'Gagal mendekripsi password.']);
+                }
             } else {
-                return back()->withErrors(['message' => 'User not found.']);
+                return back()->withErrors(['message' => 'User tidak ditemukan.']);
             }
         } else {
-            return back()->withErrors(['message' => 'Penduduk not found.']);
+            return back()->withErrors(['message' => 'Penduduk tidak ditemukan.']);
         }
     }
+
 }
