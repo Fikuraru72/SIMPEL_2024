@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/logins/login-9/assets/css/login-9.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link href="{{ asset('arsha/assets/img/Garuda.png') }}" rel="icon">
+    <link href="{{ asset('arsha/assets/img/Garuda.png') }}" rel="apple-touch-icon">
     <style>
         @keyframes fadeIn {
             from {
@@ -41,7 +43,7 @@
             padding: 1rem 0;
         }
     </style>
-    <title>Document</title>
+    <title>SIMPEL</title>
 </head>
 
 <body>

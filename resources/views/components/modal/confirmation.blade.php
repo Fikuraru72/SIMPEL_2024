@@ -50,7 +50,7 @@
     <script>
         $(document).on('click', 'button.confirmation', function() {
             let id = $(this).data('id'); // Mengambil id_alternatif dari tombol yang diklik
-            console.log(id)
+            // console.log(id)
             fetch('verifikasiBansos/details/' + id)
                 .then(response => {
                     if (!response.ok) {
@@ -59,6 +59,7 @@
                     return response.json();
                 })
                 .then(data => {
+                console.log(data)
 
                     $('#nama').html(data.penduduk.nama);
                     $('#NoKK').html(data.penduduk.NoKK);
