@@ -50,7 +50,7 @@
     <script>
         $(document).on('click', 'button.confirmation', function() {
             let id = $(this).data('id'); // Mengambil id_alternatif dari tombol yang diklik
-            // console.log(id)
+            console.log(id)
             fetch('verifikasiBansos/details/' + id)
                 .then(response => {
                     if (!response.ok) {
@@ -59,64 +59,15 @@
                     return response.json();
                 })
                 .then(data => {
-                console.log(data)
 
                     $('#nama').html(data.penduduk.nama);
                     $('#NoKK').html(data.penduduk.NoKK);
-                    let pendapatan = '';
-                    if (data.pendapatan == 3) {
-                        pendapatan = '&lt; Rp. 1,000,000,00';
-                    } else if (data.pendapatan == 2) {
-                        pendapatan = 'Rp. 1,000,000,00 - Rp. 3,000,000,00';
-                    } else {
-                        pendapatan = '&gt; Rp. 3,000,000,00';
-                    }
-                    $('#pendapatan').html(pendapatan);
-
-                    // Tanggungan
-                    let tanggungan = '';
-                    if (data.tanggungan == 3) {
-                        tanggungan = '&lt; 3 orang';
-                    } else if (data.tanggungan == 2) {
-                        tanggungan = '3 - 5 orang';
-                    } else {
-                        tanggungan = '&gt; 5 orang';
-                    }
-                    $('#tanggungan').html(tanggungan);
-
-                    // PBB
-                    let pbb = '';
-                    if (data.pbb == 3) {
-                        pbb = '&lt; Rp. 100,000,00';
-                    } else if (data.pbb == 2) {
-                        pbb = 'Rp. 100,000,00 - Rp. 300,000,00';
-                    } else {
-                        pbb = '&gt; Rp. 300,000,00';
-                    }
-                    $('#pbb').html(pbb);
-
-                    // Tagihan Air
-                    let tagihanAir = '';
-                    if (data.tagihanAir == 3) {
-                        tagihanAir = '&lt; Rp. 100,000,00';
-                    } else if (data.tagihanAir == 2) {
-                        tagihanAir = 'Rp. 100,000,00 - Rp. 200,000,00';
-                    } else {
-                        tagihanAir = '&gt; Rp. 200,000,00';
-                    }
-                    $('#tagihanAir').html(tagihanAir);
-
-                    // Tagihan Listrik
-                    let tagihanListrik = '';
-                    if (data.tagihanListrik == 3) {
-                        tagihanListrik = '&lt; Rp. 100,000,00';
-                    } else if (data.tagihanListrik == 2) {
-                        tagihanListrik = 'Rp. 100,000,00 - Rp. 200,000,00';
-                    } else {
-                        tagihanListrik = '&gt; Rp. 200,000,00';
-                    }
-                    $('#tagihanListrik').html(tagihanListrik);
-
+                    $('#pendapatan').html(data.pendapatan);
+                    $('#tanggungan').html(data.tanggungan);
+                    $('#pbb').html(data.pbb);
+                    $('#tagihanAir').html(data.tagihanAir);
+                    $('#tagihanListrik').html(data.tagihanListrik);
+                    $('button.confirmation-btn').attr('id', data.id_alternatif);
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation:', error);
